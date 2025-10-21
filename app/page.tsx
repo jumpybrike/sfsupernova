@@ -1,103 +1,220 @@
-import Image from "next/image";
+import Link from 'next/link';
+import NewsletterSignup from './components/NewsletterSignup';
 
 export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const featuredReviews = [
+    {
+      title: 'Foundation by Isaac Asimov',
+      decade: '1950s',
+      excerpt: 'A sweeping tale of galactic empire and psychohistory that defined the golden age of science fiction...',
+      category: 'Books',
+      rating: 5,
+    },
+    {
+      title: 'Dimension X: The Outer Limit',
+      decade: '1950s',
+      excerpt: 'Classic radio drama that transported listeners to the far reaches of space and imagination...',
+      category: 'Audio',
+      rating: 5,
+    },
+    {
+      title: 'The Day the Earth Stood Still',
+      decade: '1950s',
+      excerpt: 'A landmark film that brought thoughtful sci-fi to mainstream audiences with its message of peace...',
+      category: 'Film',
+      rating: 5,
+    },
+  ];
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  const decades = [
+    { slug: '1930s-1940s', name: '1930s-1940s', subtitle: 'Golden Age', color: 'text-accent' },
+    { slug: '1950s', name: '1950s', subtitle: 'Space Age', color: 'text-retro-cyan' },
+    { slug: '1960s', name: '1960s', subtitle: 'New Wave', color: 'text-retro-pink' },
+    { slug: '1970s', name: '1970s', subtitle: 'Experimental Era', color: 'text-retro-green' },
+  ];
+
+  return (
+    <div className="relative">
+      {/* Hero Section */}
+      <section className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-primary/10 via-transparent to-transparent"></div>
+
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="text-center">
+            <h1
+              className="text-5xl sm:text-6xl lg:text-7xl font-black mb-6 text-primary text-glow-strong"
+              style={{ fontFamily: 'Orbitron, sans-serif' }}
+            >
+              SF SUPERNOVA
+            </h1>
+            <p className="text-xl sm:text-2xl mb-4 text-retro-cyan text-glow">
+              Your Portal to Vintage Science Fiction
+            </p>
+            <p className="text-lg text-foreground/80 max-w-3xl mx-auto mb-8">
+              Explore the golden age of sci-fi through pulp magazines, classic radio dramas,
+              and the visionary works that shaped our futures past.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link
+                href="/decades/1950s"
+                className="px-8 py-4 bg-primary/20 border-2 border-primary text-primary font-bold rounded retro-button hover:bg-primary hover:text-background transition-all duration-300"
+                style={{ fontFamily: 'Orbitron, sans-serif' }}
+              >
+                EXPLORE THE SPACE AGE
+              </Link>
+              <Link
+                href="/audio"
+                className="px-8 py-4 bg-retro-cyan/20 border-2 border-retro-cyan text-retro-cyan font-bold rounded retro-button hover:bg-retro-cyan hover:text-background transition-all duration-300"
+                style={{ fontFamily: 'Orbitron, sans-serif' }}
+              >
+                LISTEN TO RADIO DRAMAS
+              </Link>
+            </div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+
+        {/* Decorative elements */}
+        <div className="absolute top-10 left-10 w-20 h-20 border-2 border-primary/30 rounded-full animate-pulse"></div>
+        <div className="absolute bottom-10 right-10 w-32 h-32 border-2 border-retro-cyan/30 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
+      </section>
+
+      {/* Decades Section */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-dark-purple/20">
+        <div className="max-w-7xl mx-auto">
+          <h2
+            className="text-3xl sm:text-4xl font-bold text-center mb-12 text-retro-cyan text-glow"
+            style={{ fontFamily: 'Orbitron, sans-serif' }}
+          >
+            EXPLORE BY DECADE
+          </h2>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {decades.map((decade) => (
+              <Link
+                key={decade.slug}
+                href={`/decades/${decade.slug}`}
+                className="group bg-dark-purple/50 backdrop-blur-sm border-2 border-primary/30 rounded-lg p-6 hover:border-primary transition-all duration-300 neon-border"
+              >
+                <h3
+                  className={`text-2xl font-bold mb-2 ${decade.color} group-hover:text-glow transition-all`}
+                  style={{ fontFamily: 'Orbitron, sans-serif' }}
+                >
+                  {decade.name}
+                </h3>
+                <p className="text-foreground/70 group-hover:text-foreground transition-colors">
+                  {decade.subtitle}
+                </p>
+                <div className="mt-4 text-primary group-hover:translate-x-2 transition-transform">
+                  →
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Content */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <h2
+            className="text-3xl sm:text-4xl font-bold text-center mb-12 text-retro-pink text-glow"
+            style={{ fontFamily: 'Orbitron, sans-serif' }}
+          >
+            FEATURED REVIEWS
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {featuredReviews.map((review, index) => (
+              <article
+                key={index}
+                className="bg-dark-blue/30 backdrop-blur-sm border-2 border-retro-cyan/30 rounded-lg p-6 hover:border-retro-cyan transition-all duration-300"
+              >
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-xs font-bold text-accent px-3 py-1 bg-accent/20 border border-accent/50 rounded">
+                    {review.category}
+                  </span>
+                  <div className="flex text-accent">
+                    {[...Array(review.rating)].map((_, i) => (
+                      <svg key={i} className="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                        <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                      </svg>
+                    ))}
+                  </div>
+                </div>
+
+                <h3 className="text-xl font-bold mb-2 text-primary">
+                  {review.title}
+                </h3>
+
+                <p className="text-sm text-retro-cyan mb-3">
+                  {review.decade}
+                </p>
+
+                <p className="text-foreground/80 mb-4">
+                  {review.excerpt}
+                </p>
+
+                <Link
+                  href="/reviews"
+                  className="text-primary hover:text-retro-cyan transition-colors inline-flex items-center"
+                >
+                  Read full review →
+                </Link>
+              </article>
+            ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <Link
+              href="/reviews"
+              className="inline-block px-8 py-3 bg-retro-pink/20 border-2 border-retro-pink text-retro-pink font-bold rounded retro-button hover:bg-retro-pink hover:text-background transition-all duration-300"
+              style={{ fontFamily: 'Orbitron, sans-serif' }}
+            >
+              VIEW ALL REVIEWS
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Newsletter Section */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <NewsletterSignup />
+        </div>
+      </section>
+
+      {/* Call to Action */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-dark-purple/30">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2
+            className="text-3xl sm:text-4xl font-bold mb-6 text-retro-green text-glow"
+            style={{ fontFamily: 'Orbitron, sans-serif' }}
+          >
+            DISCOVER THE CLASSICS
+          </h2>
+          <p className="text-lg text-foreground/80 mb-8">
+            From Asimov to Zelazny, from pulp covers to radio plays, dive deep into the
+            archives of science fiction's most influential era.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href="/galleries"
+              className="px-8 py-3 bg-retro-green/20 border-2 border-retro-green text-retro-green font-bold rounded retro-button hover:bg-retro-green hover:text-background transition-all duration-300"
+              style={{ fontFamily: 'Orbitron, sans-serif' }}
+            >
+              BROWSE GALLERIES
+            </Link>
+            <Link
+              href="/about"
+              className="px-8 py-3 bg-accent/20 border-2 border-accent text-accent font-bold rounded retro-button hover:bg-accent hover:text-background transition-all duration-300"
+              style={{ fontFamily: 'Orbitron, sans-serif' }}
+            >
+              ABOUT SF SUPERNOVA
+            </Link>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
