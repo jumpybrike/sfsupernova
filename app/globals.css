@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Space+Mono:wght@400;700&display=swap');
 
 :root {
   /* Vintage Sci-Fi Color Palette */
@@ -36,7 +35,6 @@ body {
   background: linear-gradient(135deg, #0a0a0f 0%, #1a0033 50%, #001a33 100%);
   background-attachment: fixed;
   color: var(--foreground);
-  font-family: 'Space Mono', monospace;
   min-height: 100vh;
 }
 
