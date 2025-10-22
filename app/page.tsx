@@ -51,8 +51,7 @@ export default function Home() {
               Your Portal to Vintage Science Fiction
             </p>
             <p className="text-lg text-foreground/80 max-w-3xl mx-auto mb-8">
-              Explore the golden age of sci-fi through pulp magazines, classic radio dramas,
-              and the visionary works that shaped our futures past.
+              Journey back to the golden age of tomorrow! Thrill to pulse-pounding pulp magazines, edge-of-your-seat radio adventures, and the daring visions that rocketed us into the future!
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
