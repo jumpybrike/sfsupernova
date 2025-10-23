@@ -106,7 +106,7 @@ export default function DecadePage({ params }: { params: { slug: string } }) {
 
   return (
     <div className="py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-5xl mx-auto">
         {/* Header */}
         <div className="mb-12">
           <Link
@@ -118,16 +118,16 @@ export default function DecadePage({ params }: { params: { slug: string } }) {
 
           <h1
             className={`text-5xl sm:text-6xl font-black mb-4 ${decade.color} text-glow-strong`}
-            style={{ fontFamily: 'Orbitron, sans-serif' }}
+            style={{ fontFamily: 'Orbitron, sans-serif', wordBreak: 'normal' }}
           >
             {decade.name}
           </h1>
-          <p className="text-2xl text-foreground/80 mb-6">
+          <p className="text-2xl text-foreground/80 mb-6" style={{ wordBreak: 'normal' }}>
             {decade.subtitle}
           </p>
 
           <div className={`border-l-4 ${decade.borderColor} pl-6 py-4 bg-dark-purple/30 backdrop-blur-sm rounded-r-lg`}>
-            <p className="text-lg text-foreground/90">
+            <p className="text-lg text-foreground/90" style={{ wordBreak: 'normal' }}>
               {decade.description}
             </p>
           </div>
@@ -137,7 +137,7 @@ export default function DecadePage({ params }: { params: { slug: string } }) {
         <section className="mb-16">
           <h2
             className="text-3xl font-bold mb-6 text-primary text-glow"
-            style={{ fontFamily: 'Orbitron, sans-serif' }}
+            style={{ fontFamily: 'Orbitron, sans-serif', wordBreak: 'normal' }}
           >
             DECADE HIGHLIGHTS
           </h2>
@@ -152,7 +152,7 @@ export default function DecadePage({ params }: { params: { slug: string } }) {
                   <span className={`${decade.color} text-2xl font-bold mr-3`}>
                     {index + 1}
                   </span>
-                  <p className="text-foreground/90 pt-1">
+                  <p className="text-foreground/90 pt-1" style={{ wordBreak: 'normal' }}>
                     {highlight}
                   </p>
                 </div>
@@ -216,11 +216,11 @@ export default function DecadePage({ params }: { params: { slug: string } }) {
         <section className="text-center py-12 bg-dark-purple/30 backdrop-blur-sm rounded-lg border-2 border-primary/30">
           <h3
             className="text-2xl font-bold mb-4 text-primary text-glow"
-            style={{ fontFamily: 'Orbitron, sans-serif' }}
+            style={{ fontFamily: 'Orbitron, sans-serif', wordBreak: 'normal' }}
           >
             EXPLORE MORE FROM THE {decade.name.toUpperCase()}
           </h3>
-          <p className="text-foreground/80 mb-6 max-w-2xl mx-auto">
+          <p className="text-foreground/80 mb-6 max-w-2xl mx-auto" style={{ wordBreak: 'normal' }}>
             Dive deeper into this incredible era of science fiction with our comprehensive reviews,
             galleries, and audio archives.
           </p>

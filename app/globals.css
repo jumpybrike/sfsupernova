@@ -14,6 +14,12 @@
   --retro-teal: #2ec4b6;
   --pulp-yellow: #ffbe0b;
 
+  /* Vibrant Retro Colors */
+  --neon-cyan: #00d9ff;
+  --retro-purple: #9d4edd;
+  --neon-green: #00ff88;
+  --space-black: #0a0e17;
+
   /* Semantic Mappings */
   --background-dark: var(--deep-space-blue);
   --background-light: var(--cosmic-cream);
@@ -54,10 +60,22 @@
 }
 
 body {
-  background: var(--cosmic-cream);
-  color: var(--deep-space-blue);
+  background: linear-gradient(to bottom, #0a0e17 0%, #1a1f2e 50%, #2a1f3e 100%);
+  background-attachment: fixed;
+  color: var(--stardust-silver);
   min-height: 100vh;
   font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  word-break: normal;
+  word-wrap: normal;
+  overflow-wrap: normal;
+}
+
+/* Fix text wrapping issues */
+p, h1, h2, h3, h4, h5, h6, div {
+  word-break: normal;
+  word-wrap: normal;
+  overflow-wrap: normal;
+  hyphens: none;
 }
 
 /* Subtle Retro Effects */
@@ -227,4 +245,146 @@ body {
 *:focus-visible {
   outline: 2px solid var(--atomic-orange);
   outline-offset: 2px;
+}
+
+/* Retro-Futuristic Animations */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rainbow {
+  0% {
+    border-color: var(--atomic-orange);
+  }
+  25% {
+    border-color: var(--neon-cyan);
+  }
+  50% {
+    border-color: var(--retro-purple);
+  }
+  75% {
+    border-color: var(--neon-green);
+  }
+  100% {
+    border-color: var(--atomic-orange);
+  }
+}
+
+/* Glowing text effect */
+.glow-text {
+  text-shadow:
+    0 0 10px currentColor,
+    0 0 20px currentColor,
+    0 0 30px currentColor;
+}
+
+.glow-orange {
+  text-shadow:
+    0 0 10px var(--atomic-orange),
+    0 0 20px var(--atomic-orange),
+    0 0 30px var(--atomic-orange);
+}
+
+.glow-cyan {
+  text-shadow:
+    0 0 10px var(--neon-cyan),
+    0 0 20px var(--neon-cyan),
+    0 0 30px var(--neon-cyan);
+}
+
+/* Starfield background */
+.starfield {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.star {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  animation: twinkle 3s infinite;
+}
+
+/* Animated gradient cards */
+.gradient-card {
+  background: linear-gradient(135deg, rgba(255, 107, 53, 0.1), rgba(0, 217, 255, 0.1));
+  border: 2px solid var(--atomic-orange);
+  transition: all 0.3s ease;
+}
+
+.gradient-card:hover {
+  animation: rainbow 3s linear infinite;
+  box-shadow: 0 0 20px rgba(255, 107, 53, 0.5);
+}
+
+/* Retro badges */
+.retro-badge {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+}
+
+.badge-orange {
+  background: linear-gradient(135deg, #ff6b35, #ff8c42);
+  color: white;
+}
+
+.badge-cyan {
+  background: linear-gradient(135deg, #00d9ff, #00b4d8);
+  color: white;
+}
+
+.badge-purple {
+  background: linear-gradient(135deg, #9d4edd, #c77dff);
+  color: white;
+}
+
+.badge-green {
+  background: linear-gradient(135deg, #00ff88, #00cc99);
+  color: white;
 }

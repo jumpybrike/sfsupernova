@@ -90,16 +90,16 @@ export default function AudioPage() {
 
   return (
     <div className="py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-5xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
           <h1
             className="text-5xl sm:text-6xl font-black mb-4 text-primary text-glow-strong"
-            style={{ fontFamily: 'Orbitron, sans-serif' }}
+            style={{ fontFamily: 'Orbitron, sans-serif', wordBreak: 'normal' }}
           >
             AUDIO DRAMAS
           </h1>
-          <p className="text-xl text-foreground/80 max-w-3xl mx-auto">
+          <p className="text-xl text-foreground/80" style={{ wordBreak: 'normal', maxWidth: '800px', margin: '0 auto' }}>
             Experience the golden age of radio science fiction. Before television, these audio dramas
             transported listeners to alien worlds through nothing but sound, voice, and imagination.
           </p>
@@ -122,14 +122,14 @@ export default function AudioPage() {
               >
                 <h3
                   className={`text-2xl font-bold mb-2 ${s.color} text-glow`}
-                  style={{ fontFamily: 'Orbitron, sans-serif' }}
+                  style={{ fontFamily: 'Orbitron, sans-serif', wordBreak: 'normal' }}
                 >
                   {s.name}
                 </h3>
-                <p className="text-sm text-foreground/60 mb-4">
+                <p className="text-sm text-foreground/60 mb-4" style={{ wordBreak: 'normal' }}>
                   {s.years} • {s.episodes} episodes
                 </p>
-                <p className="text-foreground/80">
+                <p className="text-foreground/80" style={{ wordBreak: 'normal' }}>
                   {s.description}
                 </p>
               </div>

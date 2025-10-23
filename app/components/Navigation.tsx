@@ -2,11 +2,12 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 
 export default function Navigation() {
   const [decadesOpen, setDecadesOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const decades = [
     { slug: '1930s-1940s', name: '1930s-1940s (Golden Age)' },
@@ -14,6 +15,20 @@ export default function Navigation() {
     { slug: '1960s', name: '1960s (New Wave)' },
     { slug: '1970s', name: '1970s (Experimental Era)' },
   ];
+
+  const handleMouseEnter = () => {
+    if (closeTimeoutRef.current) {
+      clearTimeout(closeTimeoutRef.current);
+      closeTimeoutRef.current = null;
+    }
+    setDecadesOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    closeTimeoutRef.current = setTimeout(() => {
+      setDecadesOpen(false);
+    }, 300); // 300ms delay before closing
+  };
 
   return (
     <nav className="bg-[#1a2332] sticky top-0 z-50 border-b border-[#c9d1d9]/20">
@@ -44,8 +59,8 @@ export default function Navigation() {
             {/* Decades Dropdown */}
             <div
               className="relative"
-              onMouseEnter={() => setDecadesOpen(true)}
-              onMouseLeave={() => setDecadesOpen(false)}
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
             >
               <button
                 className="text-[#c9d1d9] hover:text-[#ff6b35] transition-colors duration-200 flex items-center font-medium text-base"

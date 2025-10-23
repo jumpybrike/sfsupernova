@@ -24,7 +24,7 @@ export default function NewsletterSignup() {
       {/* Subtle retro chrome effect */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#ff6b35]/5 via-transparent to-[#2ec4b6]/5 pointer-events-none"></div>
 
-      <div className="max-w-2xl relative z-10">
+      <div className="max-w-2xl mx-auto text-center relative z-10">
         <h3
           className="text-2xl sm:text-3xl font-normal mb-3 text-[#ff6b35]"
           style={{ fontFamily: 'var(--font-audiowide)' }}

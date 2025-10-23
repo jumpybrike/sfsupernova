@@ -3,6 +3,7 @@ import { Audiowide, Inter, Courier_Prime } from "next/font/google";
 import "./globals.css";
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
+import Starfield from "./components/Starfield";
 
 // Approved Typography - Audiowide for display/headings
 const audiowide = Audiowide({
@@ -41,8 +42,9 @@ export default function RootLayout({
       <body
         className={`${audiowide.variable} ${inter.variable} ${courierPrime.variable} antialiased`}
       >
+        <Starfield />
         <Navigation />
-        <main className="min-h-screen">
+        <main className="min-h-screen relative z-10">
           {children}
         </main>
         <Footer />

@@ -8,16 +8,16 @@ export const metadata = {
 export default function AboutPage() {
   return (
     <div className="py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-5xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
           <h1
             className="text-5xl sm:text-6xl font-black mb-4 text-primary text-glow-strong"
-            style={{ fontFamily: 'Orbitron, sans-serif' }}
+            style={{ fontFamily: 'Orbitron, sans-serif', wordBreak: 'normal' }}
           >
             ABOUT SF SUPERNOVA
           </h1>
-          <p className="text-xl text-retro-cyan text-glow">
+          <p className="text-xl text-retro-cyan text-glow" style={{ wordBreak: 'normal' }}>
             Preserving the Golden Age of Science Fiction
           </p>
         </div>
@@ -32,21 +32,21 @@ export default function AboutPage() {
               OUR MISSION
             </h2>
 
-            <p className="text-lg text-foreground/90 mb-4 leading-relaxed">
+            <p className="text-lg text-foreground/90 mb-4 leading-relaxed" style={{ wordBreak: 'normal' }}>
               SF Supernova is dedicated to celebrating and preserving the golden age of science fiction—a
               period spanning from the 1930s through the 1970s when visionary authors, artists, and
               creators imagined futures that would shape our understanding of technology, society, and
               humanity itself.
             </p>
 
-            <p className="text-lg text-foreground/90 mb-4 leading-relaxed">
+            <p className="text-lg text-foreground/90 mb-4 leading-relaxed" style={{ wordBreak: 'normal' }}>
               Through in-depth reviews, curated galleries, and preserved audio dramas, we explore the
               works that defined the genre: from the pulp magazines that birthed modern sci-fi to the
               radio dramas that captivated millions, from the groundbreaking novels that challenged
               conventions to the films that brought impossible worlds to life.
             </p>
 
-            <p className="text-lg text-foreground/90 leading-relaxed">
+            <p className="text-lg text-foreground/90 leading-relaxed" style={{ wordBreak: 'normal' }}>
               We believe these works are more than historical artifacts—they're living testaments to
               human imagination, and their themes remain startlingly relevant today.
             </p>
@@ -65,8 +65,8 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="bg-dark-blue/30 backdrop-blur-sm border-2 border-retro-cyan/30 rounded-lg p-6">
               <div className="text-retro-cyan text-3xl mb-3">📚</div>
-              <h3 className="text-xl font-bold mb-2 text-primary">Classic Literature</h3>
-              <p className="text-foreground/80">
+              <h3 className="text-xl font-bold mb-2 text-primary" style={{ wordBreak: 'normal' }}>Classic Literature</h3>
+              <p className="text-foreground/80" style={{ wordBreak: 'normal' }}>
                 From Asimov's Foundation to Herbert's Dune, we review and analyze the novels and
                 short stories that defined the genre.
               </p>
@@ -74,8 +74,8 @@ export default function AboutPage() {
 
             <div className="bg-dark-blue/30 backdrop-blur-sm border-2 border-retro-pink/30 rounded-lg p-6">
               <div className="text-retro-pink text-3xl mb-3">🎬</div>
-              <h3 className="text-xl font-bold mb-2 text-primary">Classic Films</h3>
-              <p className="text-foreground/80">
+              <h3 className="text-xl font-bold mb-2 text-primary" style={{ wordBreak: 'normal' }}>Classic Films</h3>
+              <p className="text-foreground/80" style={{ wordBreak: 'normal' }}>
                 Exploring the movies that brought sci-fi to mainstream audiences, from The Day the
                 Earth Stood Still to Star Wars.
               </p>
@@ -83,8 +83,8 @@ export default function AboutPage() {
 
             <div className="bg-dark-blue/30 backdrop-blur-sm border-2 border-retro-green/30 rounded-lg p-6">
               <div className="text-retro-green text-3xl mb-3">📻</div>
-              <h3 className="text-xl font-bold mb-2 text-primary">Radio Dramas</h3>
-              <p className="text-foreground/80">
+              <h3 className="text-xl font-bold mb-2 text-primary" style={{ wordBreak: 'normal' }}>Radio Dramas</h3>
+              <p className="text-foreground/80" style={{ wordBreak: 'normal' }}>
                 Preserving and celebrating classic radio series like Dimension X and X Minus One that
                 brought sci-fi to millions of homes.
               </p>
@@ -92,8 +92,8 @@ export default function AboutPage() {
 
             <div className="bg-dark-blue/30 backdrop-blur-sm border-2 border-accent/30 rounded-lg p-6">
               <div className="text-accent text-3xl mb-3">🎨</div>
-              <h3 className="text-xl font-bold mb-2 text-primary">Cover Art</h3>
-              <p className="text-foreground/80">
+              <h3 className="text-xl font-bold mb-2 text-primary" style={{ wordBreak: 'normal' }}>Cover Art</h3>
+              <p className="text-foreground/80" style={{ wordBreak: 'normal' }}>
                 Showcasing the vibrant, imaginative artwork that graced pulp magazines and paperback
                 covers through the decades.
               </p>

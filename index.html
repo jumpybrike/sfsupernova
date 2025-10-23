@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SF Supernova - Your portal to vintage science fiction from the golden age">
+    <title>SF Supernova - Vintage Science Fiction Hub</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            line-height: 1.6;
+            color: #1a2332;
+            background: #f8f3e6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: #1a2332;
+            color: #c9d1d9;
+            padding: 20px 0;
+            border-bottom: 3px solid #ff6b35;
+        }
+
+        h1 {
+            color: #ff6b35;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        nav {
+            margin-top: 15px;
+        }
+
+        nav a {
+            color: #c9d1d9;
+            text-decoration: none;
+            margin-right: 25px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #ff6b35;
+        }
+
+        main {
+            padding: 40px 0;
+        }
+
+        section {
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            color: #ff6b35;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #1a2332 0%, #2a3a4a 100%);
+            color: #c9d1d9;
+            padding: 60px 20px;
+            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 40px;
+        }
+
+        .hero h2 {
+            color: #ff6b35;
+            font-size: 2.5rem;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .card {
+            background: white;
+            border: 1px solid #c9d1d9;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+            border-color: #ff6b35;
+        }
+
+        .card h3 {
+            color: #1a2332;
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #ff6b35;
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: all 0.3s;
+            margin-top: 20px;
+        }
+
+        .btn:hover {
+            background: #e63946;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+        }
+
+        footer {
+            background: #1a2332;
+            color: #c9d1d9;
+            padding: 30px 0;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        footer a {
+            color: #ff6b35;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+
+            nav a {
+                display: block;
+                margin: 10px 0;
+            }
+
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>SF SUPERNOVA</h1>
+            <p>Your Portal to Vintage Science Fiction</p>
+            <nav>
+                <a href="#home">Home</a>
+                <a href="#decades">Decades</a>
+                <a href="#reviews">Reviews</a>
+                <a href="#audio">Audio</a>
+                <a href="#galleries">Galleries</a>
+                <a href="#about">About</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <!-- Hero Section -->
+            <section class="hero">
+                <h2>Journey Back to the Golden Age of Tomorrow</h2>
+                <p style="font-size: 1.2rem; margin: 20px 0;">
+                    Explore pulse-pounding pulp magazines, edge-of-your-seat radio adventures,
+                    and the daring visions that rocketed us into the future!
+                </p>
+                <a href="#explore" class="btn">Explore the Archives</a>
+            </section>
+
+            <!-- Decades Section -->
+            <section id="decades">
+                <h2>Explore By Decade</h2>
+                <div class="card-grid">
+                    <div class="card">
+                        <h3>1930s-1940s: The Golden Age</h3>
+                        <p>The birth of modern science fiction. The rise of pulp magazines like Amazing Stories and Astounding Science Fiction, introducing legendary authors like Isaac Asimov and Robert Heinlein.</p>
+                    </div>
+                    <div class="card">
+                        <h3>1950s: The Space Age</h3>
+                        <p>Science fiction exploded into mainstream culture. The atomic age and space race fueled imaginations, while authors explored deeper themes of humanity and technology.</p>
+                    </div>
+                    <div class="card">
+                        <h3>1960s: The New Wave</h3>
+                        <p>A revolutionary period that brought literary experimentation and social commentary to sci-fi. Authors pushed boundaries, exploring psychology and philosophy.</p>
+                    </div>
+                    <div class="card">
+                        <h3>1970s: The Experimental Era</h3>
+                        <p>Science fiction matured with darker, more complex narratives. Cyberpunk emerged, environmental themes dominated, and special effects revolutionized film.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Featured Content -->
+            <section id="reviews">
+                <h2>Featured Reviews</h2>
+                <div class="card-grid">
+                    <div class="card">
+                        <h3>Foundation by Isaac Asimov</h3>
+                        <p><strong>1950s • Books</strong></p>
+                        <p>A sweeping tale of galactic empire and psychohistory that defined the golden age of science fiction. Asimov's masterwork spans millennia and explores the fall and rise of civilizations.</p>
+                        <a href="#" class="btn" style="font-size: 0.9rem; padding: 8px 20px;">Read Review</a>
+                    </div>
+                    <div class="card">
+                        <h3>The Day the Earth Stood Still</h3>
+                        <p><strong>1950s • Film</strong></p>
+                        <p>A landmark film that brought thoughtful sci-fi to mainstream audiences with its message of peace. Klaatu and Gort remain iconic figures in science fiction cinema.</p>
+                        <a href="#" class="btn" style="font-size: 0.9rem; padding: 8px 20px;">Read Review</a>
+                    </div>
+                    <div class="card">
+                        <h3>Dimension X Radio Drama</h3>
+                        <p><strong>1950s • Audio</strong></p>
+                        <p>Classic radio drama that transported listeners to the far reaches of space and imagination. NBC's groundbreaking series adapted the best sci-fi stories for audio.</p>
+                        <a href="#" class="btn" style="font-size: 0.9rem; padding: 8px 20px;">Listen Now</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- About Section -->
+            <section id="about">
+                <h2>About SF Supernova</h2>
+                <div class="card">
+                    <p style="font-size: 1.1rem; line-height: 1.8;">
+                        SF Supernova is dedicated to celebrating and preserving the golden age of science fiction—a
+                        period spanning from the 1930s through the 1970s when visionary authors, artists, and
+                        creators imagined futures that would shape our understanding of technology, society, and
+                        humanity itself.
+                    </p>
+                    <p style="font-size: 1.1rem; line-height: 1.8; margin-top: 20px;">
+                        Through in-depth reviews, curated galleries, and preserved audio dramas, we explore the
+                        works that defined the genre: from the pulp magazines that birthed modern sci-fi to the
+                        radio dramas that captivated millions.
+                    </p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 SF Supernova. All rights reserved.</p>
+            <p>Built with love for vintage sci-fi fans.</p>
+            <p style="margin-top: 15px;">
+                <a href="#home">Home</a> |
+                <a href="#decades">Decades</a> |
+                <a href="#reviews">Reviews</a> |
+                <a href="#about">About</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add hover effect to cards
+        const cards = document.querySelectorAll('.card');
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.borderColor = '#ff6b35';
+            });
+            card.addEventListener('mouseleave', function() {
+                this.style.borderColor = '#c9d1d9';
+            });
+        });
+
+        console.log('SF Supernova - Vintage Science Fiction Portal Loaded! 🚀');
+    </script>
+</body>
+</html>

@@ -73,16 +73,16 @@ export default function ReviewsPage() {
 
   return (
     <div className="py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-5xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
           <h1
             className="text-5xl sm:text-6xl font-black mb-4 text-primary text-glow-strong"
-            style={{ fontFamily: 'Orbitron, sans-serif' }}
+            style={{ fontFamily: 'Orbitron, sans-serif', wordBreak: 'normal' }}
           >
             REVIEWS
           </h1>
-          <p className="text-xl text-foreground/80 max-w-3xl mx-auto">
+          <p className="text-xl text-foreground/80" style={{ wordBreak: 'normal', maxWidth: '800px', margin: '0 auto' }}>
             Deep dives into the classics of science fiction's golden age. From pulp novels to silver screen masterpieces,
             we explore what made these works revolutionary.
           </p>
@@ -126,19 +126,19 @@ export default function ReviewsPage() {
                   </div>
                 </div>
 
-                <h3 className="text-xl font-bold mb-2 text-primary">
+                <h3 className="text-xl font-bold mb-2 text-primary" style={{ wordBreak: 'normal' }}>
                   {review.title}
                 </h3>
 
-                <p className="text-sm text-retro-cyan mb-1">
+                <p className="text-sm text-retro-cyan mb-1" style={{ wordBreak: 'normal' }}>
                   by {review.author}
                 </p>
 
-                <p className="text-xs text-foreground/60 mb-4">
+                <p className="text-xs text-foreground/60 mb-4" style={{ wordBreak: 'normal' }}>
                   {review.decade} • {review.date}
                 </p>
 
-                <p className="text-foreground/80 mb-4 flex-1">
+                <p className="text-foreground/80 mb-4 flex-1" style={{ wordBreak: 'normal' }}>
                   {review.excerpt}
                 </p>
 
@@ -167,11 +167,11 @@ export default function ReviewsPage() {
         <div className="mt-16 text-center py-12 bg-dark-purple/30 backdrop-blur-sm rounded-lg border-2 border-primary/30">
           <h3
             className="text-2xl font-bold mb-4 text-primary text-glow"
-            style={{ fontFamily: 'Orbitron, sans-serif' }}
+            style={{ fontFamily: 'Orbitron, sans-serif', wordBreak: 'normal' }}
           >
             NEVER MISS A REVIEW
           </h3>
-          <p className="text-foreground/80 mb-6 max-w-2xl mx-auto">
+          <p className="text-foreground/80 mb-6 max-w-2xl mx-auto" style={{ wordBreak: 'normal' }}>
             Subscribe to our newsletter and get weekly reviews, recommendations, and vintage sci-fi discoveries.
           </p>
           <Link

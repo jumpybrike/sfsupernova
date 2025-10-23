@@ -65,16 +65,16 @@ export default function GalleriesPage() {
 
   return (
     <div className="py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-5xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
           <h1
             className="text-5xl sm:text-6xl font-black mb-4 text-primary text-glow-strong"
-            style={{ fontFamily: 'Orbitron, sans-serif' }}
+            style={{ fontFamily: 'Orbitron, sans-serif', wordBreak: 'normal' }}
           >
             GALLERIES
           </h1>
-          <p className="text-xl text-foreground/80 max-w-3xl mx-auto">
+          <p className="text-xl text-foreground/80" style={{ wordBreak: 'normal', maxWidth: '800px', margin: '0 auto' }}>
             Immerse yourself in the visual artistry of vintage science fiction. From lurid pulp covers
             to iconic movie posters, these images defined how generations imagined the future.
           </p>
