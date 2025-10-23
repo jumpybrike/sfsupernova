@@ -1,44 +1,68 @@
 @import "tailwindcss";
 
 :root {
-  /* Vintage Sci-Fi Color Palette */
-  --background: #0a0a0f;
-  --foreground: #e8e8e8;
-  --primary: #00ffcc;
-  --secondary: #ff00ff;
-  --accent: #ffcc00;
-  --retro-green: #00ff41;
-  --retro-cyan: #00d4ff;
-  --retro-pink: #ff2a6d;
-  --retro-orange: #ff6b35;
-  --dark-purple: #1a0033;
-  --dark-blue: #001a33;
+  /* Atomic Age Optimism Palette - APPROVED */
+
+  /* Primary Colors */
+  --deep-space-blue: #1a2332;
+  --atomic-orange: #ff6b35;
+  --rocket-red: #e63946;
+  --stardust-silver: #c9d1d9;
+  --cosmic-cream: #f8f3e6;
+
+  /* Accent Colors */
+  --retro-teal: #2ec4b6;
+  --pulp-yellow: #ffbe0b;
+
+  /* Semantic Mappings */
+  --background-dark: var(--deep-space-blue);
+  --background-light: var(--cosmic-cream);
+  --primary-accent: var(--atomic-orange);
+  --secondary-accent: var(--retro-teal);
+  --text-on-dark: var(--stardust-silver);
+  --text-on-light: var(--deep-space-blue);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-primary: var(--primary);
-  --color-secondary: var(--secondary);
-  --color-accent: var(--accent);
-  --color-retro-green: var(--retro-green);
-  --color-retro-cyan: var(--retro-cyan);
-  --color-retro-pink: var(--retro-pink);
-  --color-retro-orange: var(--retro-orange);
-  --color-dark-purple: var(--dark-purple);
-  --color-dark-blue: var(--dark-blue);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Color Tokens */
+  --color-deep-space-blue: var(--deep-space-blue);
+  --color-atomic-orange: var(--atomic-orange);
+  --color-rocket-red: var(--rocket-red);
+  --color-stardust-silver: var(--stardust-silver);
+  --color-cosmic-cream: var(--cosmic-cream);
+  --color-retro-teal: var(--retro-teal);
+  --color-pulp-yellow: var(--pulp-yellow);
+
+  /* Font Tokens */
+  --font-display: var(--font-audiowide);
+  --font-body: var(--font-inter);
+  --font-mono: var(--font-courier-prime);
+
+  /* Spacing Scale */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 48px;
+  --spacing-3xl: 64px;
+
+  /* Border Radius */
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
 }
 
 body {
-  background: linear-gradient(135deg, #0a0a0f 0%, #1a0033 50%, #001a33 100%);
-  background-attachment: fixed;
-  color: var(--foreground);
+  background: var(--cosmic-cream);
+  color: var(--deep-space-blue);
   min-height: 100vh;
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
-/* Retro CRT scanline effect */
+/* Subtle Retro Effects */
+
+/* Very subtle scan lines on dark sections only */
 .scanlines::before {
   content: "";
   position: fixed;
@@ -49,50 +73,158 @@ body {
   pointer-events: none;
   background: repeating-linear-gradient(
     0deg,
-    rgba(0, 0, 0, 0.15),
-    rgba(0, 0, 0, 0.15) 1px,
+    rgba(201, 209, 217, 0.03),
+    rgba(201, 209, 217, 0.03) 1px,
     transparent 1px,
-    transparent 2px
+    transparent 4px
   );
   z-index: 9999;
+  opacity: 0;
 }
 
-/* Glow effects for text */
-.text-glow {
-  text-shadow: 0 0 10px currentColor, 0 0 20px currentColor;
+.bg-deep-space-blue .scanlines::before,
+[class*="bg-deep-space"] .scanlines::before {
+  opacity: 1;
 }
 
-.text-glow-strong {
-  text-shadow: 0 0 10px currentColor, 0 0 20px currentColor, 0 0 30px currentColor;
-}
-
-/* Neon border effect */
-.neon-border {
-  box-shadow:
-    0 0 5px currentColor,
-    inset 0 0 5px currentColor,
-    0 0 10px currentColor,
-    inset 0 0 10px currentColor;
-}
-
-/* Retro button styles */
-.retro-button {
+/* Subtle texture overlay for cosmic cream backgrounds */
+.paper-texture {
   position: relative;
-  overflow: hidden;
+}
+
+.paper-texture::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' /%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.05' /%3E%3C/svg%3E");
+  z-index: 1;
+}
+
+/* Button Styles - APPROVED */
+.btn-primary {
+  background: var(--atomic-orange);
+  color: white;
+  font-family: var(--font-inter);
+  font-weight: 600;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 14px 28px;
+  border-radius: var(--radius-md);
+  border: none;
+  box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background: var(--rocket-red);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(255, 107, 53, 0.4);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--retro-teal);
+  font-family: var(--font-inter);
+  font-weight: 600;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 12px 24px;
+  border: 2px solid var(--retro-teal);
+  border-radius: var(--radius-md);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  background: var(--retro-teal);
+  color: white;
+}
+
+/* Card Styles */
+.card {
+  background: white;
+  border: 1px solid rgba(201, 209, 217, 0.2);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-out;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  border-color: var(--atomic-orange);
+}
+
+/* Link Styles */
+.link-primary {
+  color: var(--atomic-orange);
+  text-decoration: none;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.link-primary:hover {
+  color: var(--rocket-red);
+}
+
+.link-primary::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--atomic-orange);
+  transition: width 0.3s ease;
+}
+
+.link-primary:hover::after {
+  width: 100%;
+}
+
+/* Form Input Styles */
+.input {
+  background: white;
+  border: 2px solid rgba(201, 209, 217, 0.4);
+  border-radius: var(--radius-md);
+  padding: 12px 16px;
+  font-family: var(--font-inter);
+  font-size: 16px;
+  color: var(--deep-space-blue);
   transition: all 0.3s ease;
 }
 
-.retro-button::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-  transition: left 0.5s ease;
+.input:focus {
+  border-color: var(--atomic-orange);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
 }
 
-.retro-button:hover::before {
-  left: 100%;
+/* Typography Utilities */
+.heading-display {
+  font-family: var(--font-audiowide), 'Impact', sans-serif;
+  line-height: 1.2;
+}
+
+.text-body {
+  font-family: var(--font-inter), sans-serif;
+  line-height: 1.6;
+}
+
+.text-mono {
+  font-family: var(--font-courier-prime), 'Courier New', monospace;
+}
+
+/* Accessibility - Focus Visible */
+*:focus-visible {
+  outline: 2px solid var(--atomic-orange);
+  outline-offset: 2px;
 }

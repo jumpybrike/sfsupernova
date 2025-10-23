@@ -1,0 +1,39 @@
+<svg width="250" height="60" viewBox="0 0 250 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Starburst Icon -->
+  <g id="starburst">
+    <!-- Center circle -->
+    <circle cx="30" cy="30" r="8" fill="#ff6b35"/>
+
+    <!-- 8 rays emanating from center (scaled down) -->
+    <!-- Top ray -->
+    <polygon points="30,5 28,22 32,22" fill="url(#orangeGradient)"/>
+    <!-- Top-right ray -->
+    <polygon points="47.78,12.22 34.66,24.66 36.66,28.34" fill="url(#orangeGradient)"/>
+    <!-- Right ray -->
+    <polygon points="55,30 38,28 38,32" fill="url(#orangeGradient)"/>
+    <!-- Bottom-right ray -->
+    <polygon points="47.78,47.78 36.66,31.34 34.66,35.34" fill="url(#orangeGradient)"/>
+    <!-- Bottom ray -->
+    <polygon points="30,55 28,38 32,38" fill="url(#orangeGradient)"/>
+    <!-- Bottom-left ray -->
+    <polygon points="12.22,47.78 25.34,35.34 23.34,31.34" fill="url(#orangeGradient)"/>
+    <!-- Left ray -->
+    <polygon points="5,30 22,28 22,32" fill="url(#orangeGradient)"/>
+    <!-- Top-left ray -->
+    <polygon points="12.22,12.22 23.34,28.34 25.34,24.66" fill="url(#orangeGradient)"/>
+
+    <!-- Glow effect -->
+    <circle cx="30" cy="30" r="12" fill="none" stroke="#ff6b35" stroke-width="0.5" opacity="0.3"/>
+  </g>
+
+  <!-- SF SUPERNOVA Text (smaller) -->
+  <text x="70" y="38" font-family="Audiowide, Impact, sans-serif" font-size="24" font-weight="400" fill="#ff6b35" letter-spacing="2">SF SUPERNOVA</text>
+
+  <!-- Gradient definition -->
+  <defs>
+    <linearGradient id="orangeGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ff6b35;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ffbe0b;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+</svg>

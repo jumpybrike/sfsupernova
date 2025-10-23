@@ -27,63 +27,64 @@ export default function Home() {
   ];
 
   const decades = [
-    { slug: '1930s-1940s', name: '1930s-1940s', subtitle: 'Golden Age', color: 'text-accent' },
-    { slug: '1950s', name: '1950s', subtitle: 'Space Age', color: 'text-retro-cyan' },
-    { slug: '1960s', name: '1960s', subtitle: 'New Wave', color: 'text-retro-pink' },
-    { slug: '1970s', name: '1970s', subtitle: 'Experimental Era', color: 'text-retro-green' },
+    { slug: '1930s-1940s', name: '1930s-1940s', subtitle: 'Golden Age', color: 'text-[#ffbe0b]' },
+    { slug: '1950s', name: '1950s', subtitle: 'Space Age', color: 'text-[#2ec4b6]' },
+    { slug: '1960s', name: '1960s', subtitle: 'New Wave', color: 'text-[#e63946]' },
+    { slug: '1970s', name: '1970s', subtitle: 'Experimental Era', color: 'text-[#ff6b35]' },
   ];
 
   return (
     <div className="relative">
       {/* Hero Section */}
-      <section className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/10 via-transparent to-transparent"></div>
-
-        <div className="max-w-7xl mx-auto relative z-10">
-          <div className="text-center">
+      <section className="relative py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#1a2332] to-[#f8f3e6]">
+        <div className="max-w-7xl mx-auto">
+          <div>
             <h1
-              className="text-5xl sm:text-6xl lg:text-7xl font-black mb-6 text-primary text-glow-strong"
-              style={{ fontFamily: 'Orbitron, sans-serif' }}
+              className="text-4xl sm:text-5xl lg:text-6xl font-normal mb-6 text-[#ff6b35]"
+              style={{ fontFamily: 'var(--font-audiowide)' }}
             >
               SF SUPERNOVA
             </h1>
-            <p className="text-xl sm:text-2xl mb-4 text-retro-cyan text-glow">
+            <p
+              className="text-xl sm:text-2xl mb-4 text-[#c9d1d9]"
+              style={{ fontFamily: 'var(--font-inter)' }}
+            >
               Your Portal to Vintage Science Fiction
             </p>
-            <p className="text-lg text-foreground/80 max-w-3xl mx-auto mb-8">
-              Journey back to the golden age of tomorrow! Thrill to pulse-pounding pulp magazines, edge-of-your-seat radio adventures, and the daring visions that rocketed us into the future!
+            <p
+              className="text-base sm:text-lg text-[#c9d1d9]/80 max-w-3xl mb-10 leading-relaxed"
+              style={{ fontFamily: 'var(--font-inter)' }}
+            >
+              Journey back to the golden age of tomorrow! Explore pulse-pounding pulp magazines,
+              edge-of-your-seat radio adventures, and the daring visions that rocketed us into the future!
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4">
               <Link
                 href="/decades/1950s"
-                className="px-8 py-4 bg-primary/20 border-2 border-primary text-primary font-bold rounded retro-button hover:bg-primary hover:text-background transition-all duration-300"
-                style={{ fontFamily: 'Orbitron, sans-serif' }}
+                className="inline-block px-8 py-4 bg-[#ff6b35] text-white font-semibold rounded-md hover:bg-[#e63946] transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1 uppercase tracking-wider text-center"
+                style={{ fontFamily: 'var(--font-inter)' }}
               >
-                EXPLORE THE SPACE AGE
+                Explore the Space Age
               </Link>
               <Link
                 href="/audio"
-                className="px-8 py-4 bg-retro-cyan/20 border-2 border-retro-cyan text-retro-cyan font-bold rounded retro-button hover:bg-retro-cyan hover:text-background transition-all duration-300"
-                style={{ fontFamily: 'Orbitron, sans-serif' }}
+                className="inline-block px-8 py-4 bg-transparent border-2 border-[#2ec4b6] text-[#c9d1d9] font-semibold rounded-md hover:bg-[#2ec4b6] hover:text-white transition-all duration-300 uppercase tracking-wider text-center"
+                style={{ fontFamily: 'var(--font-inter)' }}
               >
-                LISTEN TO RADIO DRAMAS
+                Listen to Radio Dramas
               </Link>
             </div>
           </div>
         </div>
-
-        {/* Decorative elements */}
-        <div className="absolute top-10 left-10 w-20 h-20 border-2 border-primary/30 rounded-full animate-pulse"></div>
-        <div className="absolute bottom-10 right-10 w-32 h-32 border-2 border-retro-cyan/30 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
       </section>
 
       {/* Decades Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-dark-purple/20">
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-[#f8f3e6]">
         <div className="max-w-7xl mx-auto">
           <h2
-            className="text-3xl sm:text-4xl font-bold text-center mb-12 text-retro-cyan text-glow"
-            style={{ fontFamily: 'Orbitron, sans-serif' }}
+            className="text-3xl sm:text-4xl font-normal mb-12 text-[#1a2332]"
+            style={{ fontFamily: 'var(--font-audiowide)' }}
           >
             EXPLORE BY DECADE
           </h2>
@@ -93,19 +94,23 @@ export default function Home() {
               <Link
                 key={decade.slug}
                 href={`/decades/${decade.slug}`}
-                className="group bg-dark-purple/50 backdrop-blur-sm border-2 border-primary/30 rounded-lg p-6 hover:border-primary transition-all duration-300 neon-border"
+                className="group bg-white border border-[#c9d1d9]/20 rounded-lg p-6 hover:border-[#ff6b35] transition-all duration-300 shadow-sm hover:shadow-lg hover:-translate-y-1"
               >
                 <h3
-                  className={`text-2xl font-bold mb-2 ${decade.color} group-hover:text-glow transition-all`}
-                  style={{ fontFamily: 'Orbitron, sans-serif' }}
+                  className={`text-2xl font-normal mb-2 ${decade.color} group-hover:text-[#ff6b35] transition-colors`}
+                  style={{ fontFamily: 'var(--font-audiowide)' }}
                 >
                   {decade.name}
                 </h3>
-                <p className="text-foreground/70 group-hover:text-foreground transition-colors">
+                <p
+                  className="text-[#1a2332]/70 mb-4"
+                  style={{ fontFamily: 'var(--font-inter)' }}
+                >
                   {decade.subtitle}
                 </p>
-                <div className="mt-4 text-primary group-hover:translate-x-2 transition-transform">
-                  →
+                <div className="text-[#ff6b35] group-hover:translate-x-2 transition-transform inline-flex items-center font-medium">
+                  <span style={{ fontFamily: 'var(--font-inter)' }}>Explore</span>
+                  <span className="ml-2">→</span>
                 </div>
               </Link>
             ))}
@@ -114,11 +119,11 @@ export default function Home() {
       </section>
 
       {/* Featured Content */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
           <h2
-            className="text-3xl sm:text-4xl font-bold text-center mb-12 text-retro-pink text-glow"
-            style={{ fontFamily: 'Orbitron, sans-serif' }}
+            className="text-3xl sm:text-4xl font-normal mb-12 text-[#1a2332]"
+            style={{ fontFamily: 'var(--font-audiowide)' }}
           >
             FEATURED REVIEWS
           </h2>
@@ -127,13 +132,16 @@ export default function Home() {
             {featuredReviews.map((review, index) => (
               <article
                 key={index}
-                className="bg-dark-blue/30 backdrop-blur-sm border-2 border-retro-cyan/30 rounded-lg p-6 hover:border-retro-cyan transition-all duration-300"
+                className="bg-white border border-[#c9d1d9]/20 rounded-lg p-6 hover:border-[#ff6b35] transition-all duration-300 shadow-sm hover:shadow-lg hover:-translate-y-1"
               >
-                <div className="flex items-center justify-between mb-3">
-                  <span className="text-xs font-bold text-accent px-3 py-1 bg-accent/20 border border-accent/50 rounded">
+                <div className="flex items-center justify-between mb-4">
+                  <span
+                    className="text-xs font-semibold text-[#ffbe0b] px-3 py-1 bg-[#ffbe0b]/10 border border-[#ffbe0b]/30 rounded uppercase tracking-wider"
+                    style={{ fontFamily: 'var(--font-inter)' }}
+                  >
                     {review.category}
                   </span>
-                  <div className="flex text-accent">
+                  <div className="flex text-[#ffbe0b]">
                     {[...Array(review.rating)].map((_, i) => (
                       <svg key={i} className="w-4 h-4 fill-current" viewBox="0 0 20 20">
                         <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
@@ -142,74 +150,87 @@ export default function Home() {
                   </div>
                 </div>
 
-                <h3 className="text-xl font-bold mb-2 text-primary">
+                <h3
+                  className="text-xl font-semibold mb-2 text-[#1a2332]"
+                  style={{ fontFamily: 'var(--font-inter)' }}
+                >
                   {review.title}
                 </h3>
 
-                <p className="text-sm text-retro-cyan mb-3">
+                <p
+                  className="text-sm text-[#ff6b35] mb-3 uppercase tracking-wide font-medium"
+                  style={{ fontFamily: 'var(--font-courier-prime)' }}
+                >
                   {review.decade}
                 </p>
 
-                <p className="text-foreground/80 mb-4">
+                <p
+                  className="text-[#1a2332]/80 mb-4 leading-relaxed"
+                  style={{ fontFamily: 'var(--font-inter)' }}
+                >
                   {review.excerpt}
                 </p>
 
                 <Link
                   href="/reviews"
-                  className="text-primary hover:text-retro-cyan transition-colors inline-flex items-center"
+                  className="text-[#ff6b35] hover:text-[#e63946] transition-colors inline-flex items-center font-medium"
+                  style={{ fontFamily: 'var(--font-inter)' }}
                 >
-                  Read full review →
+                  Read full review <span className="ml-1">→</span>
                 </Link>
               </article>
             ))}
           </div>
 
-          <div className="text-center mt-12">
+          <div className="mt-12">
             <Link
               href="/reviews"
-              className="inline-block px-8 py-3 bg-retro-pink/20 border-2 border-retro-pink text-retro-pink font-bold rounded retro-button hover:bg-retro-pink hover:text-background transition-all duration-300"
-              style={{ fontFamily: 'Orbitron, sans-serif' }}
+              className="inline-block px-8 py-3 bg-transparent border-2 border-[#ff6b35] text-[#ff6b35] font-semibold rounded-md hover:bg-[#ff6b35] hover:text-white transition-all duration-300 uppercase tracking-wider"
+              style={{ fontFamily: 'var(--font-inter)' }}
             >
-              VIEW ALL REVIEWS
+              View All Reviews
             </Link>
           </div>
         </div>
       </section>
 
       {/* Newsletter Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-[#f8f3e6]">
         <div className="max-w-7xl mx-auto">
           <NewsletterSignup />
         </div>
       </section>
 
       {/* Call to Action */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-dark-purple/30">
-        <div className="max-w-4xl mx-auto text-center">
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-[#1a2332]">
+        <div className="max-w-7xl mx-auto">
           <h2
-            className="text-3xl sm:text-4xl font-bold mb-6 text-retro-green text-glow"
-            style={{ fontFamily: 'Orbitron, sans-serif' }}
+            className="text-3xl sm:text-4xl font-normal mb-6 text-[#ff6b35]"
+            style={{ fontFamily: 'var(--font-audiowide)' }}
           >
             DISCOVER THE CLASSICS
           </h2>
-          <p className="text-lg text-foreground/80 mb-8">
+          <p
+            className="text-lg text-[#c9d1d9]/80 mb-8 leading-relaxed max-w-3xl"
+            style={{ fontFamily: 'var(--font-inter)' }}
+          >
             From Asimov to Zelazny, from pulp covers to radio plays, dive deep into the
-            archives of science fiction's most influential era.
+            archives of science fiction&apos;s most influential era.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4">
             <Link
               href="/galleries"
-              className="px-8 py-3 bg-retro-green/20 border-2 border-retro-green text-retro-green font-bold rounded retro-button hover:bg-retro-green hover:text-background transition-all duration-300"
-              style={{ fontFamily: 'Orbitron, sans-serif' }}
+              className="inline-block px-8 py-3 bg-[#2ec4b6] text-white font-semibold rounded-md hover:bg-[#2ec4b6]/90 transition-all duration-300 shadow-lg hover:shadow-xl uppercase tracking-wider text-center"
+              style={{ fontFamily: 'var(--font-inter)' }}
             >
-              BROWSE GALLERIES
+              Browse Galleries
             </Link>
             <Link
               href="/about"
-              className="px-8 py-3 bg-accent/20 border-2 border-accent text-accent font-bold rounded retro-button hover:bg-accent hover:text-background transition-all duration-300"
-              style={{ fontFamily: 'Orbitron, sans-serif' }}
+              className="inline-block px-8 py-3 bg-transparent border-2 border-[#ffbe0b] text-[#ffbe0b] font-semibold rounded-md hover:bg-[#ffbe0b] hover:text-[#1a2332] transition-all duration-300 uppercase tracking-wider text-center"
+              style={{ fontFamily: 'var(--font-inter)' }}
             >
-              ABOUT SF SUPERNOVA
+              About SF Supernova
             </Link>
           </div>
         </div>

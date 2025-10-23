@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState } from 'react';
 
 export default function Navigation() {
@@ -15,19 +16,28 @@ export default function Navigation() {
   ];
 
   return (
-    <nav className="border-b-2 border-primary/30 bg-background/90 backdrop-blur-sm sticky top-0 z-50">
+    <nav className="bg-[#1a2332] sticky top-0 z-50 border-b border-[#c9d1d9]/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2">
-            <div className="text-2xl font-bold text-primary text-glow-strong" style={{ fontFamily: 'Orbitron, sans-serif' }}>
-              SF SUPERNOVA
-            </div>
+          <Link href="/" className="flex items-center">
+            <Image
+              src="/logo/logo-compact.svg"
+              alt="SF Supernova"
+              width={200}
+              height={60}
+              priority
+              className="h-10 w-auto"
+            />
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex space-x-8">
-            <Link href="/" className="text-foreground hover:text-primary transition-colors duration-200">
+          <div className="hidden md:flex items-center space-x-8">
+            <Link
+              href="/"
+              className="text-[#c9d1d9] hover:text-[#ff6b35] transition-colors duration-200 font-medium text-base"
+              style={{ fontFamily: 'var(--font-inter)' }}
+            >
               Home
             </Link>
 
@@ -37,7 +47,10 @@ export default function Navigation() {
               onMouseEnter={() => setDecadesOpen(true)}
               onMouseLeave={() => setDecadesOpen(false)}
             >
-              <button className="text-foreground hover:text-primary transition-colors duration-200 flex items-center">
+              <button
+                className="text-[#c9d1d9] hover:text-[#ff6b35] transition-colors duration-200 flex items-center font-medium text-base"
+                style={{ fontFamily: 'var(--font-inter)' }}
+              >
                 Decades
                 <svg className="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
@@ -45,12 +58,13 @@ export default function Navigation() {
               </button>
 
               {decadesOpen && (
-                <div className="absolute left-0 mt-2 w-64 bg-dark-purple/95 backdrop-blur-sm border-2 border-primary/50 rounded shadow-lg neon-border">
+                <div className="absolute left-0 mt-2 w-64 bg-[#1a2332] border border-[#c9d1d9]/30 rounded-md shadow-lg overflow-hidden animate-[slideDown_0.3s_ease-out]">
                   {decades.map((decade) => (
                     <Link
                       key={decade.slug}
                       href={`/decades/${decade.slug}`}
-                      className="block px-4 py-2 text-sm text-foreground hover:bg-primary/20 hover:text-primary transition-colors duration-200"
+                      className="block px-4 py-3 text-sm text-[#c9d1d9] hover:bg-[#ff6b35]/20 hover:text-[#ff6b35] transition-colors duration-200"
+                      style={{ fontFamily: 'var(--font-inter)' }}
                     >
                       {decade.name}
                     </Link>
@@ -59,16 +73,32 @@ export default function Navigation() {
               )}
             </div>
 
-            <Link href="/reviews" className="text-foreground hover:text-primary transition-colors duration-200">
+            <Link
+              href="/reviews"
+              className="text-[#c9d1d9] hover:text-[#ff6b35] transition-colors duration-200 font-medium text-base"
+              style={{ fontFamily: 'var(--font-inter)' }}
+            >
               Reviews
             </Link>
-            <Link href="/audio" className="text-foreground hover:text-primary transition-colors duration-200">
+            <Link
+              href="/audio"
+              className="text-[#c9d1d9] hover:text-[#ff6b35] transition-colors duration-200 font-medium text-base"
+              style={{ fontFamily: 'var(--font-inter)' }}
+            >
               Audio
             </Link>
-            <Link href="/galleries" className="text-foreground hover:text-primary transition-colors duration-200">
+            <Link
+              href="/galleries"
+              className="text-[#c9d1d9] hover:text-[#ff6b35] transition-colors duration-200 font-medium text-base"
+              style={{ fontFamily: 'var(--font-inter)' }}
+            >
               Galleries
             </Link>
-            <Link href="/about" className="text-foreground hover:text-primary transition-colors duration-200">
+            <Link
+              href="/about"
+              className="text-[#c9d1d9] hover:text-[#ff6b35] transition-colors duration-200 font-medium text-base"
+              style={{ fontFamily: 'var(--font-inter)' }}
+            >
               About
             </Link>
           </div>
@@ -77,13 +107,14 @@ export default function Navigation() {
           <div className="md:hidden">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="text-foreground hover:text-primary"
+              className="text-[#ff6b35] hover:text-[#e63946] transition-colors"
+              aria-label="Toggle mobile menu"
             >
-              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                 {mobileMenuOpen ? (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                 ) : (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
                 )}
               </svg>
             </button>
@@ -92,17 +123,22 @@ export default function Navigation() {
 
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
-          <div className="md:hidden pb-4">
-            <Link href="/" className="block py-2 text-foreground hover:text-primary transition-colors duration-200">
+          <div className="md:hidden pb-4 border-t border-[#c9d1d9]/20 mt-2">
+            <Link
+              href="/"
+              className="block py-3 text-[#c9d1d9] hover:text-[#ff6b35] transition-colors duration-200 font-medium"
+              style={{ fontFamily: 'var(--font-inter)' }}
+            >
               Home
             </Link>
             <div className="py-2">
               <button
                 onClick={() => setDecadesOpen(!decadesOpen)}
-                className="w-full text-left text-foreground hover:text-primary transition-colors duration-200 flex items-center justify-between"
+                className="w-full text-left text-[#c9d1d9] hover:text-[#ff6b35] transition-colors duration-200 flex items-center justify-between font-medium"
+                style={{ fontFamily: 'var(--font-inter)' }}
               >
                 Decades
-                <svg className={`w-4 h-4 transform ${decadesOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className={`w-4 h-4 transform transition-transform ${decadesOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
               </button>
@@ -112,7 +148,8 @@ export default function Navigation() {
                     <Link
                       key={decade.slug}
                       href={`/decades/${decade.slug}`}
-                      className="block py-1 text-sm text-foreground hover:text-primary transition-colors duration-200"
+                      className="block py-2 text-sm text-[#c9d1d9] hover:text-[#ff6b35] transition-colors duration-200"
+                      style={{ fontFamily: 'var(--font-inter)' }}
                     >
                       {decade.name}
                     </Link>
@@ -120,16 +157,32 @@ export default function Navigation() {
                 </div>
               )}
             </div>
-            <Link href="/reviews" className="block py-2 text-foreground hover:text-primary transition-colors duration-200">
+            <Link
+              href="/reviews"
+              className="block py-3 text-[#c9d1d9] hover:text-[#ff6b35] transition-colors duration-200 font-medium"
+              style={{ fontFamily: 'var(--font-inter)' }}
+            >
               Reviews
             </Link>
-            <Link href="/audio" className="block py-2 text-foreground hover:text-primary transition-colors duration-200">
+            <Link
+              href="/audio"
+              className="block py-3 text-[#c9d1d9] hover:text-[#ff6b35] transition-colors duration-200 font-medium"
+              style={{ fontFamily: 'var(--font-inter)' }}
+            >
               Audio
             </Link>
-            <Link href="/galleries" className="block py-2 text-foreground hover:text-primary transition-colors duration-200">
+            <Link
+              href="/galleries"
+              className="block py-3 text-[#c9d1d9] hover:text-[#ff6b35] transition-colors duration-200 font-medium"
+              style={{ fontFamily: 'var(--font-inter)' }}
+            >
               Galleries
             </Link>
-            <Link href="/about" className="block py-2 text-foreground hover:text-primary transition-colors duration-200">
+            <Link
+              href="/about"
+              className="block py-3 text-[#c9d1d9] hover:text-[#ff6b35] transition-colors duration-200 font-medium"
+              style={{ fontFamily: 'var(--font-inter)' }}
+            >
               About
             </Link>
           </div>

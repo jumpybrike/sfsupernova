@@ -1,27 +1,26 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Orbitron, Space_Mono } from "next/font/google";
+import { Audiowide, Inter, Courier_Prime } from "next/font/google";
 import "./globals.css";
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+// Approved Typography - Audiowide for display/headings
+const audiowide = Audiowide({
+  variable: "--font-audiowide",
   subsets: ["latin"],
+  weight: ["400"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+// Inter for body text and UI
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 });
 
-const orbitron = Orbitron({
-  variable: "--font-orbitron",
-  subsets: ["latin"],
-  weight: ["400", "500", "700", "900"],
-});
-
-const spaceMono = Space_Mono({
-  variable: "--font-space-mono",
+// Courier Prime for monospace/metadata
+const courierPrime = Courier_Prime({
+  variable: "--font-courier-prime",
   subsets: ["latin"],
   weight: ["400", "700"],
 });
@@ -40,8 +39,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${orbitron.variable} ${spaceMono.variable} antialiased scanlines`}
-        style={{ fontFamily: 'var(--font-space-mono), monospace' }}
+        className={`${audiowide.variable} ${inter.variable} ${courierPrime.variable} antialiased`}
       >
         <Navigation />
         <main className="min-h-screen">
