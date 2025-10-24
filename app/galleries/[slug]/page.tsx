@@ -227,30 +227,49 @@ export default function GalleryPage({ params }: { params: { slug: string } }) {
               className="relative group cursor-pointer"
               onClick={() => setSelectedImageIndex(filteredImages.indexOf(image))}
             >
-              <div className="aspect-[2/3] bg-gradient-to-br from-[#ff6b35]/20 to-[#2ec4b6]/20 border border-[#c9d1d9]/20 rounded-lg overflow-hidden hover:border-[#ff6b35] transition-all duration-300 hover:shadow-lg hover:scale-105 flex flex-col items-center justify-center p-4 text-center">
-                <img
-                  src={image.imageUrl}
-                  alt={`Cover art for ${image.title} by ${image.author} (${image.year})`}
-                  className="w-full h-full object-cover absolute inset-0"
-                  loading="lazy"
-                  onError={(e) => {
-                    // Hide broken image and show fallback
-                    e.currentTarget.style.display = 'none';
-                  }}
-                />
-                {/* Fallback content */}
-                <div className="relative z-10 pointer-events-none">
-                  <svg className="w-16 h-16 text-[#1a2332]/20 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                  </svg>
-                  <p className="text-xs font-bold text-[#1a2332]/80 mb-1" style={{ fontFamily: 'var(--font-audiowide)' }}>
-                    {image.title}
+              <div
+                className="aspect-[2/3] border-2 rounded-lg overflow-hidden hover:border-[#ff6b35] transition-all duration-300 hover:shadow-lg hover:scale-105 flex flex-col items-center justify-between p-6 text-center relative"
+                style={{
+                  background: index === 0 ? 'linear-gradient(135deg, #ff6b35 0%, #e63946 100%)' :
+                              index === 1 ? 'linear-gradient(135deg, #2ec4b6 0%, #00d9ff 100%)' :
+                              index === 2 ? 'linear-gradient(135deg, #ffbe0b 0%, #ff6b35 100%)' :
+                              index === 3 ? 'linear-gradient(135deg, #e63946 0%, #ff6b35 100%)' :
+                              index === 4 ? 'linear-gradient(135deg, #1a2332 0%, #2a1f3e 100%)' :
+                              'linear-gradient(135deg, #2a1f3e 0%, #1a2332 100%)',
+                  borderColor: index % 2 === 0 ? '#ff6b35' : '#2ec4b6',
+                }}
+              >
+                {/* Vintage texture overlay */}
+                <div className="absolute inset-0 opacity-10" style={{
+                  backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,255,255,0.1) 2px, rgba(255,255,255,0.1) 4px)',
+                }}></div>
+
+                {/* Top decoration */}
+                <div className="relative z-10 w-full">
+                  <div className="h-1 bg-white/40 mb-4"></div>
+                  <p className="text-white/60 text-[10px] uppercase tracking-widest mb-2" style={{ fontFamily: 'var(--font-courier-prime)' }}>
+                    Vintage Sci-Fi Classic
                   </p>
-                  <p className="text-xs text-[#1a2332]/60" style={{ fontFamily: 'var(--font-inter)' }}>
+                </div>
+
+                {/* Title and Author */}
+                <div className="relative z-10 flex-1 flex flex-col justify-center">
+                  <h3 className="text-white font-normal text-lg leading-tight mb-3" style={{ fontFamily: 'var(--font-audiowide)' }}>
+                    {image.title}
+                  </h3>
+                  <p className="text-white/90 text-sm" style={{ fontFamily: 'var(--font-inter)' }}>
                     {image.author}
                   </p>
-                  <p className="text-xs text-[#ff6b35] mt-2 font-medium" style={{ fontFamily: 'var(--font-courier-prime)' }}>
+                </div>
+
+                {/* Bottom decoration */}
+                <div className="relative z-10 w-full">
+                  <div className="h-1 bg-white/40 mb-4"></div>
+                  <p className="text-white font-bold text-xl" style={{ fontFamily: 'var(--font-courier-prime)' }}>
                     {image.year}
+                  </p>
+                  <p className="text-white/60 text-[10px] uppercase tracking-wider mt-1" style={{ fontFamily: 'var(--font-courier-prime)' }}>
+                    {image.themes[0]}
                   </p>
                 </div>
               </div>
