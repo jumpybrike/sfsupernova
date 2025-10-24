@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useMemo, use } from 'react';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import ImageLightbox from '../../components/ImageLightbox';
@@ -119,8 +119,9 @@ const galleries: Record<string, Gallery> = {
   },
 };
 
-export default function GalleryPage({ params }: { params: { slug: string } }) {
-  const gallery = galleries[params.slug];
+export default function GalleryPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = use(params);
+  const gallery = galleries[slug];
   const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
   const [filterFree, setFilterFree] = useState(false);
   const [sortBy, setSortBy] = useState<'featured' | 'year' | 'title'>('featured');
