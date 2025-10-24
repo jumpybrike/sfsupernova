@@ -27,16 +27,16 @@ export default function Home() {
   ];
 
   const decades = [
-    { slug: '1930s-1940s', name: '1930s-1940s', subtitle: 'Golden Age', color: 'text-[#ffbe0b]' },
-    { slug: '1950s', name: '1950s', subtitle: 'Space Age', color: 'text-[#2ec4b6]' },
-    { slug: '1960s', name: '1960s', subtitle: 'New Wave', color: 'text-[#e63946]' },
-    { slug: '1970s', name: '1970s', subtitle: 'Experimental Era', color: 'text-[#ff6b35]' },
+    { slug: '1930s-1940s', name: '1930s-1940s', subtitle: 'Golden Age', color: 'text-[#ffbe0b]', font: 'var(--font-abril-fatface)' },
+    { slug: '1950s', name: '1950s', subtitle: 'Space Age', color: 'text-[#2ec4b6]', font: 'var(--font-audiowide)' },
+    { slug: '1960s', name: '1960s', subtitle: 'New Wave', color: 'text-[#e63946]', font: 'var(--font-righteous)' },
+    { slug: '1970s', name: '1970s', subtitle: 'Experimental Era', color: 'text-[#ff6b35]', font: 'var(--font-bebas-neue)' },
   ];
 
   return (
     <div className="relative">
       {/* Hero Section */}
-      <section className="relative py-40 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-[#ff6b35]/20 via-transparent to-[#00d9ff]/20">
+      <section className="relative pt-12 pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-[#ff6b35]/20 via-transparent to-[#00d9ff]/20">
         <div className="max-w-5xl mx-auto text-center">
           {/* Pulsing Starburst Logo */}
           <div className="mb-12 flex justify-center">
@@ -121,7 +121,7 @@ export default function Home() {
               >
                 <h3
                   className={`text-2xl font-normal mb-2 ${decade.color} group-hover:text-[#ff6b35] transition-colors`}
-                  style={{ fontFamily: 'var(--font-audiowide)' }}
+                  style={{ fontFamily: decade.font }}
                 >
                   {decade.name}
                 </h3>

@@ -105,7 +105,7 @@ export default function DecadePage({ params }: { params: { slug: string } }) {
   ];
 
   return (
-    <div className="py-12 px-4 sm:px-6 lg:px-8">
+    <div className="pt-8 pb-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-5xl mx-auto">
         {/* Header */}
         <div className="mb-12">
