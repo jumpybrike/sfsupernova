@@ -119,12 +119,6 @@ const galleries: Record<string, Gallery> = {
   },
 };
 
-export async function generateStaticParams() {
-  return Object.keys(galleries).map((slug) => ({
-    slug: slug,
-  }));
-}
-
 export default function GalleryPage({ params }: { params: { slug: string } }) {
   const gallery = galleries[params.slug];
   const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
