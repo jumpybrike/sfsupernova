@@ -42,7 +42,7 @@ const galleries: Record<string, Gallery> = {
         title: 'The Skylark of Space',
         author: 'E.E. "Doc" Smith',
         year: 1928,
-        imageUrl: 'https://via.placeholder.com/400x600/ff6b35/ffffff?text=Skylark+of+Space',
+        imageUrl: 'https://www.gutenberg.org/cache/epub/20869/pg20869.cover.medium.jpg',
         commentary: 'Doc Smith invents space opera with this gleaming rocket design. The chrome aesthetic and streamlined form capture the pre-war optimism about space travel.',
         gutenbergId: '20869',
         gutenbergUrl: 'https://www.gutenberg.org/ebooks/20869',
@@ -55,7 +55,7 @@ const galleries: Record<string, Gallery> = {
         title: 'The First Men in the Moon',
         author: 'H.G. Wells',
         year: 1901,
-        imageUrl: 'https://via.placeholder.com/400x600/2ec4b6/ffffff?text=First+Men+in+Moon',
+        imageUrl: 'https://www.gutenberg.org/cache/epub/1013/pg1013.cover.medium.jpg',
         commentary: 'Wells\' lunar adventure features this striking vintage cover. The mysterious sphere speaks to the unknown wonders waiting on Earth\'s nearest neighbor.',
         gutenbergId: '1013',
         gutenbergUrl: 'https://www.gutenberg.org/ebooks/1013',
@@ -68,7 +68,7 @@ const galleries: Record<string, Gallery> = {
         title: 'From the Earth to the Moon',
         author: 'Jules Verne',
         year: 1865,
-        imageUrl: 'https://via.placeholder.com/400x600/ffbe0b/000000?text=From+Earth+to+Moon',
+        imageUrl: 'https://www.gutenberg.org/cache/epub/83/pg83.cover.medium.jpg',
         commentary: 'Verne\'s visionary tale of lunar travel. This edition\'s cover shows the audacious cannon-based launch—absurd science, but magnificent imagination.',
         gutenbergId: '83',
         gutenbergUrl: 'https://www.gutenberg.org/ebooks/83',
@@ -81,7 +81,7 @@ const galleries: Record<string, Gallery> = {
         title: 'A Princess of Mars',
         author: 'Edgar Rice Burroughs',
         year: 1912,
-        imageUrl: 'https://via.placeholder.com/400x600/e63946/ffffff?text=Princess+of+Mars',
+        imageUrl: 'https://www.gutenberg.org/cache/epub/62/pg62.cover.medium.jpg',
         commentary: 'Burroughs takes us to Mars with John Carter. This cover hints at the exotic alien worlds and swashbuckling adventure that defined planetary romance.',
         gutenbergId: '62',
         gutenbergUrl: 'https://www.gutenberg.org/ebooks/62',
@@ -94,7 +94,7 @@ const galleries: Record<string, Gallery> = {
         title: 'The War of the Worlds',
         author: 'H.G. Wells',
         year: 1898,
-        imageUrl: 'https://via.placeholder.com/400x600/1a2332/00d9ff?text=War+of+Worlds',
+        imageUrl: 'https://www.gutenberg.org/cache/epub/36/pg36.cover.medium.jpg',
         commentary: 'Wells\' iconic Martian invasion. The menacing tripod design became the definitive image of hostile aliens—still haunting over a century later.',
         gutenbergId: '36',
         gutenbergUrl: 'https://www.gutenberg.org/ebooks/36',
@@ -107,7 +107,7 @@ const galleries: Record<string, Gallery> = {
         title: 'The Time Machine',
         author: 'H.G. Wells',
         year: 1895,
-        imageUrl: 'https://via.placeholder.com/400x600/2a1f3e/ffbe0b?text=Time+Machine',
+        imageUrl: 'https://www.gutenberg.org/cache/epub/35/pg35.cover.medium.jpg',
         commentary: 'Wells invented time travel with this masterpiece. The vintage cover evokes the mystery of traveling to humanity\'s distant future.',
         gutenbergId: '35',
         gutenbergUrl: 'https://www.gutenberg.org/ebooks/35',
@@ -227,51 +227,14 @@ export default function GalleryPage({ params }: { params: { slug: string } }) {
               className="relative group cursor-pointer"
               onClick={() => setSelectedImageIndex(filteredImages.indexOf(image))}
             >
-              <div
-                className="aspect-[2/3] border-2 rounded-lg overflow-hidden hover:border-[#ff6b35] transition-all duration-300 hover:shadow-lg hover:scale-105 flex flex-col items-center justify-between p-6 text-center relative"
-                style={{
-                  background: index === 0 ? 'linear-gradient(135deg, #ff6b35 0%, #e63946 100%)' :
-                              index === 1 ? 'linear-gradient(135deg, #2ec4b6 0%, #00d9ff 100%)' :
-                              index === 2 ? 'linear-gradient(135deg, #ffbe0b 0%, #ff6b35 100%)' :
-                              index === 3 ? 'linear-gradient(135deg, #e63946 0%, #ff6b35 100%)' :
-                              index === 4 ? 'linear-gradient(135deg, #1a2332 0%, #2a1f3e 100%)' :
-                              'linear-gradient(135deg, #2a1f3e 0%, #1a2332 100%)',
-                  borderColor: index % 2 === 0 ? '#ff6b35' : '#2ec4b6',
-                }}
-              >
-                {/* Vintage texture overlay */}
-                <div className="absolute inset-0 opacity-10" style={{
-                  backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,255,255,0.1) 2px, rgba(255,255,255,0.1) 4px)',
-                }}></div>
-
-                {/* Top decoration */}
-                <div className="relative z-10 w-full">
-                  <div className="h-1 bg-white/40 mb-4"></div>
-                  <p className="text-white/60 text-[10px] uppercase tracking-widest mb-2" style={{ fontFamily: 'var(--font-courier-prime)' }}>
-                    Vintage Sci-Fi Classic
-                  </p>
-                </div>
-
-                {/* Title and Author */}
-                <div className="relative z-10 flex-1 flex flex-col justify-center">
-                  <h3 className="text-white font-normal text-lg leading-tight mb-3" style={{ fontFamily: 'var(--font-audiowide)' }}>
-                    {image.title}
-                  </h3>
-                  <p className="text-white/90 text-sm" style={{ fontFamily: 'var(--font-inter)' }}>
-                    {image.author}
-                  </p>
-                </div>
-
-                {/* Bottom decoration */}
-                <div className="relative z-10 w-full">
-                  <div className="h-1 bg-white/40 mb-4"></div>
-                  <p className="text-white font-bold text-xl" style={{ fontFamily: 'var(--font-courier-prime)' }}>
-                    {image.year}
-                  </p>
-                  <p className="text-white/60 text-[10px] uppercase tracking-wider mt-1" style={{ fontFamily: 'var(--font-courier-prime)' }}>
-                    {image.themes[0]}
-                  </p>
-                </div>
+              <div className="aspect-[2/3] bg-white border border-[#c9d1d9]/20 rounded-lg overflow-hidden hover:border-[#ff6b35] transition-all duration-300 hover:shadow-lg hover:scale-105 relative">
+                {/* Actual image */}
+                <img
+                  src={image.imageUrl}
+                  alt={`Cover art for ${image.title} by ${image.author} (${image.year})`}
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
               </div>
 
               {/* Free badge */}
