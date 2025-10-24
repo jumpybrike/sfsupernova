@@ -219,7 +219,7 @@ export default function Home() {
 
       {/* Newsletter Section */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-[#f8f3e6]">
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-7xl mx-auto">
           <NewsletterSignup />
         </div>
       </section>
