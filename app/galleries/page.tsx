@@ -8,11 +8,11 @@ export const metadata = {
 export default function GalleriesPage() {
   const galleries = [
     {
-      id: '1',
-      title: 'Pulp Magazine Covers of the 1950s',
+      id: '1950s-space-opera',
+      title: 'Pulp Dreams: 1950s Space Opera Cover Art',
       decade: '1950s',
-      imageCount: 48,
-      description: 'Vibrant, imaginative cover art from the golden age of pulp sci-fi magazines. Featuring work from legendary artists like Chesley Bonestell and Frank R. Paul.',
+      imageCount: 6,
+      description: 'When rockets were chrome and heroes were square-jawed, cover artists imagined futures of endless adventure. Explore vintage covers from the golden age of space opera.',
       color: 'border-retro-cyan',
       textColor: 'text-retro-cyan',
     },
@@ -94,18 +94,17 @@ export default function GalleriesPage() {
                     className="text-4xl font-bold mb-4 text-primary text-glow"
                     style={{ fontFamily: 'Orbitron, sans-serif' }}
                   >
-                    Pulp Magazine Covers of the 1950s
+                    Pulp Dreams: 1950s Space Opera Cover Art
                   </h2>
 
                   <p className="text-lg text-foreground/80 mb-6">
-                    The 1950s were the golden age of pulp science fiction magazines. These covers,
-                    with their bold colors, dramatic compositions, and imaginative alien worlds,
-                    captured the optimism and wonder of the Space Age.
+                    When rockets were chrome and heroes were square-jawed, 1950s cover artists imagined futures of endless adventure.
+                    These covers captured an era's unbridled optimism about humanity among the stars—before the Cold War turned space dreams darker.
                   </p>
 
                   <div className="flex gap-4">
                     <Link
-                      href="/galleries/1"
+                      href="/galleries/1950s-space-opera"
                       className="px-8 py-3 bg-primary/20 border-2 border-primary text-primary font-bold rounded retro-button hover:bg-primary hover:text-background transition-all duration-300"
                       style={{ fontFamily: 'Orbitron, sans-serif' }}
                     >
