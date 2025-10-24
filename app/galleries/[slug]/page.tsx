@@ -42,7 +42,7 @@ const galleries: Record<string, Gallery> = {
         title: 'The Skylark of Space',
         author: 'E.E. "Doc" Smith',
         year: 1928,
-        imageUrl: 'https://www.gutenberg.org/cache/epub/20869/pg20869.cover.medium.jpg',
+        imageUrl: 'https://via.placeholder.com/400x600/ff6b35/ffffff?text=Skylark+of+Space',
         commentary: 'Doc Smith invents space opera with this gleaming rocket design. The chrome aesthetic and streamlined form capture the pre-war optimism about space travel.',
         gutenbergId: '20869',
         gutenbergUrl: 'https://www.gutenberg.org/ebooks/20869',
@@ -55,7 +55,7 @@ const galleries: Record<string, Gallery> = {
         title: 'The First Men in the Moon',
         author: 'H.G. Wells',
         year: 1901,
-        imageUrl: 'https://www.gutenberg.org/cache/epub/1013/pg1013.cover.medium.jpg',
+        imageUrl: 'https://via.placeholder.com/400x600/2ec4b6/ffffff?text=First+Men+in+Moon',
         commentary: 'Wells\' lunar adventure features this striking vintage cover. The mysterious sphere speaks to the unknown wonders waiting on Earth\'s nearest neighbor.',
         gutenbergId: '1013',
         gutenbergUrl: 'https://www.gutenberg.org/ebooks/1013',
@@ -68,7 +68,7 @@ const galleries: Record<string, Gallery> = {
         title: 'From the Earth to the Moon',
         author: 'Jules Verne',
         year: 1865,
-        imageUrl: 'https://www.gutenberg.org/cache/epub/83/pg83.cover.medium.jpg',
+        imageUrl: 'https://via.placeholder.com/400x600/ffbe0b/000000?text=From+Earth+to+Moon',
         commentary: 'Verne\'s visionary tale of lunar travel. This edition\'s cover shows the audacious cannon-based launch—absurd science, but magnificent imagination.',
         gutenbergId: '83',
         gutenbergUrl: 'https://www.gutenberg.org/ebooks/83',
@@ -81,7 +81,7 @@ const galleries: Record<string, Gallery> = {
         title: 'A Princess of Mars',
         author: 'Edgar Rice Burroughs',
         year: 1912,
-        imageUrl: 'https://www.gutenberg.org/cache/epub/62/pg62.cover.medium.jpg',
+        imageUrl: 'https://via.placeholder.com/400x600/e63946/ffffff?text=Princess+of+Mars',
         commentary: 'Burroughs takes us to Mars with John Carter. This cover hints at the exotic alien worlds and swashbuckling adventure that defined planetary romance.',
         gutenbergId: '62',
         gutenbergUrl: 'https://www.gutenberg.org/ebooks/62',
@@ -94,7 +94,7 @@ const galleries: Record<string, Gallery> = {
         title: 'The War of the Worlds',
         author: 'H.G. Wells',
         year: 1898,
-        imageUrl: 'https://www.gutenberg.org/cache/epub/36/pg36.cover.medium.jpg',
+        imageUrl: 'https://via.placeholder.com/400x600/1a2332/00d9ff?text=War+of+Worlds',
         commentary: 'Wells\' iconic Martian invasion. The menacing tripod design became the definitive image of hostile aliens—still haunting over a century later.',
         gutenbergId: '36',
         gutenbergUrl: 'https://www.gutenberg.org/ebooks/36',
@@ -107,7 +107,7 @@ const galleries: Record<string, Gallery> = {
         title: 'The Time Machine',
         author: 'H.G. Wells',
         year: 1895,
-        imageUrl: 'https://www.gutenberg.org/cache/epub/35/pg35.cover.medium.jpg',
+        imageUrl: 'https://via.placeholder.com/400x600/2a1f3e/ffbe0b?text=Time+Machine',
         commentary: 'Wells invented time travel with this masterpiece. The vintage cover evokes the mystery of traveling to humanity\'s distant future.',
         gutenbergId: '35',
         gutenbergUrl: 'https://www.gutenberg.org/ebooks/35',
@@ -233,13 +233,32 @@ export default function GalleryPage({ params }: { params: { slug: string } }) {
               className="relative group cursor-pointer"
               onClick={() => setSelectedImageIndex(filteredImages.indexOf(image))}
             >
-              <div className="aspect-[2/3] bg-white border border-[#c9d1d9]/20 rounded-lg overflow-hidden hover:border-[#ff6b35] transition-all duration-300 hover:shadow-lg hover:scale-105">
+              <div className="aspect-[2/3] bg-gradient-to-br from-[#ff6b35]/20 to-[#2ec4b6]/20 border border-[#c9d1d9]/20 rounded-lg overflow-hidden hover:border-[#ff6b35] transition-all duration-300 hover:shadow-lg hover:scale-105 flex flex-col items-center justify-center p-4 text-center">
                 <img
                   src={image.imageUrl}
                   alt={`Cover art for ${image.title} by ${image.author} (${image.year})`}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover absolute inset-0"
                   loading="lazy"
+                  onError={(e) => {
+                    // Hide broken image and show fallback
+                    e.currentTarget.style.display = 'none';
+                  }}
                 />
+                {/* Fallback content */}
+                <div className="relative z-10 pointer-events-none">
+                  <svg className="w-16 h-16 text-[#1a2332]/20 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                  </svg>
+                  <p className="text-xs font-bold text-[#1a2332]/80 mb-1" style={{ fontFamily: 'var(--font-audiowide)' }}>
+                    {image.title}
+                  </p>
+                  <p className="text-xs text-[#1a2332]/60" style={{ fontFamily: 'var(--font-inter)' }}>
+                    {image.author}
+                  </p>
+                  <p className="text-xs text-[#ff6b35] mt-2 font-medium" style={{ fontFamily: 'var(--font-courier-prime)' }}>
+                    {image.year}
+                  </p>
+                </div>
               </div>
 
               {/* Free badge */}
