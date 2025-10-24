@@ -201,7 +201,7 @@ export default function GalleriesPage() {
           >
             CONTRIBUTE TO OUR COLLECTION
           </h3>
-          <p className="text-foreground/80 mb-6 max-w-2xl mx-auto">
+          <p className="text-foreground/80 mb-6 max-w-4xl mx-auto" style={{ wordBreak: 'normal', whiteSpace: 'normal', overflowWrap: 'normal' }}>
             Have vintage sci-fi cover art or posters to share? We're always looking to expand our galleries
             with high-quality scans from collectors and enthusiasts.
           </p>

@@ -110,6 +110,13 @@ export default function Navigation() {
               Galleries
             </Link>
             <Link
+              href="/free-library"
+              className="text-[#c9d1d9] hover:text-[#ff6b35] transition-colors duration-200 font-medium text-base"
+              style={{ fontFamily: 'var(--font-inter)' }}
+            >
+              Free Library
+            </Link>
+            <Link
               href="/about"
               className="text-[#c9d1d9] hover:text-[#ff6b35] transition-colors duration-200 font-medium text-base"
               style={{ fontFamily: 'var(--font-inter)' }}
@@ -192,6 +199,13 @@ export default function Navigation() {
               style={{ fontFamily: 'var(--font-inter)' }}
             >
               Galleries
+            </Link>
+            <Link
+              href="/free-library"
+              className="block py-3 text-[#c9d1d9] hover:text-[#ff6b35] transition-colors duration-200 font-medium"
+              style={{ fontFamily: 'var(--font-inter)' }}
+            >
+              Free Library
             </Link>
             <Link
               href="/about"

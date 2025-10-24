@@ -220,7 +220,7 @@ export default function DecadePage({ params }: { params: { slug: string } }) {
           >
             EXPLORE MORE FROM THE {decade.name.toUpperCase()}
           </h3>
-          <p className="text-foreground/80 mb-6 max-w-2xl mx-auto" style={{ wordBreak: 'normal' }}>
+          <p className="text-foreground/80 mb-6 max-w-4xl mx-auto" style={{ wordBreak: 'normal', whiteSpace: 'normal', overflowWrap: 'normal' }}>
             Dive deeper into this incredible era of science fiction with our comprehensive reviews,
             galleries, and audio archives.
           </p>

@@ -171,7 +171,7 @@ export default function ReviewsPage() {
           >
             NEVER MISS A REVIEW
           </h3>
-          <p className="text-foreground/80 mb-6 max-w-2xl mx-auto" style={{ wordBreak: 'normal' }}>
+          <p className="text-foreground/80 mb-6 max-w-4xl mx-auto" style={{ wordBreak: 'normal', whiteSpace: 'normal', overflowWrap: 'normal' }}>
             Subscribe to our newsletter and get weekly reviews, recommendations, and vintage sci-fi discoveries.
           </p>
           <Link
