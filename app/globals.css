@@ -86,6 +86,45 @@ p, h1, h2, h3, h4, h5, h6, div {
   hyphens: none;
 }
 
+/* Force normal text flow - override Tailwind aggressive defaults */
+.force-normal-text {
+  word-break: normal !important;
+  word-wrap: normal !important;
+  overflow-wrap: normal !important;
+  white-space: normal !important;
+  hyphens: none !important;
+  display: block !important;
+}
+
+.force-normal-text * {
+  word-break: normal !important;
+  word-wrap: normal !important;
+  overflow-wrap: normal !important;
+  white-space: normal !important;
+  hyphens: none !important;
+}
+
+/* Newsletter signup fix */
+.newsletter-signup {
+  max-width: 600px !important;
+  margin: 0 auto !important;
+  padding: 40px 30px !important;
+  text-align: center !important;
+}
+
+.newsletter-signup p {
+  max-width: 500px !important;
+  margin: 0 auto 20px !important;
+  line-height: 1.6 !important;
+  word-break: normal !important;
+  white-space: normal !important;
+}
+
+.newsletter-signup h3 {
+  word-break: normal !important;
+  white-space: normal !important;
+}
+
 /* Subtle Retro Effects */
 
 /* Very subtle scan lines on dark sections only */

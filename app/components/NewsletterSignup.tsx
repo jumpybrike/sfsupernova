@@ -24,14 +24,22 @@ export default function NewsletterSignup() {
       {/* Subtle retro chrome effect */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#ff6b35]/5 via-transparent to-[#2ec4b6]/5 pointer-events-none"></div>
 
-      <div className="max-w-2xl mx-auto text-center relative z-10">
+      <div className="newsletter-signup relative z-10">
         <h3
-          className="text-2xl sm:text-3xl font-normal mb-3 text-[#ff6b35]"
-          style={{ fontFamily: 'var(--font-audiowide)', wordBreak: 'normal' }}
+          style={{
+            fontFamily: 'var(--font-audiowide)',
+            fontSize: '1.875rem',
+            fontWeight: 'normal',
+            marginBottom: '0.75rem',
+            color: '#ff6b35'
+          }}
         >
           Join the Supernova Community
         </h3>
-        <p className="text-[#c9d1d9]/90 mb-6 leading-relaxed" style={{ fontFamily: 'var(--font-inter)', wordBreak: 'normal', maxWidth: '600px', margin: '0 auto 1.5rem' }}>
+        <p style={{
+          fontFamily: 'var(--font-inter)',
+          color: 'rgba(201, 209, 217, 0.9)'
+        }}>
           Subscribe for weekly vintage sci-fi discoveries, reviews, and audio drama recommendations delivered straight to your inbox.
         </p>
 
@@ -57,18 +65,30 @@ export default function NewsletterSignup() {
         </form>
 
         {status === 'success' && (
-          <p className="mt-4 text-[#2ec4b6] font-medium" style={{ fontFamily: 'var(--font-inter)', wordBreak: 'normal' }}>
+          <p style={{
+            color: '#2ec4b6',
+            fontWeight: '500',
+            fontFamily: 'var(--font-inter)'
+          }}>
             Success! Check your email to confirm your subscription.
           </p>
         )}
 
         {status === 'error' && (
-          <p className="mt-4 text-[#e63946] font-medium" style={{ fontFamily: 'var(--font-inter)', wordBreak: 'normal' }}>
+          <p style={{
+            color: '#e63946',
+            fontWeight: '500',
+            fontFamily: 'var(--font-inter)'
+          }}>
             Oops! Something went wrong. Please try again.
           </p>
         )}
 
-        <p className="text-xs text-[#c9d1d9]/60 mt-4" style={{ fontFamily: 'var(--font-inter)', wordBreak: 'normal' }}>
+        <p style={{
+          fontSize: '0.75rem',
+          color: 'rgba(201, 209, 217, 0.6)',
+          fontFamily: 'var(--font-inter)'
+        }}>
           We respect your privacy. Unsubscribe at any time.
         </p>
       </div>
