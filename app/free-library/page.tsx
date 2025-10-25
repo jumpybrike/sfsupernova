@@ -19,6 +19,8 @@ interface Book {
     html: string;
     pdf?: string;
   };
+  hasAudiobook?: boolean;
+  librivoxUrl?: string;
 }
 
 const books: Book[] = [
@@ -37,7 +39,9 @@ const books: Book[] = [
       epub: "https://www.gutenberg.org/ebooks/18857.epub.images",
       kindle: "https://www.gutenberg.org/ebooks/18857.kindle.images",
       html: "https://www.gutenberg.org/files/18857/18857-h/18857-h.htm",
-    }
+    },
+    hasAudiobook: true,
+    librivoxUrl: "https://librivox.org/journey-to-the-center-of-the-earth-by-jules-verne/",
   },
   {
     id: "from-earth-to-moon",
@@ -53,7 +57,9 @@ const books: Book[] = [
       epub: "https://www.gutenberg.org/ebooks/83.epub.images",
       kindle: "https://www.gutenberg.org/ebooks/83.kindle.images",
       html: "https://www.gutenberg.org/files/83/83-h/83-h.htm",
-    }
+    },
+    hasAudiobook: true,
+    librivoxUrl: "https://librivox.org/from-the-earth-to-the-moon-by-jules-verne/",
   },
   {
     id: "twenty-thousand-leagues",
@@ -69,7 +75,9 @@ const books: Book[] = [
       epub: "https://www.gutenberg.org/ebooks/164.epub.images",
       kindle: "https://www.gutenberg.org/ebooks/164.kindle.images",
       html: "https://www.gutenberg.org/files/164/164-h/164-h.htm",
-    }
+    },
+    hasAudiobook: true,
+    librivoxUrl: "https://librivox.org/twenty-thousand-leagues-under-the-sea-by-jules-verne/",
   },
   {
     id: "time-machine",
@@ -85,7 +93,9 @@ const books: Book[] = [
       epub: "https://www.gutenberg.org/ebooks/35.epub.images",
       kindle: "https://www.gutenberg.org/ebooks/35.kindle.images",
       html: "https://www.gutenberg.org/files/35/35-h/35-h.htm",
-    }
+    },
+    hasAudiobook: true,
+    librivoxUrl: "https://librivox.org/the-time-machine-by-h-g-wells/",
   },
   {
     id: "war-of-worlds",
@@ -101,7 +111,9 @@ const books: Book[] = [
       epub: "https://www.gutenberg.org/ebooks/36.epub.images",
       kindle: "https://www.gutenberg.org/ebooks/36.kindle.images",
       html: "https://www.gutenberg.org/files/36/36-h/36-h.htm",
-    }
+    },
+    hasAudiobook: true,
+    librivoxUrl: "https://librivox.org/the-war-of-the-worlds-by-h-g-wells/",
   },
   {
     id: "island-dr-moreau",
@@ -117,7 +129,9 @@ const books: Book[] = [
       epub: "https://www.gutenberg.org/ebooks/159.epub.images",
       kindle: "https://www.gutenberg.org/ebooks/159.kindle.images",
       html: "https://www.gutenberg.org/files/159/159-h/159-h.htm",
-    }
+    },
+    hasAudiobook: true,
+    librivoxUrl: "https://librivox.org/the-island-of-doctor-moreau-by-hg-wells/",
   },
   {
     id: "invisible-man",
@@ -133,7 +147,9 @@ const books: Book[] = [
       epub: "https://www.gutenberg.org/ebooks/5230.epub.images",
       kindle: "https://www.gutenberg.org/ebooks/5230.kindle.images",
       html: "https://www.gutenberg.org/files/5230/5230-h/5230-h.htm",
-    }
+    },
+    hasAudiobook: true,
+    librivoxUrl: "https://librivox.org/the-invisible-man-by-hg-wells/",
   },
   // PLANETARY ROMANCE ERA (1910s-1920s)
   {
@@ -150,7 +166,9 @@ const books: Book[] = [
       epub: "https://www.gutenberg.org/ebooks/62.epub.images",
       kindle: "https://www.gutenberg.org/ebooks/62.kindle.images",
       html: "https://www.gutenberg.org/files/62/62-h/62-h.htm",
-    }
+    },
+    hasAudiobook: true,
+    librivoxUrl: "https://librivox.org/a-princess-of-mars-by-edgar-rice-burroughs/",
   },
   {
     id: "gods-of-mars",
@@ -166,7 +184,9 @@ const books: Book[] = [
       epub: "https://www.gutenberg.org/ebooks/64.epub.images",
       kindle: "https://www.gutenberg.org/ebooks/64.kindle.images",
       html: "https://www.gutenberg.org/files/64/64-h/64-h.htm",
-    }
+    },
+    hasAudiobook: true,
+    librivoxUrl: "https://librivox.org/the-gods-of-mars-by-edgar-rice-burroughs/",
   },
   {
     id: "warlord-of-mars",
@@ -182,7 +202,9 @@ const books: Book[] = [
       epub: "https://www.gutenberg.org/ebooks/68.epub.images",
       kindle: "https://www.gutenberg.org/ebooks/68.kindle.images",
       html: "https://www.gutenberg.org/files/68/68-h/68-h.htm",
-    }
+    },
+    hasAudiobook: true,
+    librivoxUrl: "https://librivox.org/the-warlord-of-mars-by-edgar-rice-burroughs/",
   },
   {
     id: "at-earths-core",
@@ -198,7 +220,9 @@ const books: Book[] = [
       epub: "https://www.gutenberg.org/ebooks/123.epub.images",
       kindle: "https://www.gutenberg.org/ebooks/123.kindle.images",
       html: "https://www.gutenberg.org/files/123/123-h/123-h.htm",
-    }
+    },
+    hasAudiobook: true,
+    librivoxUrl: "https://librivox.org/at-the-earths-core-by-edgar-rice-burroughs/",
   },
   {
     id: "moon-pool",
@@ -296,7 +320,9 @@ const books: Book[] = [
       epub: "https://www.gutenberg.org/ebooks/1013.epub.images",
       kindle: "https://www.gutenberg.org/ebooks/1013.kindle.images",
       html: "https://www.gutenberg.org/files/1013/1013-h/1013-h.htm",
-    }
+    },
+    hasAudiobook: true,
+    librivoxUrl: "https://librivox.org/the-first-men-in-the-moon-by-hg-wells/",
   },
   {
     id: "when-sleeper-wakes",
@@ -360,7 +386,9 @@ const books: Book[] = [
       epub: "https://www.gutenberg.org/ebooks/84.epub.images",
       kindle: "https://www.gutenberg.org/ebooks/84.kindle.images",
       html: "https://www.gutenberg.org/files/84/84-h/84-h.htm",
-    }
+    },
+    hasAudiobook: true,
+    librivoxUrl: "https://librivox.org/frankenstein-by-mary-shelley/",
   },
   {
     id: "jekyll-hyde",
@@ -376,7 +404,9 @@ const books: Book[] = [
       epub: "https://www.gutenberg.org/ebooks/43.epub.images",
       kindle: "https://www.gutenberg.org/ebooks/43.kindle.images",
       html: "https://www.gutenberg.org/files/43/43-h/43-h.htm",
-    }
+    },
+    hasAudiobook: true,
+    librivoxUrl: "https://librivox.org/strange-case-of-dr-jekyll-and-mr-hyde-by-robert-louis-stevenson/",
   },
   {
     id: "looking-backward",
@@ -550,6 +580,15 @@ export default function FreeLibraryPage() {
                   backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,255,255,0.1) 2px, rgba(255,255,255,0.1) 4px)',
                 }}></div>
 
+                {/* Audiobook Badge */}
+                {book.hasAudiobook && (
+                  <div className="absolute top-2 right-2 bg-[#ffbe0b] text-[#1a2332] p-1.5 rounded-full shadow-lg z-20" title="Audiobook available">
+                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M18 3a1 1 0 00-1.196-.98l-10 2A1 1 0 006 5v9.114A4.369 4.369 0 005 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V7.82l8-1.6v5.894A4.37 4.37 0 0015 12c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V3z" />
+                    </svg>
+                  </div>
+                )}
+
                 {/* Top decoration */}
                 <div className="relative z-10 w-full">
                   <div className="h-1 bg-white/40 mb-3"></div>
@@ -617,6 +656,22 @@ export default function FreeLibraryPage() {
                   {book.recommendation}
                 </p>
 
+                {/* Listen Free Button (if audiobook available) */}
+                {book.hasAudiobook && book.librivoxUrl && (
+                  <a
+                    href={book.librivoxUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full px-6 py-3 bg-[#2ec4b6] text-white font-semibold rounded-md hover:bg-[#2ec4b6]/90 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-2 mb-3"
+                    style={{ fontFamily: 'var(--font-inter)' }}
+                  >
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15.536a5 5 0 001.414 1.414m0-7.072a5 5 0 00-1.414 1.414m7.072-7.072a9 9 0 0110.607 0" />
+                    </svg>
+                    Listen Free
+                  </a>
+                )}
+
                 {/* Download Button */}
                 <div className="relative">
                   <button
@@ -669,13 +724,13 @@ export default function FreeLibraryPage() {
           })}
         </div>
 
-        {/* Project Gutenberg Attribution */}
+        {/* Project Gutenberg & LibriVox Attribution */}
         <section className="text-center py-12 bg-[#1a2332] rounded-lg border-2 border-[#c9d1d9]/30">
           <h3
             className="text-2xl font-normal mb-4 text-[#ff6b35]"
             style={{ fontFamily: 'var(--font-audiowide)' }}
           >
-            COURTESY OF PROJECT GUTENBERG
+            COURTESY OF PROJECT GUTENBERG & LIBRIVOX
           </h3>
           <p
             className="text-[#c9d1d9] mb-4 max-w-4xl mx-auto leading-relaxed"
@@ -689,6 +744,21 @@ export default function FreeLibraryPage() {
               className="text-[#ff6b35] hover:text-[#e63946] transition-colors font-semibold"
             >
               Project Gutenberg
+            </a>
+            .
+          </p>
+          <p
+            className="text-[#c9d1d9] mb-4 max-w-4xl mx-auto leading-relaxed"
+            style={{ fontFamily: 'var(--font-inter)', wordBreak: 'normal', whiteSpace: 'normal', overflowWrap: 'normal' }}
+          >
+            Audiobooks courtesy of{' '}
+            <a
+              href="https://librivox.org"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#2ec4b6] hover:text-[#2ec4b6]/80 transition-colors font-semibold"
+            >
+              LibriVox
             </a>
             .
           </p>
