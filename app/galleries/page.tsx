@@ -6,16 +6,38 @@ export const metadata = {
 };
 
 export default function GalleriesPage() {
-  const galleries = [
+  // DECADE GALLERIES - Journey through sci-fi's visual evolution
+  const decadeGalleries = [
+    {
+      id: 'victorian-pioneers',
+      title: 'Victorian Era: The Pioneers',
+      decade: '1860s-1890s',
+      imageCount: 12,
+      description: 'Before "science fiction" had a name. Jules Verne, H.G. Wells, and Mary Shelley imagined futures of technological wonder in gorgeously illustrated Victorian editions.',
+      color: 'border-primary',
+      textColor: 'text-primary',
+    },
+    {
+      id: '1920s-pulp-era',
+      title: '1920s-1930s: The Pulp Era Begins',
+      decade: '1920s-1930s',
+      imageCount: 8,
+      description: 'Amazing Stories, Astounding, and the birth of pulp magazines. Bug-eyed monsters, ray guns, and damsels in distress—where sci-fi became its own genre.',
+      color: 'border-accent',
+      textColor: 'text-accent',
+    },
     {
       id: '1950s-space-opera',
-      title: 'Pulp Dreams: 1950s Space Opera Cover Art',
+      title: '1950s: Space Age Dreams',
       decade: '1950s',
       imageCount: 6,
-      description: 'When rockets were chrome and heroes were square-jawed, cover artists imagined futures of endless adventure. Explore vintage covers from the golden age of space opera.',
+      description: 'Chrome rockets and atomic optimism! The most iconic decade. Richard Powers, Ed Emshwiller, and artists who defined "retro-futuristic" aesthetics.',
       color: 'border-retro-cyan',
       textColor: 'text-retro-cyan',
     },
+  ];
+
+  const galleries = [
     {
       id: '2',
       title: 'Classic Film Posters 1950-1960',
@@ -133,13 +155,81 @@ export default function GalleriesPage() {
           </div>
         </section>
 
+        {/* Decade Galleries - Journey Through Time */}
+        <section className="mb-16">
+          <div className="text-center mb-8">
+            <h2
+              className="text-3xl font-bold mb-4 text-primary text-glow"
+              style={{ fontFamily: 'Orbitron, sans-serif' }}
+            >
+              JOURNEY THROUGH THE DECADES
+            </h2>
+            <p className="text-lg text-foreground/70">
+              Explore how science fiction cover art evolved from Victorian pioneers to 1970s experimentalism
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+            {decadeGalleries.map((gallery) => (
+              <Link
+                key={gallery.id}
+                href={`/galleries/${gallery.id}`}
+                className={`group bg-dark-blue/30 backdrop-blur-sm border-2 ${gallery.color}/30 rounded-lg overflow-hidden hover:${gallery.color} transition-all duration-300`}
+              >
+                {/* Gallery Preview */}
+                <div className="aspect-video bg-gradient-to-br from-dark-purple to-dark-blue border-b-2 border-inherit flex items-center justify-center relative overflow-hidden">
+                  <div className="absolute inset-0 grid grid-cols-3 gap-2 p-4 opacity-50">
+                    {[1, 2, 3, 4, 5, 6].map((i) => (
+                      <div
+                        key={i}
+                        className={`bg-gradient-to-br from-${gallery.textColor}/20 to-transparent border border-${gallery.textColor}/20 rounded`}
+                      ></div>
+                    ))}
+                  </div>
+
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <span className="text-6xl font-bold text-foreground/10" style={{ fontFamily: 'Orbitron, sans-serif' }}>
+                      {gallery.decade}
+                    </span>
+                  </div>
+
+                  <div className="absolute top-4 right-4 bg-background/80 px-3 py-1 rounded text-sm font-bold text-foreground">
+                    {gallery.imageCount} covers
+                  </div>
+                </div>
+
+                {/* Gallery Info */}
+                <div className="p-6">
+                  <h3
+                    className={`text-xl font-bold mb-2 ${gallery.textColor} group-hover:text-glow transition-all duration-300`}
+                    style={{ fontFamily: 'Orbitron, sans-serif' }}
+                  >
+                    {gallery.title}
+                  </h3>
+
+                  <p className="text-sm text-foreground/70 mb-4 line-clamp-2">
+                    {gallery.description}
+                  </p>
+
+                  <div className="flex items-center text-sm text-retro-cyan">
+                    <span className="font-bold">Explore Gallery</span>
+                    <svg className="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
+
         {/* All Galleries */}
         <section>
           <h2
             className="text-3xl font-bold mb-8 text-retro-cyan text-glow text-center"
             style={{ fontFamily: 'Orbitron, sans-serif' }}
           >
-            ALL COLLECTIONS
+            MORE COLLECTIONS
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
