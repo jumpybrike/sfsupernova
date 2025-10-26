@@ -16,6 +16,14 @@ export default function GalleriesPage() {
       description: 'Before "science fiction" had a name. Jules Verne, H.G. Wells, and Mary Shelley imagined futures of technological wonder in gorgeously illustrated Victorian editions.',
       color: 'border-primary',
       textColor: 'text-primary',
+      previewImages: [
+        '/covers/war-of-worlds.jpg',
+        '/covers/time-machine.jpg',
+        '/covers/frankenstein.jpg',
+        '/covers/twenty-thousand-leagues.jpg',
+        '/covers/invisible-man.jpg',
+        '/covers/jekyll-hyde.jpg',
+      ],
     },
     {
       id: '1920s-pulp-era',
@@ -25,6 +33,14 @@ export default function GalleriesPage() {
       description: 'Amazing Stories, Astounding, and the birth of pulp magazines. Bug-eyed monsters, ray guns, and damsels in distress—where sci-fi became its own genre.',
       color: 'border-accent',
       textColor: 'text-accent',
+      previewImages: [
+        '/covers/princess-mars.jpg',
+        '/covers/skylark-space.jpg',
+        '/covers/gods-mars.jpg',
+        '/covers/warlord-mars.jpg',
+        '/covers/earths-core.jpg',
+        '/covers/lost-world.jpg',
+      ],
     },
     {
       id: '1950s-space-opera',
@@ -34,6 +50,14 @@ export default function GalleriesPage() {
       description: 'Chrome rockets and atomic optimism! The most iconic decade. Richard Powers, Ed Emshwiller, and artists who defined "retro-futuristic" aesthetics.',
       color: 'border-retro-cyan',
       textColor: 'text-retro-cyan',
+      previewImages: [
+        '/covers/first-men-moon.jpg',
+        '/covers/from-earth-moon.jpg',
+        '/covers/journey-center-earth.jpg',
+        '/covers/around-world.jpg',
+        '/covers/sleeper-wakes.jpg',
+        '/covers/food-of-gods.jpg',
+      ],
     },
   ];
 
@@ -176,24 +200,31 @@ export default function GalleriesPage() {
                 href={`/galleries/${gallery.id}`}
                 className={`group bg-dark-blue/30 backdrop-blur-sm border-2 ${gallery.color}/30 rounded-lg overflow-hidden hover:${gallery.color} transition-all duration-300`}
               >
-                {/* Gallery Preview */}
-                <div className="aspect-video bg-gradient-to-br from-dark-purple to-dark-blue border-b-2 border-inherit flex items-center justify-center relative overflow-hidden">
-                  <div className="absolute inset-0 grid grid-cols-3 gap-2 p-4 opacity-50">
-                    {[1, 2, 3, 4, 5, 6].map((i) => (
+                {/* Gallery Preview - Grid of actual covers */}
+                <div className="aspect-video bg-gradient-to-br from-dark-purple to-dark-blue border-b-2 border-inherit relative overflow-hidden">
+                  <div className="absolute inset-0 grid grid-cols-3 grid-rows-2 gap-2 p-3">
+                    {gallery.previewImages.map((imageUrl, i) => (
                       <div
                         key={i}
-                        className={`bg-gradient-to-br from-${gallery.textColor}/20 to-transparent border border-${gallery.textColor}/20 rounded`}
-                      ></div>
+                        className="relative overflow-hidden rounded-sm bg-dark-blue/50 group-hover:scale-105 transition-transform duration-300"
+                      >
+                        <img
+                          src={imageUrl}
+                          alt=""
+                          className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-300"
+                        />
+                      </div>
                     ))}
                   </div>
 
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="text-6xl font-bold text-foreground/10" style={{ fontFamily: 'Orbitron, sans-serif' }}>
+                  {/* Overlay with decade label */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-dark-blue/90 via-transparent to-transparent flex items-end justify-center pb-4">
+                    <span className="text-2xl font-bold text-white/90 drop-shadow-lg" style={{ fontFamily: 'Orbitron, sans-serif' }}>
                       {gallery.decade}
                     </span>
                   </div>
 
-                  <div className="absolute top-4 right-4 bg-background/80 px-3 py-1 rounded text-sm font-bold text-foreground">
+                  <div className="absolute top-3 right-3 bg-background/90 px-3 py-1 rounded text-xs font-bold text-foreground backdrop-blur-sm">
                     {gallery.imageCount} covers
                   </div>
                 </div>
