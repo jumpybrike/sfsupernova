@@ -442,6 +442,36 @@ const books: Book[] = [
   },
 ];
 
+// Map book IDs to cover image filenames
+const coverImages: { [key: string]: string } = {
+  "war-of-worlds": "/covers/war-of-worlds.jpg",
+  "time-machine": "/covers/time-machine.jpg",
+  "island-dr-moreau": "/covers/island-moreau.jpg",
+  "invisible-man": "/covers/invisible-man.jpg",
+  "first-men-in-moon": "/covers/first-men-moon.jpg",
+  "sleeper-wakes": "/covers/sleeper-wakes.jpg",
+  "in-days-comet": "/covers/days-comet.jpg",
+  "food-of-gods": "/covers/food-of-gods.jpg",
+  "twenty-thousand-leagues": "/covers/twenty-thousand-leagues.jpg",
+  "journey-center-earth": "/covers/journey-center-earth.jpg",
+  "from-earth-moon": "/covers/from-earth-moon.jpg",
+  "around-world-eighty-days": "/covers/around-world.jpg",
+  "princess-of-mars": "/covers/princess-mars.jpg",
+  "gods-of-mars": "/covers/gods-mars.jpg",
+  "warlord-of-mars": "/covers/warlord-mars.jpg",
+  "at-earths-core": "/covers/earths-core.jpg",
+  "moon-maid": "/covers/moon-maid.jpg",
+  "moon-pool": "/covers/moon-pool.jpg",
+  "metal-monster": "/covers/metal-monster.jpg",
+  "skylark-space": "/covers/skylark-space.jpg",
+  "frankenstein": "/covers/frankenstein.jpg",
+  "jekyll-hyde": "/covers/jekyll-hyde.jpg",
+  "flatland": "/covers/flatland.jpg",
+  "connecticut-yankee": "/covers/connecticut-yankee.jpg",
+  "lost-world": "/covers/lost-world.jpg",
+  "looking-backward": "/covers/looking-backward.jpg",
+};
+
 export default function FreeLibraryPage() {
   const [selectedDecade, setSelectedDecade] = useState<string>('all');
   const [selectedAuthor, setSelectedAuthor] = useState<string>('all');
@@ -563,35 +593,41 @@ export default function FreeLibraryPage() {
 
         {/* Books Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-          {filteredBooks.map((book, index) => {
-            // Generate unique colors for each book based on index
-            const colors = [
-              { bg: 'linear-gradient(135deg, #ff6b35 0%, #e63946 100%)', border: '#ff6b35' },
-              { bg: 'linear-gradient(135deg, #2ec4b6 0%, #00d9ff 100%)', border: '#2ec4b6' },
-              { bg: 'linear-gradient(135deg, #ffbe0b 0%, #ff6b35 100%)', border: '#ffbe0b' },
-              { bg: 'linear-gradient(135deg, #e63946 0%, #ff6b35 100%)', border: '#e63946' },
-              { bg: 'linear-gradient(135deg, #1a2332 0%, #2a1f3e 100%)', border: '#00d9ff' },
-              { bg: 'linear-gradient(135deg, #2a1f3e 0%, #1a2332 100%)', border: '#2ec4b6' },
-            ];
-            const colorScheme = colors[index % colors.length];
+          {filteredBooks.map((book) => {
+            const coverImage = coverImages[book.id];
 
             return (
             <article
               key={book.id}
               className="bg-white border border-[#c9d1d9]/20 rounded-lg overflow-hidden hover:border-[#ff6b35] transition-all duration-300 shadow-sm hover:shadow-lg hover:-translate-y-1 flex flex-col"
             >
-              {/* Vintage Book Cover */}
-              <div
-                className="aspect-[2/3] border-b-2 flex flex-col items-center justify-between p-6 text-center relative"
-                style={{
-                  background: colorScheme.bg,
-                  borderBottomColor: colorScheme.border,
-                }}
-              >
-                {/* Vintage texture overlay */}
-                <div className="absolute inset-0 opacity-10" style={{
-                  backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,255,255,0.1) 2px, rgba(255,255,255,0.1) 4px)',
-                }}></div>
+              {/* Book Cover Image */}
+              <div className="aspect-[2/3] border-b-2 border-[#c9d1d9]/30 relative overflow-hidden bg-gradient-to-br from-[#1a2332] to-[#2a3a4a]">
+                {coverImage ? (
+                  <img
+                    src={coverImage}
+                    alt={`Cover of ${book.title} by ${book.author} (${book.year})`}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                ) : (
+                  <div className="w-full h-full flex flex-col items-center justify-center p-6 text-center">
+                    <div className="relative z-10">
+                      <p className="text-white/60 text-[9px] uppercase tracking-widest mb-4" style={{ fontFamily: 'var(--font-courier-prime)' }}>
+                        Vintage Classic
+                      </p>
+                      <h4 className="text-white font-normal text-base leading-tight mb-4" style={{ fontFamily: 'var(--font-audiowide)' }}>
+                        {book.title}
+                      </h4>
+                      <p className="text-white font-bold text-lg" style={{ fontFamily: 'var(--font-courier-prime)' }}>
+                        {book.year}
+                      </p>
+                      <p className="text-white/80 text-xs mt-1" style={{ fontFamily: 'var(--font-inter)' }}>
+                        {book.author}
+                      </p>
+                    </div>
+                  </div>
+                )}
 
                 {/* Audiobook Badge */}
                 {book.hasAudiobook && (
@@ -601,32 +637,6 @@ export default function FreeLibraryPage() {
                     </svg>
                   </div>
                 )}
-
-                {/* Top decoration */}
-                <div className="relative z-10 w-full">
-                  <div className="h-1 bg-white/40 mb-3"></div>
-                  <p className="text-white/60 text-[9px] uppercase tracking-widest" style={{ fontFamily: 'var(--font-courier-prime)' }}>
-                    Vintage Classic
-                  </p>
-                </div>
-
-                {/* Title - centered */}
-                <div className="relative z-10 flex-1 flex items-center justify-center">
-                  <h4 className="text-white font-normal text-base leading-tight" style={{ fontFamily: 'var(--font-audiowide)' }}>
-                    {book.title}
-                  </h4>
-                </div>
-
-                {/* Bottom decoration */}
-                <div className="relative z-10 w-full">
-                  <div className="h-1 bg-white/40 mb-3"></div>
-                  <p className="text-white font-bold text-lg" style={{ fontFamily: 'var(--font-courier-prime)' }}>
-                    {book.year}
-                  </p>
-                  <p className="text-white/80 text-xs mt-1" style={{ fontFamily: 'var(--font-inter)' }}>
-                    {book.author}
-                  </p>
-                </div>
               </div>
 
               {/* Book Info */}

@@ -581,21 +581,32 @@ export default function AudiobookLibrary() {
             >
               {/* Cover Image */}
               <div className="relative">
-                <div className="aspect-[2/3] bg-gradient-to-br from-[#1a2332] to-[#2a3a4a] flex items-center justify-center">
-                  <div className="text-center p-8">
-                    <p
-                      className="text-[#ff6b35] text-2xl font-bold mb-2"
-                      style={{ fontFamily: 'var(--font-audiowide)' }}
-                    >
-                      {book.title}
-                    </p>
-                    <p
-                      className="text-[#c9d1d9] text-lg"
-                      style={{ fontFamily: 'var(--font-inter)' }}
-                    >
-                      {book.author}
-                    </p>
-                  </div>
+                <div className="aspect-[2/3] bg-gradient-to-br from-[#1a2332] to-[#2a3a4a] overflow-hidden">
+                  {book.coverImage ? (
+                    <img
+                      src={book.coverImage}
+                      alt={`Cover of ${book.title} by ${book.author} (${book.year}) - audiobook`}
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center">
+                      <div className="text-center p-8">
+                        <p
+                          className="text-[#ff6b35] text-2xl font-bold mb-2"
+                          style={{ fontFamily: 'var(--font-audiowide)' }}
+                        >
+                          {book.title}
+                        </p>
+                        <p
+                          className="text-[#c9d1d9] text-lg"
+                          style={{ fontFamily: 'var(--font-inter)' }}
+                        >
+                          {book.author}
+                        </p>
+                      </div>
+                    </div>
+                  )}
                 </div>
                 {/* Audiobook Badge */}
                 <div className="absolute top-2 right-2 bg-[#2ec4b6] text-white p-2 rounded-full shadow-lg" title="Audiobook available">
