@@ -548,6 +548,19 @@ export default function FreeLibraryPage() {
           </p>
         </div>
 
+        {/* Cross-Promotion Banner */}
+        <div className="bg-[#2ec4b6] py-4 rounded-lg mb-12 shadow-lg">
+          <p
+            className="text-center text-white text-lg"
+            style={{ fontFamily: 'var(--font-inter)' }}
+          >
+            🎧 Prefer audiobooks?{' '}
+            <Link href="/audiobook-library" className="font-bold underline hover:text-[#1a2332] transition-colors">
+              Visit our Audiobook Library
+            </Link>
+          </p>
+        </div>
+
         {/* Books Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
           {filteredBooks.map((book, index) => {

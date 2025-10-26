@@ -6,14 +6,21 @@ import { useState, useRef } from 'react';
 
 export default function Navigation() {
   const [decadesOpen, setDecadesOpen] = useState(false);
+  const [libraryOpen, setLibraryOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const libraryTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const decades = [
     { slug: '1930s-1940s', name: '1930s-1940s (Golden Age)' },
     { slug: '1950s', name: '1950s (Space Age)' },
     { slug: '1960s', name: '1960s (New Wave)' },
     { slug: '1970s', name: '1970s (Experimental Era)' },
+  ];
+
+  const libraryLinks = [
+    { href: '/free-library', name: 'Ebook Library', icon: '📖' },
+    { href: '/audiobook-library', name: 'Audiobook Library', icon: '🎧' },
   ];
 
   const handleMouseEnter = () => {
@@ -27,6 +34,20 @@ export default function Navigation() {
   const handleMouseLeave = () => {
     closeTimeoutRef.current = setTimeout(() => {
       setDecadesOpen(false);
+    }, 300); // 300ms delay before closing
+  };
+
+  const handleLibraryMouseEnter = () => {
+    if (libraryTimeoutRef.current) {
+      clearTimeout(libraryTimeoutRef.current);
+      libraryTimeoutRef.current = null;
+    }
+    setLibraryOpen(true);
+  };
+
+  const handleLibraryMouseLeave = () => {
+    libraryTimeoutRef.current = setTimeout(() => {
+      setLibraryOpen(false);
     }, 300); // 300ms delay before closing
   };
 
@@ -109,13 +130,40 @@ export default function Navigation() {
             >
               Galleries
             </Link>
-            <Link
-              href="/free-library"
-              className="text-[#c9d1d9] hover:text-[#ff6b35] transition-colors duration-200 font-medium text-base"
-              style={{ fontFamily: 'var(--font-inter)' }}
+
+            {/* Free Library Dropdown */}
+            <div
+              className="relative"
+              onMouseEnter={handleLibraryMouseEnter}
+              onMouseLeave={handleLibraryMouseLeave}
             >
-              Free Library
-            </Link>
+              <button
+                className="text-[#c9d1d9] hover:text-[#ff6b35] transition-colors duration-200 flex items-center font-medium text-base"
+                style={{ fontFamily: 'var(--font-inter)' }}
+              >
+                Free Library
+                <svg className="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+
+              {libraryOpen && (
+                <div className="absolute left-0 mt-2 w-56 bg-[#1a2332] border border-[#c9d1d9]/30 rounded-md shadow-lg overflow-hidden animate-[slideDown_0.3s_ease-out]">
+                  {libraryLinks.map((link) => (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      className="block px-4 py-3 text-sm text-[#c9d1d9] hover:bg-[#ff6b35]/20 hover:text-[#ff6b35] transition-colors duration-200"
+                      style={{ fontFamily: 'var(--font-inter)' }}
+                    >
+                      <span className="mr-2">{link.icon}</span>
+                      {link.name}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+
             <Link
               href="/about"
               className="text-[#c9d1d9] hover:text-[#ff6b35] transition-colors duration-200 font-medium text-base"
@@ -200,13 +248,36 @@ export default function Navigation() {
             >
               Galleries
             </Link>
-            <Link
-              href="/free-library"
-              className="block py-3 text-[#c9d1d9] hover:text-[#ff6b35] transition-colors duration-200 font-medium"
-              style={{ fontFamily: 'var(--font-inter)' }}
-            >
-              Free Library
-            </Link>
+
+            {/* Free Library Dropdown - Mobile */}
+            <div className="py-2">
+              <button
+                onClick={() => setLibraryOpen(!libraryOpen)}
+                className="w-full text-left text-[#c9d1d9] hover:text-[#ff6b35] transition-colors duration-200 flex items-center justify-between font-medium"
+                style={{ fontFamily: 'var(--font-inter)' }}
+              >
+                Free Library
+                <svg className={`w-4 h-4 transform transition-transform ${libraryOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              {libraryOpen && (
+                <div className="pl-4 mt-2 space-y-2">
+                  {libraryLinks.map((link) => (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      className="block py-2 text-sm text-[#c9d1d9] hover:text-[#ff6b35] transition-colors duration-200"
+                      style={{ fontFamily: 'var(--font-inter)' }}
+                    >
+                      <span className="mr-2">{link.icon}</span>
+                      {link.name}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+
             <Link
               href="/about"
               className="block py-3 text-[#c9d1d9] hover:text-[#ff6b35] transition-colors duration-200 font-medium"
