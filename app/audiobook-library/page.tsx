@@ -412,6 +412,24 @@ const audiobooks: Audiobook[] = [
   }
 ];
 
+// Helper function to convert author names to slugs for linking
+function getAuthorSlug(authorName: string): string {
+  const slugMap: { [key: string]: string } = {
+    'Jules Verne': 'jules-verne',
+    'H.G. Wells': 'h-g-wells',
+    'Edgar Rice Burroughs': 'edgar-rice-burroughs',
+    'A. Merritt': 'a-merritt',
+    'E.E. \'Doc\' Smith': 'e-e-doc-smith',
+    'Edwin Abbott Abbott': 'edwin-a-abbott',
+    'Arthur Conan Doyle': 'arthur-conan-doyle',
+    'Mary Shelley': 'mary-shelley',
+    'Robert Louis Stevenson': 'robert-louis-stevenson',
+    'Edward Bellamy': 'edward-bellamy',
+    'Mark Twain': 'mark-twain',
+  };
+  return slugMap[authorName] || authorName.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+}
+
 export default function AudiobookLibrary() {
   const [decadeFilter, setDecadeFilter] = useState<string>('all');
   const [authorFilter, setAuthorFilter] = useState<string>('all');
@@ -629,7 +647,12 @@ export default function AudiobookLibrary() {
                   className="text-[#c9d1d9]/70 text-sm mb-3"
                   style={{ fontFamily: 'var(--font-inter)' }}
                 >
-                  {book.author} • {book.year}
+                  <Link
+                    href={`/authors/${getAuthorSlug(book.author)}`}
+                    className="hover:text-[#ff6b35] transition-colors"
+                  >
+                    {book.author}
+                  </Link> • {book.year}
                 </p>
 
                 {/* Duration & Reader */}

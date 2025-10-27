@@ -53,10 +53,10 @@ export default function GalleriesPage() {
       previewImages: [
         '/covers/first-men-moon.jpg',
         '/covers/from-earth-moon.jpg',
-        '/covers/journey-center-earth.jpg',
-        '/covers/around-world.jpg',
-        '/covers/sleeper-wakes.jpg',
-        '/covers/food-of-gods.jpg',
+        '/covers/twenty-thousand-leagues.jpg',
+        '/covers/time-machine.jpg',
+        '/covers/island-moreau.jpg',
+        '/covers/invisible-man.jpg',
       ],
     },
   ];
@@ -70,6 +70,14 @@ export default function GalleriesPage() {
       description: 'Original movie posters from the era that brought science fiction to the silver screen. From The Day the Earth Stood Still to Forbidden Planet.',
       color: 'border-primary',
       textColor: 'text-primary',
+      previewImages: [
+        '/covers/first-men-moon.jpg',
+        '/covers/war-of-worlds.jpg',
+        '/covers/invisible-man.jpg',
+        '/covers/island-moreau.jpg',
+        '/covers/time-machine.jpg',
+        '/covers/from-earth-moon.jpg',
+      ],
     },
     {
       id: '3',
@@ -79,6 +87,14 @@ export default function GalleriesPage() {
       description: 'The covers that started it all. Hugo Gernsback\'s Amazing Stories brought sci-fi to the masses with stunning cover illustrations.',
       color: 'border-accent',
       textColor: 'text-accent',
+      previewImages: [
+        '/covers/princess-mars.jpg',
+        '/covers/gods-mars.jpg',
+        '/covers/warlord-mars.jpg',
+        '/covers/earths-core.jpg',
+        '/covers/moon-maid.jpg',
+        '/covers/lost-world.jpg',
+      ],
     },
     {
       id: '4',
@@ -88,6 +104,14 @@ export default function GalleriesPage() {
       description: 'John W. Campbell\'s Astounding Science Fiction magazine covers, featuring iconic imagery that defined the genre.',
       color: 'border-retro-pink',
       textColor: 'text-retro-pink',
+      previewImages: [
+        '/covers/skylark-space.jpg',
+        '/covers/earths-core.jpg',
+        '/covers/first-men-moon.jpg',
+        '/covers/war-of-worlds.jpg',
+        '/covers/twenty-thousand-leagues.jpg',
+        '/covers/from-earth-moon.jpg',
+      ],
     },
     {
       id: '5',
@@ -97,6 +121,14 @@ export default function GalleriesPage() {
       description: 'Paperback cover art from the New Wave era, showcasing psychedelic and experimental design approaches.',
       color: 'border-retro-green',
       textColor: 'text-retro-green',
+      previewImages: [
+        '/covers/moon-pool.jpg',
+        '/covers/metal-monster.jpg',
+        '/covers/moon-maid.jpg',
+        '/covers/frankenstein.jpg',
+        '/covers/jekyll-hyde.jpg',
+        '/covers/lost-world.jpg',
+      ],
     },
     {
       id: '6',
@@ -106,6 +138,14 @@ export default function GalleriesPage() {
       description: 'A thematic collection exploring how robots and artificial intelligence were visualized across four decades.',
       color: 'border-retro-orange',
       textColor: 'text-retro-orange',
+      previewImages: [
+        '/covers/time-machine.jpg',
+        '/covers/island-moreau.jpg',
+        '/covers/princess-mars.jpg',
+        '/covers/skylark-space.jpg',
+        '/covers/metal-monster.jpg',
+        '/covers/invisible-man.jpg',
+      ],
     },
   ];
 
@@ -160,16 +200,23 @@ export default function GalleriesPage() {
                 </div>
 
                 <div className="relative">
-                  {/* Placeholder for gallery preview */}
+                  {/* Gallery preview with real covers */}
                   <div className="grid grid-cols-2 gap-4">
-                    {[1, 2, 3, 4].map((i) => (
+                    {[
+                      '/covers/war-of-worlds.jpg',
+                      '/covers/princess-mars.jpg',
+                      '/covers/gods-mars.jpg',
+                      '/covers/warlord-mars.jpg'
+                    ].map((imageUrl, i) => (
                       <div
                         key={i}
-                        className="aspect-[2/3] bg-gradient-to-br from-primary/20 to-retro-cyan/20 border-2 border-primary/30 rounded-lg flex items-center justify-center hover:border-primary transition-all"
+                        className="aspect-[2/3] border-2 border-primary/30 rounded-lg overflow-hidden hover:border-primary transition-all hover:scale-105 duration-300"
                       >
-                        <svg className="w-16 h-16 text-primary/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                        </svg>
+                        <img
+                          src={imageUrl}
+                          alt=""
+                          className="w-full h-full object-cover"
+                        />
                       </div>
                     ))}
                   </div>
@@ -270,22 +317,24 @@ export default function GalleriesPage() {
                 href={`/galleries/${gallery.id}`}
                 className={`group bg-dark-blue/30 backdrop-blur-sm border-2 ${gallery.color}/30 rounded-lg overflow-hidden hover:${gallery.color} transition-all duration-300`}
               >
-                {/* Gallery Preview */}
-                <div className="aspect-video bg-gradient-to-br from-dark-purple to-dark-blue border-b-2 border-inherit flex items-center justify-center relative overflow-hidden">
-                  <div className="absolute inset-0 grid grid-cols-3 gap-2 p-4 opacity-50">
-                    {[1, 2, 3, 4, 5, 6].map((i) => (
+                {/* Gallery Preview - Grid of actual covers */}
+                <div className="aspect-video bg-gradient-to-br from-dark-purple to-dark-blue border-b-2 border-inherit relative overflow-hidden">
+                  <div className="absolute inset-0 grid grid-cols-3 grid-rows-2 gap-2 p-3">
+                    {gallery.previewImages.map((imageUrl, i) => (
                       <div
                         key={i}
-                        className={`bg-gradient-to-br from-${gallery.textColor}/20 to-transparent border border-${gallery.textColor}/20 rounded`}
-                      ></div>
+                        className="relative overflow-hidden rounded-sm bg-dark-blue/50 group-hover:scale-105 transition-transform duration-300"
+                      >
+                        <img
+                          src={imageUrl}
+                          alt=""
+                          className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-300"
+                        />
+                      </div>
                     ))}
                   </div>
 
-                  <svg className="w-20 h-20 text-foreground/20 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                  </svg>
-
-                  <div className="absolute top-4 right-4 bg-background/80 px-3 py-1 rounded text-sm font-bold text-foreground">
+                  <div className="absolute top-3 right-3 bg-background/90 px-3 py-1 rounded text-xs font-bold text-foreground backdrop-blur-sm">
                     {gallery.imageCount} images
                   </div>
                 </div>

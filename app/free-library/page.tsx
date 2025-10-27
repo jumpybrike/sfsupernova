@@ -472,6 +472,24 @@ const coverImages: { [key: string]: string } = {
   "looking-backward": "/covers/looking-backward.jpg",
 };
 
+// Helper function to convert author names to slugs for linking
+function getAuthorSlug(authorName: string): string {
+  const slugMap: { [key: string]: string } = {
+    'Jules Verne': 'jules-verne',
+    'H.G. Wells': 'h-g-wells',
+    'Edgar Rice Burroughs': 'edgar-rice-burroughs',
+    'A. Merritt': 'a-merritt',
+    'E.E. \'Doc\' Smith': 'e-e-doc-smith',
+    'Edwin A. Abbott': 'edwin-a-abbott',
+    'Arthur Conan Doyle': 'arthur-conan-doyle',
+    'Mary Shelley': 'mary-shelley',
+    'Robert Louis Stevenson': 'robert-louis-stevenson',
+    'Edward Bellamy': 'edward-bellamy',
+    'Mark Twain': 'mark-twain',
+  };
+  return slugMap[authorName] || authorName.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+}
+
 export default function FreeLibraryPage() {
   const [selectedDecade, setSelectedDecade] = useState<string>('all');
   const [selectedAuthor, setSelectedAuthor] = useState<string>('all');
@@ -648,12 +666,13 @@ export default function FreeLibraryPage() {
                   {book.title}
                 </h3>
 
-                <p
-                  className="text-sm text-[#1a2332]/70 mb-1"
+                <Link
+                  href={`/authors/${getAuthorSlug(book.author)}`}
+                  className="text-sm text-[#1a2332]/70 mb-1 hover:text-[#ff6b35] transition-colors inline-block"
                   style={{ fontFamily: 'var(--font-inter)' }}
                 >
                   by {book.author}
-                </p>
+                </Link>
 
                 <p
                   className="text-xs text-[#ff6b35] mb-3 uppercase tracking-wide font-medium"

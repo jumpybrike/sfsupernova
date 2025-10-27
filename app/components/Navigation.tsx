@@ -130,6 +130,13 @@ export default function Navigation() {
             >
               Galleries
             </Link>
+            <Link
+              href="/authors"
+              className="text-[#c9d1d9] hover:text-[#ff6b35] transition-colors duration-200 font-medium text-base"
+              style={{ fontFamily: 'var(--font-inter)' }}
+            >
+              Authors
+            </Link>
 
             {/* Free Library Dropdown */}
             <div
@@ -247,6 +254,13 @@ export default function Navigation() {
               style={{ fontFamily: 'var(--font-inter)' }}
             >
               Galleries
+            </Link>
+            <Link
+              href="/authors"
+              className="block py-3 text-[#c9d1d9] hover:text-[#ff6b35] transition-colors duration-200 font-medium"
+              style={{ fontFamily: 'var(--font-inter)' }}
+            >
+              Authors
             </Link>
 
             {/* Free Library Dropdown - Mobile */}
