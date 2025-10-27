@@ -1,385 +1,167 @@
 import Link from 'next/link';
+import { createClient } from '@/lib/supabase/server';
 
 export const metadata = {
   title: 'Galleries - SF Supernova',
   description: 'Explore our curated collections of vintage science fiction cover art, pulp magazine illustrations, and classic movie posters.',
 };
 
-export default function GalleriesPage() {
-  // DECADE GALLERIES - Journey through sci-fi's visual evolution
-  const decadeGalleries = [
-    {
-      id: 'victorian-pioneers',
-      title: 'Victorian Era: The Pioneers',
-      decade: '1860s-1890s',
-      imageCount: 12,
-      description: 'Before "science fiction" had a name. Jules Verne, H.G. Wells, and Mary Shelley imagined futures of technological wonder in gorgeously illustrated Victorian editions.',
-      color: 'border-primary',
-      textColor: 'text-primary',
-      previewImages: [
-        '/covers/war-of-worlds.jpg',
-        '/covers/time-machine.jpg',
-        '/covers/frankenstein.jpg',
-        '/covers/twenty-thousand-leagues.jpg',
-        '/covers/invisible-man.jpg',
-        '/covers/jekyll-hyde.jpg',
-      ],
-    },
-    {
-      id: '1920s-pulp-era',
-      title: '1920s-1930s: The Pulp Era Begins',
-      decade: '1920s-1930s',
-      imageCount: 8,
-      description: 'Amazing Stories, Astounding, and the birth of pulp magazines. Bug-eyed monsters, ray guns, and damsels in distress—where sci-fi became its own genre.',
-      color: 'border-accent',
-      textColor: 'text-accent',
-      previewImages: [
-        '/covers/princess-mars.jpg',
-        '/covers/skylark-space.jpg',
-        '/covers/gods-mars.jpg',
-        '/covers/warlord-mars.jpg',
-        '/covers/earths-core.jpg',
-        '/covers/lost-world.jpg',
-      ],
-    },
-    {
-      id: '1950s-space-opera',
-      title: '1950s: Space Age Dreams',
-      decade: '1950s',
-      imageCount: 6,
-      description: 'Chrome rockets and atomic optimism! The most iconic decade. Richard Powers, Ed Emshwiller, and artists who defined "retro-futuristic" aesthetics.',
-      color: 'border-retro-cyan',
-      textColor: 'text-retro-cyan',
-      previewImages: [
-        '/covers/first-men-moon.jpg',
-        '/covers/from-earth-moon.jpg',
-        '/covers/twenty-thousand-leagues.jpg',
-        '/covers/time-machine.jpg',
-        '/covers/island-moreau.jpg',
-        '/covers/invisible-man.jpg',
-      ],
-    },
-  ];
+export default async function GalleriesPage() {
+  // Fetch all images from database
+  const supabase = await createClient();
+  const { data: allImages } = await supabase
+    .from('images')
+    .select('*')
+    .order('year', { ascending: true });
 
-  const galleries = [
+  // Group images by decade
+  const imagesByDecade = {
+    '1890s-1910s': allImages?.filter(img => img.year && img.year < 1920) || [],
+    '1920s': allImages?.filter(img => img.year && img.year >= 1920 && img.year < 1930) || [],
+    '1930s': allImages?.filter(img => img.year && img.year >= 1930 && img.year < 1940) || [],
+    '1940s': allImages?.filter(img => img.year && img.year >= 1940 && img.year < 1950) || [],
+    '1950s': allImages?.filter(img => img.year && img.year >= 1950 && img.year < 1960) || [],
+    '1960s': allImages?.filter(img => img.year && img.year >= 1960 && img.year < 1970) || [],
+    '1970s': allImages?.filter(img => img.year && img.year >= 1970 && img.year < 1980) || [],
+  };
+
+  const decadeInfo = [
     {
-      id: '2',
-      title: 'Classic Film Posters 1950-1960',
+      decade: '1890s-1910s',
+      title: 'Victorian Era: The Pioneers',
+      description: 'Before "science fiction" had a name. Jules Verne, H.G. Wells, and Mary Shelley imagined futures of technological wonder.',
+      color: 'text-[#ffbe0b]',
+      borderColor: 'border-[#ffbe0b]',
+    },
+    {
+      decade: '1920s',
+      title: '1920s: The Pulp Era Begins',
+      description: 'Amazing Stories launches in 1926, creating the first magazine dedicated entirely to science fiction.',
+      color: 'text-[#ff6b35]',
+      borderColor: 'border-[#ff6b35]',
+    },
+    {
+      decade: '1930s',
+      title: '1930s: Golden Age Begins',
+      description: 'The Golden Age dawns with Astounding Science Fiction and iconic pulp cover artists like Frank R. Paul.',
+      color: 'text-[#2ec4b6]',
+      borderColor: 'border-[#2ec4b6]',
+    },
+    {
+      decade: '1940s',
+      title: '1940s: Wartime Sci-Fi',
+      description: 'World War II brings new technologies and anxieties, reflected in darker, more realistic science fiction.',
+      color: 'text-[#e63946]',
+      borderColor: 'border-[#e63946]',
+    },
+    {
       decade: '1950s',
-      imageCount: 32,
-      description: 'Original movie posters from the era that brought science fiction to the silver screen. From The Day the Earth Stood Still to Forbidden Planet.',
-      color: 'border-primary',
-      textColor: 'text-primary',
-      previewImages: [
-        '/covers/first-men-moon.jpg',
-        '/covers/war-of-worlds.jpg',
-        '/covers/invisible-man.jpg',
-        '/covers/island-moreau.jpg',
-        '/covers/time-machine.jpg',
-        '/covers/from-earth-moon.jpg',
-      ],
+      title: '1950s: Space Age Dreams',
+      description: 'Chrome rockets and atomic optimism! The most iconic decade of retro-futuristic aesthetics.',
+      color: 'text-[#00d9ff]',
+      borderColor: 'border-[#00d9ff]',
     },
     {
-      id: '3',
-      title: 'Amazing Stories Golden Age',
-      decade: '1930s-1940s',
-      imageCount: 56,
-      description: 'The covers that started it all. Hugo Gernsback\'s Amazing Stories brought sci-fi to the masses with stunning cover illustrations.',
-      color: 'border-accent',
-      textColor: 'text-accent',
-      previewImages: [
-        '/covers/princess-mars.jpg',
-        '/covers/gods-mars.jpg',
-        '/covers/warlord-mars.jpg',
-        '/covers/earths-core.jpg',
-        '/covers/moon-maid.jpg',
-        '/covers/lost-world.jpg',
-      ],
-    },
-    {
-      id: '4',
-      title: 'Astounding Science Fiction Collection',
-      decade: '1940s-1950s',
-      imageCount: 64,
-      description: 'John W. Campbell\'s Astounding Science Fiction magazine covers, featuring iconic imagery that defined the genre.',
-      color: 'border-retro-pink',
-      textColor: 'text-retro-pink',
-      previewImages: [
-        '/covers/skylark-space.jpg',
-        '/covers/earths-core.jpg',
-        '/covers/first-men-moon.jpg',
-        '/covers/war-of-worlds.jpg',
-        '/covers/twenty-thousand-leagues.jpg',
-        '/covers/from-earth-moon.jpg',
-      ],
-    },
-    {
-      id: '5',
-      title: 'Space Age Book Covers',
       decade: '1960s',
-      imageCount: 40,
-      description: 'Paperback cover art from the New Wave era, showcasing psychedelic and experimental design approaches.',
-      color: 'border-retro-green',
-      textColor: 'text-retro-green',
-      previewImages: [
-        '/covers/moon-pool.jpg',
-        '/covers/metal-monster.jpg',
-        '/covers/moon-maid.jpg',
-        '/covers/frankenstein.jpg',
-        '/covers/jekyll-hyde.jpg',
-        '/covers/lost-world.jpg',
-      ],
+      title: '1960s: New Wave',
+      description: 'Psychedelic and experimental design approaches reflect the counterculture and space race era.',
+      color: 'text-[#9d4edd]',
+      borderColor: 'border-[#9d4edd]',
     },
     {
-      id: '6',
-      title: 'Robot & AI Imagery Through the Decades',
-      decade: '1930s-1970s',
-      imageCount: 52,
-      description: 'A thematic collection exploring how robots and artificial intelligence were visualized across four decades.',
-      color: 'border-retro-orange',
-      textColor: 'text-retro-orange',
-      previewImages: [
-        '/covers/time-machine.jpg',
-        '/covers/island-moreau.jpg',
-        '/covers/princess-mars.jpg',
-        '/covers/skylark-space.jpg',
-        '/covers/metal-monster.jpg',
-        '/covers/invisible-man.jpg',
-      ],
+      decade: '1970s',
+      title: '1970s: Space Colony Dreams',
+      description: "NASA's vision of humanity's future in space. O'Neill Cylinders, Stanford Torus, and Bernal Spheres illustrated by Don Davis and Rick Guidice for the 1975 NASA Space Settlement Studies.",
+      color: 'text-[#4facfe]',
+      borderColor: 'border-[#4facfe]',
     },
   ];
 
   return (
     <div className="pt-8 pb-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
           <h1
-            className="text-5xl sm:text-6xl font-black mb-4 text-primary text-glow-strong"
+            className="text-5xl sm:text-6xl font-black mb-4 text-[#ff6b35]"
             style={{ fontFamily: 'Orbitron, sans-serif', wordBreak: 'normal' }}
           >
             GALLERIES
           </h1>
-          <p className="text-xl text-foreground/80" style={{ wordBreak: 'normal', maxWidth: '800px', margin: '0 auto' }}>
+          <p className="text-xl text-[#c9d1d9]/80" style={{ wordBreak: 'normal', maxWidth: '800px', margin: '0 auto' }}>
             Immerse yourself in the visual artistry of vintage science fiction. From lurid pulp covers
             to iconic movie posters, these images defined how generations imagined the future.
           </p>
         </div>
 
-        {/* Featured Gallery Highlight */}
-        <section className="mb-16">
-          <div className="bg-dark-purple/50 backdrop-blur-sm border-2 border-primary rounded-lg overflow-hidden">
-            <div className="p-8 lg:p-12">
-              <div className="grid lg:grid-cols-2 gap-8 items-center">
-                <div>
-                  <span className="text-xs font-bold text-accent px-3 py-1 bg-accent/20 border border-accent/50 rounded inline-block mb-4">
-                    FEATURED COLLECTION
-                  </span>
+        {/* Decade Galleries */}
+        {decadeInfo.map((info) => {
+          const images = imagesByDecade[info.decade as keyof typeof imagesByDecade];
+          if (!images || images.length === 0) return null;
 
-                  <h2
-                    className="text-4xl font-bold mb-4 text-primary text-glow"
-                    style={{ fontFamily: 'Orbitron, sans-serif' }}
-                  >
-                    Pulp Dreams: 1950s Space Opera Cover Art
-                  </h2>
-
-                  <p className="text-lg text-foreground/80 mb-6">
-                    When rockets were chrome and heroes were square-jawed, 1950s cover artists imagined futures of endless adventure.
-                    These covers captured an era's unbridled optimism about humanity among the stars—before the Cold War turned space dreams darker.
-                  </p>
-
-                  <div className="flex gap-4">
-                    <Link
-                      href="/galleries/1950s-space-opera"
-                      className="px-8 py-3 bg-primary/20 border-2 border-primary text-primary font-bold rounded retro-button hover:bg-primary hover:text-background transition-all duration-300"
-                      style={{ fontFamily: 'Orbitron, sans-serif' }}
-                    >
-                      VIEW GALLERY
-                    </Link>
-                  </div>
-                </div>
-
-                <div className="relative">
-                  {/* Gallery preview with real covers */}
-                  <div className="grid grid-cols-2 gap-4">
-                    {[
-                      '/covers/war-of-worlds.jpg',
-                      '/covers/princess-mars.jpg',
-                      '/covers/gods-mars.jpg',
-                      '/covers/warlord-mars.jpg'
-                    ].map((imageUrl, i) => (
-                      <div
-                        key={i}
-                        className="aspect-[2/3] border-2 border-primary/30 rounded-lg overflow-hidden hover:border-primary transition-all hover:scale-105 duration-300"
-                      >
-                        <img
-                          src={imageUrl}
-                          alt=""
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                    ))}
-                  </div>
-                </div>
+          return (
+            <section key={info.decade} className="mb-16">
+              <div className="mb-6">
+                <h2
+                  className={`text-3xl font-bold mb-2 ${info.color}`}
+                  style={{ fontFamily: 'Orbitron, sans-serif' }}
+                >
+                  {info.title}
+                </h2>
+                <p className="text-lg text-[#c9d1d9]/70">
+                  {info.description}
+                </p>
+                <p className="text-sm text-[#c9d1d9]/50 mt-2">
+                  {images.length} images
+                </p>
               </div>
-            </div>
-          </div>
-        </section>
 
-        {/* Decade Galleries - Journey Through Time */}
-        <section className="mb-16">
-          <div className="text-center mb-8">
-            <h2
-              className="text-3xl font-bold mb-4 text-primary text-glow"
-              style={{ fontFamily: 'Orbitron, sans-serif' }}
-            >
-              JOURNEY THROUGH THE DECADES
-            </h2>
-            <p className="text-lg text-foreground/70">
-              Explore how science fiction cover art evolved from Victorian pioneers to 1970s experimentalism
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-            {decadeGalleries.map((gallery) => (
-              <Link
-                key={gallery.id}
-                href={`/galleries/${gallery.id}`}
-                className={`group bg-dark-blue/30 backdrop-blur-sm border-2 ${gallery.color}/30 rounded-lg overflow-hidden hover:${gallery.color} transition-all duration-300`}
-              >
-                {/* Gallery Preview - Grid of actual covers */}
-                <div className="aspect-video bg-gradient-to-br from-dark-purple to-dark-blue border-b-2 border-inherit relative overflow-hidden">
-                  <div className="absolute inset-0 grid grid-cols-3 grid-rows-2 gap-2 p-3">
-                    {gallery.previewImages.map((imageUrl, i) => (
-                      <div
-                        key={i}
-                        className="relative overflow-hidden rounded-sm bg-dark-blue/50 group-hover:scale-105 transition-transform duration-300"
-                      >
-                        <img
-                          src={imageUrl}
-                          alt=""
-                          className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-300"
-                        />
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* Overlay with decade label */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-dark-blue/90 via-transparent to-transparent flex items-end justify-center pb-4">
-                    <span className="text-2xl font-bold text-white/90 drop-shadow-lg" style={{ fontFamily: 'Orbitron, sans-serif' }}>
-                      {gallery.decade}
-                    </span>
-                  </div>
-
-                  <div className="absolute top-3 right-3 bg-background/90 px-3 py-1 rounded text-xs font-bold text-foreground backdrop-blur-sm">
-                    {gallery.imageCount} covers
-                  </div>
-                </div>
-
-                {/* Gallery Info */}
-                <div className="p-6">
-                  <h3
-                    className={`text-xl font-bold mb-2 ${gallery.textColor} group-hover:text-glow transition-all duration-300`}
-                    style={{ fontFamily: 'Orbitron, sans-serif' }}
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
+                {images.map((image: any) => (
+                  <Link
+                    key={image.id}
+                    href={`/gallery/${image.catalog_number}`}
+                    className={`group relative aspect-[2/3] overflow-hidden rounded-lg border-2 ${info.borderColor}/30 hover:${info.borderColor} transition-all duration-300 shadow-sm hover:shadow-lg`}
                   >
-                    {gallery.title}
-                  </h3>
-
-                  <p className="text-sm text-foreground/70 mb-4 line-clamp-2">
-                    {gallery.description}
-                  </p>
-
-                  <div className="flex items-center text-sm text-retro-cyan">
-                    <span className="font-bold">Explore Gallery</span>
-                    <svg className="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </section>
-
-        {/* All Galleries */}
-        <section>
-          <h2
-            className="text-3xl font-bold mb-8 text-retro-cyan text-glow text-center"
-            style={{ fontFamily: 'Orbitron, sans-serif' }}
-          >
-            MORE COLLECTIONS
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {galleries.map((gallery) => (
-              <Link
-                key={gallery.id}
-                href={`/galleries/${gallery.id}`}
-                className={`group bg-dark-blue/30 backdrop-blur-sm border-2 ${gallery.color}/30 rounded-lg overflow-hidden hover:${gallery.color} transition-all duration-300`}
-              >
-                {/* Gallery Preview - Grid of actual covers */}
-                <div className="aspect-video bg-gradient-to-br from-dark-purple to-dark-blue border-b-2 border-inherit relative overflow-hidden">
-                  <div className="absolute inset-0 grid grid-cols-3 grid-rows-2 gap-2 p-3">
-                    {gallery.previewImages.map((imageUrl, i) => (
-                      <div
-                        key={i}
-                        className="relative overflow-hidden rounded-sm bg-dark-blue/50 group-hover:scale-105 transition-transform duration-300"
-                      >
-                        <img
-                          src={imageUrl}
-                          alt=""
-                          className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-300"
-                        />
+                    <img
+                      src={image.file_path}
+                      alt={image.title}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                      <div className="absolute bottom-0 left-0 right-0 p-3">
+                        <p className="text-white text-xs font-semibold line-clamp-2">
+                          {image.title}
+                        </p>
+                        <p className="text-[#ffbe0b] text-xs mt-1">
+                          {image.year}
+                        </p>
                       </div>
-                    ))}
-                  </div>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </section>
+          );
+        })}
 
-                  <div className="absolute top-3 right-3 bg-background/90 px-3 py-1 rounded text-xs font-bold text-foreground backdrop-blur-sm">
-                    {gallery.imageCount} images
-                  </div>
-                </div>
-
-                {/* Gallery Info */}
-                <div className="p-6">
-                  <span className={`text-xs font-bold ${gallery.textColor} px-3 py-1 bg-${gallery.textColor}/20 border border-${gallery.textColor}/50 rounded inline-block mb-3`}>
-                    {gallery.decade}
-                  </span>
-
-                  <h3 className={`text-xl font-bold mb-2 ${gallery.textColor} group-hover:text-glow transition-all`}>
-                    {gallery.title}
-                  </h3>
-
-                  <p className="text-foreground/80 mb-4">
-                    {gallery.description}
-                  </p>
-
-                  <div className={`${gallery.textColor} group-hover:translate-x-2 transition-transform inline-flex items-center font-bold`}>
-                    View Gallery →
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </section>
-
-        {/* CTA */}
-        <section className="mt-16 text-center py-12 bg-dark-purple/30 backdrop-blur-sm rounded-lg border-2 border-primary/30">
+        {/* View All CTA */}
+        <section className="mt-16 text-center py-12 bg-[#1a2332]/50 backdrop-blur-sm rounded-lg border-2 border-[#ff6b35]/30">
           <h3
-            className="text-2xl font-bold mb-4 text-retro-pink text-glow"
+            className="text-2xl font-bold mb-4 text-[#00d9ff]"
             style={{ fontFamily: 'Orbitron, sans-serif' }}
           >
-            CONTRIBUTE TO OUR COLLECTION
+            EXPLORE THE FULL COLLECTION
           </h3>
-          <p className="text-foreground/80 mb-6 max-w-4xl mx-auto" style={{ wordBreak: 'normal', whiteSpace: 'normal', overflowWrap: 'normal' }}>
-            Have vintage sci-fi cover art or posters to share? We're always looking to expand our galleries
-            with high-quality scans from collectors and enthusiasts.
+          <p className="text-[#c9d1d9]/80 mb-6 max-w-4xl mx-auto">
+            Browse all {allImages?.length || 0} vintage sci-fi images in our collection
           </p>
           <Link
-            href="/about"
-            className="inline-block px-8 py-3 bg-retro-pink/20 border-2 border-retro-pink text-retro-pink font-bold rounded retro-button hover:bg-retro-pink hover:text-background transition-all duration-300"
+            href="/gallery"
+            className="inline-block px-8 py-3 bg-[#ff6b35] text-white font-bold rounded hover:bg-[#e63946] transition-all duration-300"
             style={{ fontFamily: 'Orbitron, sans-serif' }}
           >
-            GET IN TOUCH
+            VIEW FULL GALLERY
           </Link>
         </section>
       </div>

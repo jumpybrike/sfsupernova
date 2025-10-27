@@ -21,6 +21,9 @@ export default function UploadPage() {
     file_path: '',
     thumbnail_path: '',
     theme_tags: '',
+    colony_type: '',
+    artist_featured: false,
+    habitat_feature: '',
   })
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -49,6 +52,9 @@ export default function UploadPage() {
         file_path: formData.file_path,
         thumbnail_path: formData.thumbnail_path || null,
         theme_tags: themeTags.length > 0 ? themeTags : null,
+        colony_type: formData.colony_type || null,
+        artist_featured: formData.artist_featured,
+        habitat_feature: formData.habitat_feature || null,
       })
 
     if (insertError) {
@@ -237,6 +243,70 @@ export default function UploadPage() {
                     <p className="text-gray-500 font-['Space_Mono'] text-xs mt-2">
                       Comma-separated tags
                     </p>
+                  </div>
+
+                  {/* Space Colony Section */}
+                  <div className="pt-6 border-t-2 border-[#ff6b6b]/30">
+                    <h3 className="text-2xl font-['Orbitron'] font-bold text-[#ff6b6b] mb-4">
+                      SPACE COLONY ARTWORK (1970s)
+                    </h3>
+                    <p className="text-gray-400 font-['Space_Mono'] text-sm mb-6">
+                      Optional fields for NASA space habitat concept art (O'Neill Cylinders, Don Davis, Rick Guidice, etc.)
+                    </p>
+
+                    <div className="space-y-6">
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                          <label className="block text-[#ff6b6b] font-['Space_Mono'] mb-2">
+                            COLONY TYPE
+                          </label>
+                          <select
+                            value={formData.colony_type}
+                            onChange={(e) => setFormData({ ...formData, colony_type: e.target.value })}
+                            className="w-full bg-black border-2 border-[#ff6b6b]/50 rounded px-4 py-3 text-white font-['Space_Mono'] focus:border-[#ff6b6b] focus:outline-none focus:shadow-[0_0_10px_rgba(255,107,107,0.5)] transition-all"
+                          >
+                            <option value="">-- Select Type --</option>
+                            <option value="cylinder">Cylinder (O'Neill)</option>
+                            <option value="torus">Torus (Stanford)</option>
+                            <option value="lunar-base">Lunar Base</option>
+                            <option value="mars-base">Mars Base</option>
+                            <option value="bernal-sphere">Bernal Sphere</option>
+                            <option value="asteroid-habitat">Asteroid Habitat</option>
+                          </select>
+                        </div>
+
+                        <div>
+                          <label className="block text-[#ff6b6b] font-['Space_Mono'] mb-2">
+                            HABITAT FEATURE
+                          </label>
+                          <select
+                            value={formData.habitat_feature}
+                            onChange={(e) => setFormData({ ...formData, habitat_feature: e.target.value })}
+                            className="w-full bg-black border-2 border-[#ff6b6b]/50 rounded px-4 py-3 text-white font-['Space_Mono'] focus:border-[#ff6b6b] focus:outline-none focus:shadow-[0_0_10px_rgba(255,107,107,0.5)] transition-all"
+                          >
+                            <option value="">-- Select Feature --</option>
+                            <option value="interior">Interior View</option>
+                            <option value="exterior">Exterior View</option>
+                            <option value="construction">Construction Scene</option>
+                            <option value="agriculture">Agriculture</option>
+                            <option value="transport">Transportation</option>
+                          </select>
+                        </div>
+                      </div>
+
+                      <div className="flex items-center">
+                        <input
+                          type="checkbox"
+                          id="artist_featured"
+                          checked={formData.artist_featured}
+                          onChange={(e) => setFormData({ ...formData, artist_featured: e.target.checked })}
+                          className="w-5 h-5 bg-black border-2 border-[#ff6b6b]/50 rounded focus:ring-2 focus:ring-[#ff6b6b] focus:ring-offset-0 focus:ring-offset-black text-[#ff6b6b]"
+                        />
+                        <label htmlFor="artist_featured" className="ml-3 text-[#ff6b6b] font-['Space_Mono']">
+                          FEATURED ARTIST (Don Davis, Rick Guidice, etc.)
+                        </label>
+                      </div>
+                    </div>
                   </div>
 
                   <div className="flex gap-4 pt-4">

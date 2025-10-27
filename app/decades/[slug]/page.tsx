@@ -72,8 +72,9 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function DecadePage({ params }: { params: { slug: string } }) {
-  const decade = decades[params.slug];
+export default async function DecadePage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const decade = decades[slug];
 
   if (!decade) {
     notFound();

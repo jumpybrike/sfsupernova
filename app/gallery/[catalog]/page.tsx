@@ -284,6 +284,38 @@ export default async function ImageDetailPage({ params }: PageProps) {
                   </div>
                 )}
 
+                {/* Space Colony Info */}
+                {(image.colony_type || image.habitat_feature || image.artist_featured) && (
+                  <div className="border-2 border-[#4facfe]/30 rounded-lg p-4 bg-[#4facfe]/5">
+                    <h3 className="text-lg font-['Orbitron'] font-bold text-[#4facfe] mb-3 flex items-center gap-2">
+                      🚀 SPACE COLONY ARTWORK
+                    </h3>
+                    <div className="space-y-2 text-sm font-['Space_Mono']">
+                      {image.colony_type && (
+                        <div>
+                          <span className="text-gray-500">Colony Type:</span>{' '}
+                          <span className="text-white capitalize">
+                            {image.colony_type.replace('-', ' ')}
+                          </span>
+                        </div>
+                      )}
+                      {image.habitat_feature && (
+                        <div>
+                          <span className="text-gray-500">Feature:</span>{' '}
+                          <span className="text-white capitalize">{image.habitat_feature}</span>
+                        </div>
+                      )}
+                      {image.artist_featured && (
+                        <div>
+                          <span className="inline-flex items-center gap-2 bg-[#4facfe]/20 border border-[#4facfe]/40 text-[#4facfe] px-3 py-1 rounded font-bold">
+                            ⭐ Featured Artist
+                          </span>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                )}
+
                 {/* Tags */}
                 {image.theme_tags && image.theme_tags.length > 0 && (
                   <div>

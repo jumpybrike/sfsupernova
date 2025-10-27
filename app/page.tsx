@@ -1,7 +1,15 @@
 import Link from 'next/link';
 import NewsletterSignup from './components/NewsletterSignup';
+import { createClient } from '@/lib/supabase/server';
 
-export default function Home() {
+export default async function Home() {
+  // Fetch featured images from database
+  const supabase = await createClient();
+  const { data: featuredImages } = await supabase
+    .from('images')
+    .select('*')
+    .order('year', { ascending: false })
+    .limit(6);
   const featuredReviews = [
     {
       title: 'Foundation by Isaac Asimov',
@@ -141,8 +149,58 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Featured Content */}
+      {/* Featured Gallery Section */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <h2
+            className="text-3xl sm:text-4xl font-normal text-center mb-12 text-[#1a2332]"
+            style={{ fontFamily: 'var(--font-audiowide)' }}
+          >
+            VINTAGE SCI-FI COVER ART
+          </h2>
+
+          {featuredImages && featuredImages.length > 0 ? (
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-8">
+              {featuredImages.map((image: any) => (
+                <Link
+                  key={image.id}
+                  href={`/gallery/${image.catalog_number}`}
+                  className="group relative aspect-[2/3] overflow-hidden rounded-lg border-2 border-[#c9d1d9]/20 hover:border-[#ff6b35] transition-all duration-300 shadow-sm hover:shadow-lg"
+                >
+                  <img
+                    src={image.file_path}
+                    alt={image.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                    <div className="absolute bottom-0 left-0 right-0 p-3">
+                      <p className="text-white text-xs font-semibold line-clamp-2" style={{ fontFamily: 'var(--font-inter)' }}>
+                        {image.title}
+                      </p>
+                      <p className="text-[#ffbe0b] text-xs mt-1" style={{ fontFamily: 'var(--font-courier-prime)' }}>
+                        {image.year}
+                      </p>
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          ) : null}
+
+          <div className="text-center">
+            <Link
+              href="/gallery"
+              className="inline-block px-8 py-3 bg-transparent border-2 border-[#ff6b35] text-[#ff6b35] font-semibold rounded-md hover:bg-[#ff6b35] hover:text-white transition-all duration-300 uppercase tracking-wider"
+              style={{ fontFamily: 'var(--font-inter)' }}
+            >
+              View Full Gallery
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Content */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-[#f8f3e6]">
         <div className="max-w-7xl mx-auto">
           <h2
             className="text-3xl sm:text-4xl font-normal text-center mb-12 text-[#1a2332]"
@@ -242,11 +300,11 @@ export default function Home() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              href="/galleries"
+              href="/gallery"
               className="inline-block px-8 py-3 bg-[#2ec4b6] text-white font-semibold rounded-md hover:bg-[#2ec4b6]/90 transition-all duration-300 shadow-lg hover:shadow-xl uppercase tracking-wider"
               style={{ fontFamily: 'var(--font-inter)' }}
             >
-              Browse Galleries
+              Browse Gallery
             </Link>
             <Link
               href="/about"
