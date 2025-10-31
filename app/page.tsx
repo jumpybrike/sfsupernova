@@ -39,10 +39,10 @@ export default async function Home() {
   ];
 
   const decades = [
-    { slug: '1930s-1940s', name: '1930s-1940s', subtitle: 'Golden Age', color: '#ffbe0b', font: 'var(--font-abril-fatface)' },
-    { slug: '1950s', name: '1950s', subtitle: 'Space Age', color: '#2ec4b6', font: 'var(--font-audiowide)' },
-    { slug: '1960s', name: '1960s', subtitle: 'New Wave', color: '#e63946', font: 'var(--font-righteous)' },
-    { slug: '1970s', name: '1970s', subtitle: 'Experimental Era', color: '#ff6b35', font: 'var(--font-bebas-neue)' },
+    { slug: '1930s-1940s', name: '1930s-1940s', subtitle: 'Golden Age', color: 'text-[#ffbe0b]', font: 'var(--font-abril-fatface)' },
+    { slug: '1950s', name: '1950s', subtitle: 'Space Age', color: 'text-[#2ec4b6]', font: 'var(--font-audiowide)' },
+    { slug: '1960s', name: '1960s', subtitle: 'New Wave', color: 'text-[#e63946]', font: 'var(--font-righteous)' },
+    { slug: '1970s', name: '1970s', subtitle: 'Experimental Era', color: 'text-[#ff6b35]', font: 'var(--font-bebas-neue)' },
   ];
 
   return (
@@ -132,8 +132,8 @@ export default async function Home() {
                 className="group bg-white border border-[#c9d1d9]/20 rounded-lg p-6 hover:border-[#ff6b35] transition-all duration-300 shadow-sm hover:shadow-lg hover:-translate-y-1"
               >
                 <h3
-                  className="text-2xl font-normal mb-2 transition-colors"
-                  style={{ fontFamily: decade.font, color: decade.color }}
+                  className={`text-2xl font-normal mb-2 ${decade.color} group-hover:text-[#ff6b35] transition-colors`}
+                  style={{ fontFamily: decade.font }}
                 >
                   {decade.name}
                 </h3>
