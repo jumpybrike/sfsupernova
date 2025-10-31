@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import NewsletterSignup from './components/NewsletterSignup';
 import { createClient } from '@/lib/supabase/server';
 
@@ -97,14 +98,14 @@ export default async function Home() {
               className="inline-block px-8 py-4 text-white font-semibold rounded-md transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1 uppercase tracking-wider whitespace-nowrap badge-orange"
               style={{ fontFamily: 'var(--font-inter)' }}
             >
-              🚀 Explore the Space Age
+              Explore the Space Age
             </Link>
             <Link
               href="/audio"
-              className="inline-block px-8 py-4 text-white font-semibold rounded-md transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1 uppercase tracking-wider whitespace-nowrap badge-cyan"
+              className="inline-block px-8 py-4 bg-transparent border-2 border-[#ff6b35] text-[#ff6b35] font-semibold rounded-md hover:bg-[#ff6b35] hover:text-white transition-all duration-300 uppercase tracking-wider whitespace-nowrap"
               style={{ fontFamily: 'var(--font-inter)' }}
             >
-              📻 Listen to Radio Dramas
+              Listen to Radio Dramas
             </Link>
           </div>
         </div>
@@ -167,9 +168,11 @@ export default async function Home() {
                   href={`/gallery/${image.catalog_number}`}
                   className="group relative aspect-[2/3] overflow-hidden rounded-lg border-2 border-[#c9d1d9]/20 hover:border-[#ff6b35] transition-all duration-300 shadow-sm hover:shadow-lg"
                 >
-                  <img
+                  <Image
                     src={image.file_path}
                     alt={image.title}
+                    width={400}
+                    height={600}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
@@ -185,7 +188,20 @@ export default async function Home() {
                 </Link>
               ))}
             </div>
-          ) : null}
+          ) : (
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-8">
+              {[...Array(6)].map((_, i) => (
+                <div
+                  key={i}
+                  className="relative aspect-[2/3] overflow-hidden rounded-lg border-2 border-[#c9d1d9]/20 bg-[#c9d1d9]/10 animate-pulse"
+                >
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-12 h-12 border-4 border-[#c9d1d9]/20 border-t-[#ff6b35] rounded-full animate-spin" />
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
 
           <div className="text-center">
             <Link
@@ -276,8 +292,8 @@ export default async function Home() {
       </section>
 
       {/* Newsletter Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-[#f8f3e6]">
-        <div className="max-w-7xl mx-auto">
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-[#0a0e17]">
+        <div className="max-w-4xl mx-auto">
           <NewsletterSignup />
         </div>
       </section>
@@ -301,14 +317,14 @@ export default async function Home() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/gallery"
-              className="inline-block px-8 py-3 bg-[#2ec4b6] text-white font-semibold rounded-md hover:bg-[#2ec4b6]/90 transition-all duration-300 shadow-lg hover:shadow-xl uppercase tracking-wider"
+              className="inline-block px-8 py-3 text-white font-semibold rounded-md transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1 uppercase tracking-wider whitespace-nowrap badge-orange"
               style={{ fontFamily: 'var(--font-inter)' }}
             >
               Browse Gallery
             </Link>
             <Link
               href="/about"
-              className="inline-block px-8 py-3 bg-transparent border-2 border-[#ffbe0b] text-[#ffbe0b] font-semibold rounded-md hover:bg-[#ffbe0b] hover:text-[#1a2332] transition-all duration-300 uppercase tracking-wider"
+              className="inline-block px-8 py-3 bg-transparent border-2 border-[#ff6b35] text-[#ff6b35] font-semibold rounded-md hover:bg-[#ff6b35] hover:text-white transition-all duration-300 uppercase tracking-wider"
               style={{ fontFamily: 'var(--font-inter)' }}
             >
               About SF Supernova
