@@ -492,7 +492,7 @@ export default function GalleryPage({ params }: { params: Promise<{ slug: string
             </select>
           </div>
 
-          <p className="text-[#c9d1d9]/70 text-sm mt-4" style={{ fontFamily: 'var(--font-inter)' }}>
+          <p className="text-[#c9d1d9]/60 text-sm mt-4" style={{ fontFamily: 'var(--font-inter)' }}>
             Showing {sortedImages.length} of {gallery.images.length} covers
           </p>
         </div>

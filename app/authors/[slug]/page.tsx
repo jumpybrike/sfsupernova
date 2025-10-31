@@ -371,7 +371,7 @@ export default async function AuthorPage(props: PageProps) {
                 {author.commonName}
               </h1>
               {author.name !== author.commonName && (
-                <p className="text-lg text-[#1a2332]/70 mb-2" style={{ fontFamily: 'var(--font-inter)' }}>
+                <p className="text-lg text-[#1a2332]/60 mb-2" style={{ fontFamily: 'var(--font-inter)' }}>
                   {author.name}
                 </p>
               )}

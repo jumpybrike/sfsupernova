@@ -107,7 +107,7 @@ export default function ImageLightbox({ images, currentIndex, onClose, onNavigat
               </h2>
 
               <p
-                className="text-lg text-[#1a2332]/70 mb-1"
+                className="text-lg text-[#1a2332]/60 mb-1"
                 style={{ fontFamily: 'var(--font-inter)' }}
               >
                 by {image.author}
@@ -181,7 +181,7 @@ export default function ImageLightbox({ images, currentIndex, onClose, onNavigat
 
               {/* Social Share Buttons */}
               <div className="border-t border-[#c9d1d9]/20 pt-6">
-                <p className="text-sm text-[#1a2332]/70 mb-3" style={{ fontFamily: 'var(--font-inter)' }}>
+                <p className="text-sm text-[#1a2332]/60 mb-3" style={{ fontFamily: 'var(--font-inter)' }}>
                   Share this cover:
                 </p>
                 <div className="flex gap-3">
@@ -236,7 +236,7 @@ export default function ImageLightbox({ images, currentIndex, onClose, onNavigat
               Previous
             </button>
 
-            <span className="text-[#1a2332]/70" style={{ fontFamily: 'var(--font-inter)' }}>
+            <span className="text-[#1a2332]/60" style={{ fontFamily: 'var(--font-inter)' }}>
               {currentIndex + 1} of {images.length}
             </span>
 
