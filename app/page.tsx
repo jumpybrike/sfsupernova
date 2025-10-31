@@ -132,7 +132,7 @@ export default async function Home() {
                 className="group bg-white border border-[#c9d1d9]/20 rounded-lg p-6 hover:border-[#ff6b35] transition-all duration-300 shadow-sm hover:shadow-lg hover:-translate-y-1"
               >
                 <h3
-                  className={`text-2xl font-normal mb-2 ${decade.color} group-hover:text-[#ff6b35] transition-colors`}
+                  className={`text-2xl font-normal mb-2 ${decade.color} transition-colors`}
                   style={{ fontFamily: decade.font }}
                 >
                   {decade.name}
