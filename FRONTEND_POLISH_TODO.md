@@ -131,13 +131,14 @@
 **Problem:** Contact, Privacy Policy, Affiliate Disclosure, Social links all use `href="#"`
 **Fix:** Either create actual pages or remove links until ready
 
-### [ ] 19. Standardize Text Color Opacity Levels
+### [x] 19. Standardize Text Color Opacity Levels
 **Files:** Throughout codebase
 **Problem:** Arbitrary opacity variations: /60, /70, /80, /90 with no clear hierarchy
 **Fix:** Establish hierarchy:
 - Primary text: full opacity
 - Secondary text: /80
 - Tertiary/metadata: /60
+**Status:** Complete - standardized all text opacity across 11 files (converted /90→/80 for body text, /70→/80 for descriptions, /70→/60 for metadata)
 
 ### [x] 20. Fix Newsletter Branding Consistency
 **File:** `app/components/NewsletterSignup.tsx:53`
@@ -150,9 +151,9 @@
 ## 📊 PROGRESS TRACKER
 
 - **Critical Issues:** 7/7 complete ✅
-- **Moderate Issues:** 6/9 complete
+- **Moderate Issues:** 7/9 complete
 - **Minor Issues:** 4/4 complete ✅
-- **TOTAL:** 17/20 complete (85%)
+- **TOTAL:** 18/20 complete (90%)
 
 ---
 
