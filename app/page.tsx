@@ -98,14 +98,14 @@ export default async function Home() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link
               href="/decades/1950s"
-              className="inline-block px-8 py-4 text-white font-semibold rounded-md transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1 uppercase tracking-wider whitespace-nowrap badge-orange"
+              className="inline-block px-8 py-3 text-white font-semibold rounded-md transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1 uppercase tracking-wider whitespace-nowrap badge-orange"
               style={{ fontFamily: 'var(--font-inter)' }}
             >
               Explore the Space Age
             </Link>
             <Link
               href="/audio"
-              className="inline-block px-8 py-4 bg-transparent border-2 border-[#ff6b35] text-[#ff6b35] font-semibold rounded-md hover:bg-[#ff6b35] hover:text-white transition-all duration-300 uppercase tracking-wider whitespace-nowrap"
+              className="inline-block px-8 py-3 bg-transparent border-2 border-[#ff6b35] text-[#ff6b35] font-semibold rounded-md hover:bg-[#ff6b35] hover:text-white transition-all duration-300 uppercase tracking-wider whitespace-nowrap"
               style={{ fontFamily: 'var(--font-inter)' }}
             >
               Listen to Radio Dramas
