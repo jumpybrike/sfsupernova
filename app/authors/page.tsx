@@ -142,7 +142,7 @@ export default function AuthorsPage() {
           </div>
 
           {/* Result Count */}
-          <p className="text-[#c9d1d9]/70 text-sm" style={{ fontFamily: 'var(--font-inter)' }}>
+          <p className="text-[#c9d1d9]/60 text-sm" style={{ fontFamily: 'var(--font-inter)' }}>
             Showing {filteredAuthors.length} of {authors.length} authors
           </p>
         </div>
@@ -180,7 +180,7 @@ export default function AuthorsPage() {
                   <p className="text-xs text-[#ff6b35] mb-3 font-medium" style={{ fontFamily: 'var(--font-courier-prime)' }}>
                     {author.tagline}
                   </p>
-                  <p className="text-sm text-[#1a2332]/70 mb-3 line-clamp-3" style={{ fontFamily: 'var(--font-inter)' }}>
+                  <p className="text-sm text-[#1a2332]/80 mb-3 line-clamp-3" style={{ fontFamily: 'var(--font-inter)' }}>
                     {author.biographyExcerpt}
                   </p>
                   <p className="text-xs text-[#2ec4b6] font-semibold" style={{ fontFamily: 'var(--font-inter)' }}>
@@ -248,7 +248,7 @@ export default function AuthorsPage() {
                       <p className="text-xs text-[#ff6b35] mb-2 font-medium" style={{ fontFamily: 'var(--font-courier-prime)' }}>
                         {author.tagline}
                       </p>
-                      <p className="text-sm text-[#1a2332]/70 line-clamp-2 mb-2" style={{ fontFamily: 'var(--font-inter)' }}>
+                      <p className="text-sm text-[#1a2332]/80 line-clamp-2 mb-2" style={{ fontFamily: 'var(--font-inter)' }}>
                         {author.biographyExcerpt}
                       </p>
                       <div className="flex flex-wrap gap-1">
@@ -296,7 +296,7 @@ export default function AuthorsPage() {
                   <h4 className="text-lg font-semibold text-[#2ec4b6] mb-2" style={{ fontFamily: 'var(--font-inter)' }}>
                     {era}
                   </h4>
-                  <p className="text-sm text-[#c9d1d9]/70 mb-2" style={{ fontFamily: 'var(--font-inter)' }}>
+                  <p className="text-sm text-[#c9d1d9]/60 mb-2" style={{ fontFamily: 'var(--font-inter)' }}>
                     {eraAuthors.length} {eraAuthors.length === 1 ? 'author' : 'authors'}
                   </p>
                   <p className="text-xs text-[#c9d1d9]/50" style={{ fontFamily: 'var(--font-inter)' }}>

@@ -591,7 +591,7 @@ export default function FreeLibraryPage() {
           </div>
 
           {/* Result Count */}
-          <p className="text-[#c9d1d9]/70 text-sm" style={{ fontFamily: 'var(--font-inter)' }}>
+          <p className="text-[#c9d1d9]/60 text-sm" style={{ fontFamily: 'var(--font-inter)' }}>
             Showing {filteredBooks.length} of {books.length} books
           </p>
         </div>
@@ -668,7 +668,7 @@ export default function FreeLibraryPage() {
 
                 <Link
                   href={`/authors/${getAuthorSlug(book.author)}`}
-                  className="text-sm text-[#1a2332]/70 mb-1 hover:text-[#ff6b35] transition-colors inline-block"
+                  className="text-sm text-[#1a2332]/60 mb-1 hover:text-[#ff6b35] transition-colors inline-block"
                   style={{ fontFamily: 'var(--font-inter)' }}
                 >
                   by {book.author}

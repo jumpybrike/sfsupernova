@@ -159,7 +159,7 @@ export default function ReviewPage({ params }: { params: { id: string } }) {
             {review.title}
           </h1>
 
-          <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-4 mb-6 text-[#1a2332]/70">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-4 mb-6 text-[#1a2332]/60">
             <p
               className="text-lg font-medium"
               style={{ fontFamily: 'var(--font-inter)' }}
