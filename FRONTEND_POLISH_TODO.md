@@ -64,7 +64,7 @@
 **Impact:** Inconsistent data sourcing, harder to manage content
 **Fix:** Create reviews table in Supabase and fetch dynamically
 
-### [ ] 9. Fix Featured Reviews "Read Full Review" Links
+### [x] 9. Fix Featured Reviews "Read Full Review" Links
 **File:** `app/page.tsx:255-261`
 **Problem:** Links say "Read full review" but all go to generic `/reviews` page, not specific review
 **Impact:** Misleading CTA, poor UX, user frustration
@@ -147,9 +147,9 @@
 ## 📊 PROGRESS TRACKER
 
 - **Critical Issues:** 7/7 complete ✅
-- **Moderate Issues:** 0/9 complete
+- **Moderate Issues:** 1/9 complete
 - **Minor Issues:** 0/4 complete
-- **TOTAL:** 7/20 complete (35%)
+- **TOTAL:** 8/20 complete (40%)
 
 ---
 
