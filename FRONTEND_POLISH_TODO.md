@@ -97,10 +97,11 @@
 **Problem:** `grid-cols-2` on mobile for tall aspect-ratio images may be too cramped
 **Fix:** Consider `grid-cols-1 sm:grid-cols-2` for better mobile experience
 
-### [ ] 14. Add Visual Separation Between Adjacent Light Sections
+### [x] 14. Add Visual Separation Between Adjacent Light Sections
 **File:** `app/page.tsx:203, 279`
 **Problem:** "Featured Reviews" and "Newsletter" sections both use bg-f8f3e6, blend together
 **Fix:** Add border, change one background, or add spacing between sections
+**Status:** Already fixed in Issue #6 - newsletter now has dark background
 
 ### [ ] 15. Add Error State for Failed Image Fetch
 **File:** `app/page.tsx:162`
@@ -148,9 +149,9 @@
 ## 📊 PROGRESS TRACKER
 
 - **Critical Issues:** 7/7 complete ✅
-- **Moderate Issues:** 4/9 complete
+- **Moderate Issues:** 5/9 complete
 - **Minor Issues:** 0/4 complete
-- **TOTAL:** 11/20 complete (55%)
+- **TOTAL:** 12/20 complete (60%)
 
 ---
 
