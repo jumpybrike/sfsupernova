@@ -6,7 +6,7 @@ import { createClient } from '@/lib/supabase/server';
 export default async function Home() {
   // Fetch featured images from database
   const supabase = await createClient();
-  const { data: featuredImages } = await supabase
+  const { data: featuredImages, error: imagesError } = await supabase
     .from('images')
     .select('*')
     .order('year', { ascending: false })
@@ -163,7 +163,16 @@ export default async function Home() {
             VINTAGE SCI-FI COVER ART
           </h2>
 
-          {featuredImages && featuredImages.length > 0 ? (
+          {imagesError ? (
+            <div className="mb-8 p-8 bg-[#e63946]/10 border-2 border-[#e63946]/30 rounded-lg text-center">
+              <p className="text-[#e63946] font-semibold mb-2" style={{ fontFamily: 'var(--font-inter)' }}>
+                Unable to load gallery images
+              </p>
+              <p className="text-[#1a2332]/70 text-sm" style={{ fontFamily: 'var(--font-inter)' }}>
+                There was a problem fetching the cover art. Please try visiting the full gallery.
+              </p>
+            </div>
+          ) : featuredImages && featuredImages.length > 0 ? (
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-8">
               {featuredImages.map((image: any) => (
                 <Link
