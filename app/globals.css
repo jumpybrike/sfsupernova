@@ -435,3 +435,417 @@ p, h1, h2, h3, h4, h5, h6, div {
   background: linear-gradient(135deg, #00ff88, #00cc99);
   color: white;
 }
+
+/* ========================================
+   ATOMIC AGE OPTIMISM AESTHETIC STYLES
+   ======================================== */
+
+:root {
+  /* Atomic Age Color Palette - "World of Tomorrow" */
+  --atomic-orange: #FF6B35;
+  --rocket-red: #E63946;
+  --sky-blue: #457B9D;
+  --mint-green: #06FFA5;
+  --cream: #F8F7F4;
+
+  /* Supporting Colors */
+  --deep-space-blue: #1D3557;
+  --golden-yellow: #FFD60A;
+  --coral-pink: #FF9770;
+  --teal: #2A9D8F;
+  --charcoal: #2B2D42;
+}
+
+/* Atomic Pattern Background */
+.atomic-pattern {
+  position: relative;
+}
+
+.atomic-pattern::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    radial-gradient(circle, var(--sky-blue) 1px, transparent 1px),
+    radial-gradient(circle, var(--atomic-orange) 1px, transparent 1px);
+  background-size: 50px 50px, 70px 70px;
+  background-position: 0 0, 35px 35px;
+  opacity: 0.03;
+  pointer-events: none;
+}
+
+/* Atomic Hero Section */
+.atomic-hero {
+  background: linear-gradient(to bottom, rgba(69, 123, 157, 0.08), rgba(248, 247, 244, 0.95)), var(--cream);
+  padding: 4rem 3rem;
+  position: relative;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+}
+
+.atomic-hero-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.atomic-cover-frame {
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  border: 2px solid var(--cream);
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.atomic-cover-frame:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+}
+
+.atomic-cover-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: brightness(1.05) saturate(1.2) contrast(1.05);
+}
+
+.atomic-hero-text {
+  padding: 2rem 0;
+}
+
+.atomic-badge {
+  display: inline-block;
+  background: var(--mint-green);
+  color: var(--charcoal);
+  font-family: var(--font-righteous), sans-serif;
+  font-size: 0.85rem;
+  padding: 0.5rem 1.2rem;
+  margin-bottom: 1rem;
+  border-radius: 24px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.atomic-hero-text h1 {
+  font-family: var(--font-audiowide), sans-serif;
+  font-size: 3rem;
+  color: var(--atomic-orange);
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  letter-spacing: 1px;
+}
+
+.atomic-hero-text p {
+  color: var(--charcoal);
+  font-family: var(--font-poppins), sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+
+.atomic-cta {
+  display: inline-block;
+  background: var(--mint-green);
+  color: var(--charcoal);
+  font-family: var(--font-poppins), sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 1rem 2rem;
+  text-decoration: none;
+  border: none;
+  border-radius: 24px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(6, 255, 165, 0.3);
+  transition: all 0.3s ease;
+}
+
+.atomic-cta:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 6px 20px rgba(6, 255, 165, 0.4);
+  background: var(--teal);
+}
+
+/* Category Cards Section */
+.category-grid-section {
+  background: var(--cream);
+  padding: 5rem 3rem;
+}
+
+.atomic-section-title {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.atomic-section-title h2 {
+  font-family: var(--font-audiowide), sans-serif;
+  font-size: 2.5rem;
+  color: var(--atomic-orange);
+  margin-bottom: 0.5rem;
+}
+
+.atomic-section-title p {
+  font-family: var(--font-poppins), sans-serif;
+  font-size: 1.1rem;
+  color: var(--charcoal);
+  opacity: 0.8;
+}
+
+.category-grid {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.category-card {
+  background: white;
+  border-left: 4px solid var(--rocket-red);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.category-card.robots {
+  border-left-color: var(--mint-green);
+}
+
+.category-card.worlds {
+  border-left-color: var(--sky-blue);
+}
+
+.category-card.audio {
+  border-left-color: var(--atomic-orange);
+}
+
+.category-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+}
+
+.category-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.category-card h3 {
+  font-family: var(--font-righteous), sans-serif;
+  font-size: 1.5rem;
+  color: var(--charcoal);
+  margin-bottom: 0.75rem;
+}
+
+.category-card p {
+  font-family: var(--font-poppins), sans-serif;
+  font-size: 1rem;
+  color: var(--charcoal);
+  opacity: 0.8;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.category-card a {
+  display: inline-block;
+  color: var(--atomic-orange);
+  font-family: var(--font-poppins), sans-serif;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.category-card a:hover {
+  color: var(--rocket-red);
+  transform: translateX(3px);
+}
+
+/* Horizontal Scroll Gallery */
+.discoveries-section {
+  background: linear-gradient(to bottom, rgba(69, 123, 157, 0.08), var(--cream));
+  padding: 5rem 3rem;
+}
+
+.horizontal-scroll {
+  max-width: 1400px;
+  margin: 0 auto;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  padding: 1rem 0;
+  scrollbar-width: thin;
+  scrollbar-color: var(--atomic-orange) var(--cream);
+}
+
+.horizontal-scroll::-webkit-scrollbar {
+  height: 8px;
+}
+
+.horizontal-scroll::-webkit-scrollbar-track {
+  background: var(--cream);
+}
+
+.horizontal-scroll::-webkit-scrollbar-thumb {
+  background: var(--atomic-orange);
+  border-radius: 4px;
+}
+
+.discovery-card {
+  display: inline-block;
+  width: 200px;
+  margin-right: 1.5rem;
+  vertical-align: top;
+  white-space: normal;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+}
+
+.discovery-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.discovery-card img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+}
+
+.discovery-card-info {
+  padding: 1rem;
+}
+
+.discovery-card h4 {
+  font-family: var(--font-righteous), sans-serif;
+  font-size: 1rem;
+  color: var(--charcoal);
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+}
+
+.discovery-card p {
+  font-family: var(--font-poppins), sans-serif;
+  font-size: 0.85rem;
+  color: var(--sky-blue);
+}
+
+/* Newsletter Section */
+.atomic-newsletter {
+  background: var(--atomic-orange);
+  padding: 4rem 3rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.atomic-newsletter::before {
+  content: '⚛';
+  position: absolute;
+  font-size: 20rem;
+  color: rgba(255,255,255,0.05);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.atomic-newsletter-content {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.atomic-newsletter h2 {
+  font-family: var(--font-audiowide), sans-serif;
+  font-size: 2.5rem;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.atomic-newsletter p {
+  color: white;
+  font-family: var(--font-poppins), sans-serif;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  opacity: 0.95;
+}
+
+.atomic-newsletter-form {
+  display: flex;
+  gap: 1rem;
+  max-width: 600px;
+  margin: 0 auto 1rem;
+}
+
+.atomic-newsletter-form input {
+  flex: 1;
+  padding: 1rem 1.5rem;
+  border: none;
+  background: white;
+  font-size: 1rem;
+  font-family: var(--font-poppins), sans-serif;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.atomic-newsletter-form button {
+  padding: 1rem 2.5rem;
+  background: var(--mint-green);
+  color: var(--charcoal);
+  border: none;
+  font-family: var(--font-poppins), sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+}
+
+.atomic-newsletter-form button:hover {
+  background: var(--teal);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+}
+
+.atomic-newsletter-disclaimer {
+  color: white;
+  font-family: var(--font-poppins), sans-serif;
+  font-size: 0.85rem;
+  opacity: 0.9;
+}
+
+/* Responsive adjustments */
+@media (max-width: 968px) {
+  .atomic-hero-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .atomic-cover-frame {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .category-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .atomic-newsletter-form {
+    flex-direction: column;
+  }
+}

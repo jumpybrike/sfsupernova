@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Audiowide, Inter, Courier_Prime, Abril_Fatface, Righteous, Bebas_Neue } from "next/font/google";
+import { Audiowide, Inter, Courier_Prime, Abril_Fatface, Righteous, Bebas_Neue, Bungee, Merriweather, Oswald, Source_Sans_3, Poppins } from "next/font/google";
 import "./globals.css";
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
@@ -49,6 +49,38 @@ const bebasNeue = Bebas_Neue({
   weight: ["400"],
 });
 
+// Pulp Magazine fonts
+const bungee = Bungee({
+  variable: "--font-bungee",
+  subsets: ["latin"],
+  weight: ["400"],
+});
+
+const merriweather = Merriweather({
+  variable: "--font-merriweather",
+  subsets: ["latin"],
+  weight: ["400", "700"],
+});
+
+const oswald = Oswald({
+  variable: "--font-oswald",
+  subsets: ["latin"],
+  weight: ["600"],
+});
+
+const sourceSans = Source_Sans_3({
+  variable: "--font-source-sans",
+  subsets: ["latin"],
+  weight: ["400", "600"],
+});
+
+// Atomic Age fonts
+const poppins = Poppins({
+  variable: "--font-poppins",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
+
 export const metadata: Metadata = {
   title: "SF Supernova - Vintage Science Fiction Hub",
   description: "Explore the golden age of science fiction through vintage pulps, radio dramas, classic covers, and in-depth reviews of sci-fi's greatest works.",
@@ -63,7 +95,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${audiowide.variable} ${inter.variable} ${courierPrime.variable} ${abrilFatface.variable} ${righteous.variable} ${bebasNeue.variable} antialiased`}
+        className={`${audiowide.variable} ${inter.variable} ${courierPrime.variable} ${abrilFatface.variable} ${righteous.variable} ${bebasNeue.variable} ${bungee.variable} ${merriweather.variable} ${oswald.variable} ${sourceSans.variable} ${poppins.variable} antialiased`}
       >
         <ScrollToTop />
         <Starfield />

@@ -43,6 +43,24 @@ export default async function Home() {
 
   return (
     <div className="relative">
+      {/* Starfield Background */}
+      <div className="starfield">
+        {[...Array(100)].map((_, i) => (
+          <div
+            key={i}
+            className="star"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              width: `${Math.random() * 2 + 1}px`,
+              height: `${Math.random() * 2 + 1}px`,
+              animationDelay: `${Math.random() * 3}s`,
+              animationDuration: `${Math.random() * 3 + 2}s`,
+            }}
+          />
+        ))}
+      </div>
+
       {/* Hero Section */}
       <section className="relative pt-12 pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-[#ff6b35]/20 via-transparent to-[#00d9ff]/20">
         <div className="max-w-5xl mx-auto text-center">
@@ -110,45 +128,6 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* Decades Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-[#f8f3e6]">
-        <div className="max-w-7xl mx-auto">
-          <h2
-            className="text-3xl sm:text-4xl font-normal text-center mb-12 text-[#1a2332]"
-            style={{ fontFamily: 'var(--font-audiowide)' }}
-          >
-            EXPLORE BY DECADE
-          </h2>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {decades.map((decade) => (
-              <Link
-                key={decade.slug}
-                href={`/decades/${decade.slug}`}
-                className="group bg-white border border-[#c9d1d9]/20 rounded-lg p-6 hover:border-[#ff6b35] transition-all duration-300 shadow-sm hover:shadow-lg hover:-translate-y-1"
-              >
-                <h3
-                  className={`text-2xl font-normal mb-2 ${decade.color} group-hover:text-[#ff6b35] transition-colors`}
-                  style={{ fontFamily: decade.font }}
-                >
-                  {decade.name}
-                </h3>
-                <p
-                  className="text-[#1a2332]/70 mb-4"
-                  style={{ fontFamily: 'var(--font-inter)' }}
-                >
-                  {decade.subtitle}
-                </p>
-                <div className="text-[#ff6b35] group-hover:translate-x-2 transition-transform inline-flex items-center font-medium">
-                  <span style={{ fontFamily: 'var(--font-inter)' }}>Explore</span>
-                  <span className="ml-2">→</span>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Featured Gallery Section */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
@@ -199,8 +178,47 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* Featured Content */}
+      {/* Decades Section */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-[#f8f3e6]">
+        <div className="max-w-7xl mx-auto">
+          <h2
+            className="text-3xl sm:text-4xl font-normal text-center mb-12 text-[#1a2332]"
+            style={{ fontFamily: 'var(--font-audiowide)' }}
+          >
+            EXPLORE BY DECADE
+          </h2>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {decades.map((decade) => (
+              <Link
+                key={decade.slug}
+                href={`/decades/${decade.slug}`}
+                className="group bg-white border border-[#c9d1d9]/20 rounded-lg p-6 hover:border-[#ff6b35] transition-all duration-300 shadow-sm hover:shadow-lg hover:-translate-y-1"
+              >
+                <h3
+                  className={`text-2xl font-normal mb-2 ${decade.color} group-hover:text-[#ff6b35] transition-colors`}
+                  style={{ fontFamily: decade.font }}
+                >
+                  {decade.name}
+                </h3>
+                <p
+                  className="text-[#1a2332]/70 mb-4"
+                  style={{ fontFamily: 'var(--font-inter)' }}
+                >
+                  {decade.subtitle}
+                </p>
+                <div className="text-[#ff6b35] group-hover:translate-x-2 transition-transform inline-flex items-center font-medium">
+                  <span style={{ fontFamily: 'var(--font-inter)' }}>Explore</span>
+                  <span className="ml-2">→</span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Content */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
           <h2
             className="text-3xl sm:text-4xl font-normal text-center mb-12 text-[#1a2332]"
