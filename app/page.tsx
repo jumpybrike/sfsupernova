@@ -135,7 +135,7 @@ export default async function Home() {
                 >
                   {decade.name}
                 </h3>
-                <p className="text-[#1a2332]/70 mb-4">
+                <p className="text-[#1a2332]/80 mb-4">
                   {decade.subtitle}
                 </p>
                 <div className="text-[#ff6b35] group-hover:translate-x-2 transition-transform inline-flex items-center font-medium">
@@ -163,7 +163,7 @@ export default async function Home() {
               <p className="text-[#e63946] font-semibold mb-2">
                 Unable to load gallery images
               </p>
-              <p className="text-[#1a2332]/70 text-sm">
+              <p className="text-[#1a2332]/60 text-sm">
                 There was a problem fetching the cover art. Please try visiting the full gallery.
               </p>
             </div>

@@ -33,7 +33,7 @@ export default function NewsletterSignup() {
         </h3>
 
         <p
-          className="text-base text-[#c9d1d9]/90 mb-6 leading-relaxed"
+          className="text-base text-[#c9d1d9]/80 mb-6 leading-relaxed"
           style={{ fontFamily: 'var(--font-inter)' }}
         >
           Subscribe for weekly vintage sci-fi discoveries, reviews, and audio drama recommendations delivered straight to your inbox.

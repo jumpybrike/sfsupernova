@@ -29,7 +29,7 @@ export default async function GalleryPage() {
 
             {/* Stats */}
             <section className="mb-8 text-center">
-              <p className="text-[#1a2332]/70" style={{ fontFamily: 'var(--font-inter)' }}>
+              <p className="text-[#1a2332]/60" style={{ fontFamily: 'var(--font-inter)' }}>
                 Showing <span className="text-[#ff6b35] font-bold">{images?.length || 0}</span> vintage sci-fi magazine covers
               </p>
             </section>
@@ -73,7 +73,7 @@ export default async function GalleryPage() {
                 <h3 className="text-2xl font-bold text-[#ff6b35] mb-4" style={{ fontFamily: 'Orbitron, sans-serif' }}>
                   No images yet
                 </h3>
-                <p className="text-[#1a2332]/70" style={{ fontFamily: 'var(--font-inter)' }}>
+                <p className="text-[#1a2332]/80" style={{ fontFamily: 'var(--font-inter)' }}>
                   Check back soon for vintage sci-fi artwork!
                 </p>
               </div>
