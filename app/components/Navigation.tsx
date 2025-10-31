@@ -94,7 +94,7 @@ export default function Navigation() {
               </button>
 
               {decadesOpen && (
-                <div className="absolute left-0 mt-2 w-64 bg-[#1a2332] border border-[#c9d1d9]/30 rounded-md shadow-lg overflow-hidden animate-[slideDown_0.3s_ease-out]">
+                <div className="absolute left-0 mt-2 w-64 bg-[#1a2332] border border-[#c9d1d9]/20 rounded-md shadow-lg overflow-hidden animate-[slideDown_0.3s_ease-out]">
                   {decades.map((decade) => (
                     <Link
                       key={decade.slug}
@@ -155,7 +155,7 @@ export default function Navigation() {
               </button>
 
               {libraryOpen && (
-                <div className="absolute left-0 mt-2 w-56 bg-[#1a2332] border border-[#c9d1d9]/30 rounded-md shadow-lg overflow-hidden animate-[slideDown_0.3s_ease-out]">
+                <div className="absolute left-0 mt-2 w-56 bg-[#1a2332] border border-[#c9d1d9]/20 rounded-md shadow-lg overflow-hidden animate-[slideDown_0.3s_ease-out]">
                   {libraryLinks.map((link) => (
                     <Link
                       key={link.href}
