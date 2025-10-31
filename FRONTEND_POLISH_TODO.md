@@ -126,7 +126,7 @@
 **Problem:** Almost every element has `style={{ fontFamily: 'var(--font-inter)' }}`
 **Fix:** Set Inter as default body font in globals.css, remove inline styles
 
-### [ ] 18. Replace Footer Placeholder Links
+### [x] 18. Replace Footer Placeholder Links
 **File:** `app/components/Footer.tsx:88-113, 123-140`
 **Problem:** Contact, Privacy Policy, Affiliate Disclosure, Social links all use `href="#"`
 **Fix:** Either create actual pages or remove links until ready
@@ -150,8 +150,8 @@
 
 - **Critical Issues:** 7/7 complete ✅
 - **Moderate Issues:** 6/9 complete
-- **Minor Issues:** 2/4 complete
-- **TOTAL:** 15/20 complete (75%)
+- **Minor Issues:** 3/4 complete
+- **TOTAL:** 16/20 complete (80%)
 
 ---
 
