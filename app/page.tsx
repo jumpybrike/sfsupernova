@@ -83,13 +83,13 @@ export default async function Home() {
           </h1>
           <p
             className="text-3xl sm:text-4xl mb-8 text-[#00d9ff] glow-cyan"
-            style={{ fontFamily: 'var(--font-inter)', wordBreak: 'normal' }}
+            style={{ wordBreak: 'normal' }}
           >
             Your Portal to Vintage Science Fiction
           </p>
           <p
             className="text-xl sm:text-2xl text-[#c9d1d9] mb-20 leading-relaxed"
-            style={{ fontFamily: 'var(--font-inter)', wordBreak: 'normal', maxWidth: '800px', margin: '0 auto 5rem' }}
+            style={{ wordBreak: 'normal', maxWidth: '800px', margin: '0 auto 5rem' }}
           >
             Journey back to the golden age of tomorrow! Explore pulse-pounding pulp magazines,
             edge-of-your-seat radio adventures, and the daring visions that rocketed us into the future!
@@ -99,14 +99,12 @@ export default async function Home() {
             <Link
               href="/decades/1950s"
               className="inline-block px-8 py-3 text-white font-semibold rounded-md transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1 uppercase tracking-wider whitespace-nowrap badge-orange"
-              style={{ fontFamily: 'var(--font-inter)' }}
             >
               Explore the Space Age
             </Link>
             <Link
               href="/audio"
               className="inline-block px-8 py-3 bg-transparent border-2 border-[#ff6b35] text-[#ff6b35] font-semibold rounded-md hover:bg-[#ff6b35] hover:text-white transition-all duration-300 uppercase tracking-wider whitespace-nowrap"
-              style={{ fontFamily: 'var(--font-inter)' }}
             >
               Listen to Radio Dramas
             </Link>
@@ -137,14 +135,11 @@ export default async function Home() {
                 >
                   {decade.name}
                 </h3>
-                <p
-                  className="text-[#1a2332]/70 mb-4"
-                  style={{ fontFamily: 'var(--font-inter)' }}
-                >
+                <p className="text-[#1a2332]/70 mb-4">
                   {decade.subtitle}
                 </p>
                 <div className="text-[#ff6b35] group-hover:translate-x-2 transition-transform inline-flex items-center font-medium">
-                  <span style={{ fontFamily: 'var(--font-inter)' }}>Explore</span>
+                  <span>Explore</span>
                   <span className="ml-2">→</span>
                 </div>
               </Link>
@@ -165,10 +160,10 @@ export default async function Home() {
 
           {imagesError ? (
             <div className="mb-8 p-8 bg-[#e63946]/10 border-2 border-[#e63946]/30 rounded-lg text-center">
-              <p className="text-[#e63946] font-semibold mb-2" style={{ fontFamily: 'var(--font-inter)' }}>
+              <p className="text-[#e63946] font-semibold mb-2">
                 Unable to load gallery images
               </p>
-              <p className="text-[#1a2332]/70 text-sm" style={{ fontFamily: 'var(--font-inter)' }}>
+              <p className="text-[#1a2332]/70 text-sm">
                 There was a problem fetching the cover art. Please try visiting the full gallery.
               </p>
             </div>
@@ -189,7 +184,7 @@ export default async function Home() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
                     <div className="absolute bottom-0 left-0 right-0 p-3">
-                      <p className="text-white text-xs font-semibold line-clamp-2" style={{ fontFamily: 'var(--font-inter)' }}>
+                      <p className="text-white text-xs font-semibold line-clamp-2">
                         {image.title}
                       </p>
                       <p className="text-[#ffbe0b] text-xs mt-1" style={{ fontFamily: 'var(--font-courier-prime)' }}>
@@ -219,7 +214,6 @@ export default async function Home() {
             <Link
               href="/gallery"
               className="inline-block px-8 py-3 bg-transparent border-2 border-[#ff6b35] text-[#ff6b35] font-semibold rounded-md hover:bg-[#ff6b35] hover:text-white transition-all duration-300 uppercase tracking-wider"
-              style={{ fontFamily: 'var(--font-inter)' }}
             >
               View Full Gallery
             </Link>
@@ -244,10 +238,7 @@ export default async function Home() {
                 className="bg-white border border-[#c9d1d9]/20 rounded-lg p-6 hover:border-[#ff6b35] transition-all duration-300 shadow-sm hover:shadow-lg hover:-translate-y-1"
               >
                 <div className="flex items-center justify-between mb-4">
-                  <span
-                    className="text-xs font-semibold text-[#ffbe0b] px-3 py-1 bg-[#ffbe0b]/10 border border-[#ffbe0b]/30 rounded uppercase tracking-wider"
-                    style={{ fontFamily: 'var(--font-inter)' }}
-                  >
+                  <span className="text-xs font-semibold text-[#ffbe0b] px-3 py-1 bg-[#ffbe0b]/10 border border-[#ffbe0b]/30 rounded uppercase tracking-wider">
                     {review.category}
                   </span>
                   <div className="flex text-[#ffbe0b]">
@@ -259,10 +250,7 @@ export default async function Home() {
                   </div>
                 </div>
 
-                <h3
-                  className="text-xl font-semibold mb-2 text-[#1a2332]"
-                  style={{ fontFamily: 'var(--font-inter)' }}
-                >
+                <h3 className="text-xl font-semibold mb-2 text-[#1a2332]">
                   {review.title}
                 </h3>
 
@@ -273,17 +261,13 @@ export default async function Home() {
                   {review.decade}
                 </p>
 
-                <p
-                  className="text-[#1a2332]/80 mb-4 leading-relaxed"
-                  style={{ fontFamily: 'var(--font-inter)' }}
-                >
+                <p className="text-[#1a2332]/80 mb-4 leading-relaxed">
                   {review.excerpt}
                 </p>
 
                 <Link
                   href={`/reviews/${review.id}`}
                   className="text-[#ff6b35] hover:text-[#e63946] transition-colors inline-flex items-center font-medium"
-                  style={{ fontFamily: 'var(--font-inter)' }}
                 >
                   Read full review <span className="ml-1">→</span>
                 </Link>
@@ -295,7 +279,6 @@ export default async function Home() {
             <Link
               href="/reviews"
               className="inline-block px-8 py-3 bg-transparent border-2 border-[#ff6b35] text-[#ff6b35] font-semibold rounded-md hover:bg-[#ff6b35] hover:text-white transition-all duration-300 uppercase tracking-wider"
-              style={{ fontFamily: 'var(--font-inter)' }}
             >
               View All Reviews
             </Link>
@@ -319,10 +302,7 @@ export default async function Home() {
           >
             DISCOVER THE CLASSICS
           </h2>
-          <p
-            className="text-lg text-[#c9d1d9]/80 mb-8 leading-relaxed"
-            style={{ fontFamily: 'var(--font-inter)' }}
-          >
+          <p className="text-lg text-[#c9d1d9]/80 mb-8 leading-relaxed">
             From Asimov to Zelazny, from pulp covers to radio plays, dive deep into the
             archives of science fiction&apos;s most influential era.
           </p>
@@ -330,14 +310,12 @@ export default async function Home() {
             <Link
               href="/gallery"
               className="inline-block px-8 py-3 text-white font-semibold rounded-md transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1 uppercase tracking-wider whitespace-nowrap badge-orange"
-              style={{ fontFamily: 'var(--font-inter)' }}
             >
               Browse Gallery
             </Link>
             <Link
               href="/about"
               className="inline-block px-8 py-3 bg-transparent border-2 border-[#ff6b35] text-[#ff6b35] font-semibold rounded-md hover:bg-[#ff6b35] hover:text-white transition-all duration-300 uppercase tracking-wider"
-              style={{ fontFamily: 'var(--font-inter)' }}
             >
               About SF Supernova
             </Link>
