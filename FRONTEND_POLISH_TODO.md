@@ -108,7 +108,7 @@
 **Problem:** If database query fails, just shows nothing - silent failure
 **Fix:** Add error message or fallback content: "Unable to load gallery images"
 
-### [ ] 16. Standardize Border Color Opacity
+### [x] 16. Standardize Border Color Opacity
 **Files:** Throughout codebase
 **Problem:** Inconsistent opacity levels:
 - `border-[#c9d1d9]/20` (most common)
@@ -150,8 +150,8 @@
 
 - **Critical Issues:** 7/7 complete ✅
 - **Moderate Issues:** 6/9 complete
-- **Minor Issues:** 0/4 complete
-- **TOTAL:** 13/20 complete (65%)
+- **Minor Issues:** 1/4 complete
+- **TOTAL:** 14/20 complete (70%)
 
 ---
 
