@@ -479,3 +479,44 @@ p, h1, h2, h3, h4, h5, h6, div {
   font-weight: 600;
   color: var(--deep-space-blue);
 }
+
+/* Decade Card Color Preservation on Hover */
+.decade-yellow {
+  color: #ffbe0b;
+  transition: filter 0.3s ease;
+}
+
+.group:hover .decade-yellow {
+  color: #ffbe0b;
+  filter: brightness(1.2);
+}
+
+.decade-teal {
+  color: #2ec4b6;
+  transition: filter 0.3s ease;
+}
+
+.group:hover .decade-teal {
+  color: #2ec4b6;
+  filter: brightness(1.2);
+}
+
+.decade-red {
+  color: #e63946;
+  transition: filter 0.3s ease;
+}
+
+.group:hover .decade-red {
+  color: #e63946;
+  filter: brightness(1.2);
+}
+
+.decade-orange {
+  color: #ff6b35;
+  transition: filter 0.3s ease;
+}
+
+.group:hover .decade-orange {
+  color: #ff6b35;
+  filter: brightness(1.2);
+}
