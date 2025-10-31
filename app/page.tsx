@@ -13,6 +13,7 @@ export default async function Home() {
     .limit(6);
   const featuredReviews = [
     {
+      id: '1',
       title: 'Foundation by Isaac Asimov',
       decade: '1950s',
       excerpt: 'A sweeping tale of galactic empire and psychohistory that defined the golden age of science fiction...',
@@ -20,6 +21,7 @@ export default async function Home() {
       rating: 5,
     },
     {
+      id: '3',
       title: 'Dimension X: The Outer Limit',
       decade: '1950s',
       excerpt: 'Classic radio drama that transported listeners to the far reaches of space and imagination...',
@@ -27,6 +29,7 @@ export default async function Home() {
       rating: 5,
     },
     {
+      id: '2',
       title: 'The Day the Earth Stood Still',
       decade: '1950s',
       excerpt: 'A landmark film that brought thoughtful sci-fi to mainstream audiences with its message of peace...',
@@ -269,7 +272,7 @@ export default async function Home() {
                 </p>
 
                 <Link
-                  href="/reviews"
+                  href={`/reviews/${review.id}`}
                   className="text-[#ff6b35] hover:text-[#e63946] transition-colors inline-flex items-center font-medium"
                   style={{ fontFamily: 'var(--font-inter)' }}
                 >

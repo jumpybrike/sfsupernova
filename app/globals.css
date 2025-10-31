@@ -446,3 +446,36 @@ p, h1, h2, h3, h4, h5, h6, div {
   background: linear-gradient(135deg, #00ff88, #00cc99);
   color: white;
 }
+
+/* Prose/Article Styles for Review Content */
+.prose {
+  max-width: none;
+}
+
+.prose h2 {
+  font-family: var(--font-audiowide);
+  font-size: 1.75rem;
+  font-weight: normal;
+  color: var(--deep-space-blue);
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+.prose p {
+  font-family: var(--font-inter);
+  font-size: 1.125rem;
+  line-height: 1.75;
+  color: var(--deep-space-blue);
+  margin-bottom: 1.25rem;
+}
+
+.prose em {
+  font-style: italic;
+  color: var(--atomic-orange);
+}
+
+.prose strong {
+  font-weight: 600;
+  color: var(--deep-space-blue);
+}
