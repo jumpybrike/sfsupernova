@@ -75,7 +75,7 @@
 **Problem:** Hero CTAs use `px-8 py-4`, all others use `px-8 py-3` - no clear reason
 **Fix:** Use consistent padding across all CTAs (recommend `px-8 py-3`)
 
-### [ ] 11. Preserve Decade Card Unique Colors on Hover
+### [x] 11. Preserve Decade Card Unique Colors on Hover
 **File:** `app/page.tsx:131`
 **Problem:** Each decade has unique color but hover makes ALL orange, losing personality
 **Current:** Yellow (1930s), Teal (1950s), Red (1960s), Orange (1970s) → All Orange on hover
@@ -147,9 +147,9 @@
 ## 📊 PROGRESS TRACKER
 
 - **Critical Issues:** 7/7 complete ✅
-- **Moderate Issues:** 2/9 complete
+- **Moderate Issues:** 3/9 complete
 - **Minor Issues:** 0/4 complete
-- **TOTAL:** 9/20 complete (45%)
+- **TOTAL:** 10/20 complete (50%)
 
 ---
 
