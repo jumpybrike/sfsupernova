@@ -4,39 +4,21 @@ import NewsletterSignup from './components/NewsletterSignup';
 import { createClient } from '@/lib/supabase/server';
 
 export default async function Home() {
-  // Fetch featured images from database
+  // Fetch featured images and reviews from database
   const supabase = await createClient();
+
   const { data: featuredImages, error: imagesError } = await supabase
     .from('images')
     .select('*')
     .order('year', { ascending: false })
     .limit(6);
-  const featuredReviews = [
-    {
-      id: '1',
-      title: 'Foundation by Isaac Asimov',
-      decade: '1950s',
-      excerpt: 'A sweeping tale of galactic empire and psychohistory that defined the golden age of science fiction...',
-      category: 'Books',
-      rating: 5,
-    },
-    {
-      id: '3',
-      title: 'Dimension X: The Outer Limit',
-      decade: '1950s',
-      excerpt: 'Classic radio drama that transported listeners to the far reaches of space and imagination...',
-      category: 'Audio',
-      rating: 5,
-    },
-    {
-      id: '2',
-      title: 'The Day the Earth Stood Still',
-      decade: '1950s',
-      excerpt: 'A landmark film that brought thoughtful sci-fi to mainstream audiences with its message of peace...',
-      category: 'Film',
-      rating: 5,
-    },
-  ];
+
+  const { data: featuredReviews, error: reviewsError } = await supabase
+    .from('reviews')
+    .select('*')
+    .eq('is_featured', true)
+    .order('sort_order', { ascending: true })
+    .limit(3);
 
   const decades = [
     { slug: '1930s-1940s', name: '1930s-1940s', subtitle: 'Golden Age', color: 'text-[#ffbe0b]', font: 'var(--font-abril-fatface)' },
@@ -231,8 +213,18 @@ export default async function Home() {
             FEATURED REVIEWS
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {featuredReviews.map((review, index) => (
+          {reviewsError ? (
+            <div className="mb-8 p-8 bg-[#e63946]/10 border-2 border-[#e63946]/30 rounded-lg text-center">
+              <p className="text-[#e63946] font-semibold mb-2">
+                Unable to load featured reviews
+              </p>
+              <p className="text-[#1a2332]/60 text-sm">
+                There was a problem fetching the reviews. Please try again later.
+              </p>
+            </div>
+          ) : featuredReviews && featuredReviews.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {featuredReviews.map((review, index) => (
               <article
                 key={index}
                 className="bg-white border border-[#c9d1d9]/20 rounded-lg p-6 hover:border-[#ff6b35] transition-all duration-300 shadow-sm hover:shadow-lg hover:-translate-y-1"
@@ -273,16 +265,25 @@ export default async function Home() {
                 </Link>
               </article>
             ))}
-          </div>
+            </div>
+          ) : (
+            <div className="p-8 bg-white border-2 border-[#c9d1d9]/20 rounded-lg text-center">
+              <p className="text-[#1a2332]/80">
+                No featured reviews available at this time. Check back soon!
+              </p>
+            </div>
+          )}
 
-          <div className="text-center mt-12">
+          {featuredReviews && featuredReviews.length > 0 && (
+            <div className="text-center mt-12">
             <Link
               href="/reviews"
               className="inline-block px-8 py-3 bg-transparent border-2 border-[#ff6b35] text-[#ff6b35] font-semibold rounded-md hover:bg-[#ff6b35] hover:text-white transition-all duration-300 uppercase tracking-wider"
             >
               View All Reviews
             </Link>
-          </div>
+            </div>
+          )}
         </div>
       </section>
 
