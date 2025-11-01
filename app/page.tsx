@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import NewsletterSignup from './components/NewsletterSignup';
 import { createClient } from '@/lib/supabase/server';
+import { getCdnImageUrl } from '@/lib/imageUrl';
 
 export default async function Home() {
   // Fetch featured images from database
@@ -168,7 +169,7 @@ export default async function Home() {
                   className="group relative aspect-[2/3] overflow-hidden rounded-lg border-2 border-[#c9d1d9]/20 hover:border-[#ff6b35] transition-all duration-300 shadow-sm hover:shadow-lg"
                 >
                   <img
-                    src={image.file_path}
+                    src={getCdnImageUrl(image.file_path)}
                     alt={image.title}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                   />

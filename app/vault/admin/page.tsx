@@ -2,6 +2,7 @@ import { createClient } from '@/lib/supabase/server'
 import { redirect } from 'next/navigation'
 import Link from 'next/link'
 import { signOut } from '@/app/actions/auth'
+import { getCdnImageUrl } from '@/lib/imageUrl'
 
 export default async function AdminPage() {
   const supabase = await createClient()
@@ -250,7 +251,7 @@ function ImageCard({ image }: { image: any }) {
       <div className="relative aspect-[2/3] overflow-hidden rounded-lg border-2 border-[#ff6b6b]/50 hover:border-[#ff6b6b] transition-colors">
         {image.thumbnail_path ? (
           <img
-            src={image.thumbnail_path}
+            src={getCdnImageUrl(image.thumbnail_path)}
             alt={image.title}
             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
           />

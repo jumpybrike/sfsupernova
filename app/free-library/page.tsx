@@ -2,6 +2,7 @@
 
 import { useState, useMemo } from 'react';
 import Link from 'next/link';
+import { getCoverImageUrl } from '@/lib/imageUrl';
 
 interface Book {
   id: string;
@@ -442,34 +443,34 @@ const books: Book[] = [
   },
 ];
 
-// Map book IDs to cover image filenames
-const coverImages: { [key: string]: string } = {
-  "war-of-worlds": "/covers/war-of-worlds.jpg",
-  "time-machine": "/covers/time-machine.jpg",
-  "island-dr-moreau": "/covers/island-moreau.jpg",
-  "invisible-man": "/covers/invisible-man.jpg",
-  "first-men-in-moon": "/covers/first-men-moon.jpg",
-  "sleeper-wakes": "/covers/sleeper-wakes.jpg",
-  "in-days-comet": "/covers/days-comet.jpg",
-  "food-of-gods": "/covers/food-of-gods.jpg",
-  "twenty-thousand-leagues": "/covers/twenty-thousand-leagues.jpg",
-  "journey-center-earth": "/covers/journey-center-earth.jpg",
-  "from-earth-moon": "/covers/from-earth-moon.jpg",
-  "around-world-eighty-days": "/covers/around-world.jpg",
-  "princess-of-mars": "/covers/princess-mars.jpg",
-  "gods-of-mars": "/covers/gods-mars.jpg",
-  "warlord-of-mars": "/covers/warlord-mars.jpg",
-  "at-earths-core": "/covers/earths-core.jpg",
-  "moon-maid": "/covers/moon-maid.jpg",
-  "moon-pool": "/covers/moon-pool.jpg",
-  "metal-monster": "/covers/metal-monster.jpg",
-  "skylark-space": "/covers/skylark-space.jpg",
-  "frankenstein": "/covers/frankenstein.jpg",
-  "jekyll-hyde": "/covers/jekyll-hyde.jpg",
-  "flatland": "/covers/flatland.jpg",
-  "connecticut-yankee": "/covers/connecticut-yankee.jpg",
-  "lost-world": "/covers/lost-world.jpg",
-  "looking-backward": "/covers/looking-backward.jpg",
+// Map book IDs to cover image filenames (filename may differ from book ID)
+const coverFilenames: { [key: string]: string } = {
+  "war-of-worlds": "war-of-worlds",
+  "time-machine": "time-machine",
+  "island-dr-moreau": "island-moreau",
+  "invisible-man": "invisible-man",
+  "first-men-in-moon": "first-men-moon",
+  "sleeper-wakes": "sleeper-wakes",
+  "in-days-comet": "days-comet",
+  "food-of-gods": "food-of-gods",
+  "twenty-thousand-leagues": "twenty-thousand-leagues",
+  "journey-center-earth": "journey-center-earth",
+  "from-earth-moon": "from-earth-moon",
+  "around-world-eighty-days": "around-world",
+  "princess-of-mars": "princess-mars",
+  "gods-of-mars": "gods-mars",
+  "warlord-of-mars": "warlord-mars",
+  "at-earths-core": "earths-core",
+  "moon-maid": "moon-maid",
+  "moon-pool": "moon-pool",
+  "metal-monster": "metal-monster",
+  "skylark-space": "skylark-space",
+  "frankenstein": "frankenstein",
+  "jekyll-hyde": "jekyll-hyde",
+  "flatland": "flatland",
+  "connecticut-yankee": "connecticut-yankee",
+  "lost-world": "lost-world",
+  "looking-backward": "looking-backward",
 };
 
 // Helper function to convert author names to slugs for linking
@@ -612,7 +613,8 @@ export default function FreeLibraryPage() {
         {/* Books Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
           {filteredBooks.map((book) => {
-            const coverImage = coverImages[book.id];
+            const coverFilename = coverFilenames[book.id];
+            const coverImage = coverFilename ? getCoverImageUrl(coverFilename) : null;
 
             return (
             <article

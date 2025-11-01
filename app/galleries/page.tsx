@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { createClient } from '@/lib/supabase/server';
+import { getCdnImageUrl } from '@/lib/imageUrl';
 
 export const metadata = {
   title: 'Galleries - SF Supernova',
@@ -124,7 +125,7 @@ export default async function GalleriesPage() {
                     className={`group relative aspect-[2/3] overflow-hidden rounded-lg border-2 ${info.borderColor}/30 hover:${info.borderColor} transition-all duration-300 shadow-sm hover:shadow-lg`}
                   >
                     <img
-                      src={image.file_path}
+                      src={getCdnImageUrl(image.file_path)}
                       alt={image.title}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                     />

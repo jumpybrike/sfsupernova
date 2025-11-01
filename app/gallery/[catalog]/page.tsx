@@ -1,6 +1,7 @@
 import { createClient } from '@/lib/supabase/server'
 import { redirect, notFound } from 'next/navigation'
 import Link from 'next/link'
+import { getCdnImageUrl } from '@/lib/imageUrl'
 
 interface PageProps {
   params: Promise<{ catalog: string }>
@@ -125,7 +126,7 @@ export default async function ImageDetailPage({ params }: PageProps) {
                 <div className="relative bg-black border-2 border-[#00ffaa] rounded-lg overflow-hidden">
                   {image.file_path ? (
                     <img
-                      src={image.file_path}
+                      src={getCdnImageUrl(image.file_path)}
                       alt={image.title}
                       className="w-full h-auto"
                     />

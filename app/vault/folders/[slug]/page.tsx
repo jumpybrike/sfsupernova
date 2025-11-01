@@ -2,6 +2,7 @@ import { createClient } from '@/lib/supabase/server'
 import { redirect, notFound } from 'next/navigation'
 import Link from 'next/link'
 import { signOut } from '@/app/actions/auth'
+import { getCdnImageUrl } from '@/lib/imageUrl'
 
 interface PageProps {
   params: Promise<{ slug: string }>
@@ -178,7 +179,7 @@ function ImageCard({ image, folderImageId }: { image: any; folderImageId: string
         <div className="relative aspect-[2/3] overflow-hidden rounded-lg border-2 border-[#00ffaa]/50 hover:border-[#00ffaa] transition-colors">
           {image.thumbnail_path ? (
             <img
-              src={image.thumbnail_path}
+              src={getCdnImageUrl(image.thumbnail_path)}
               alt={image.title}
               className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
             />
