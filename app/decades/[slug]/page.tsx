@@ -143,7 +143,7 @@ export default async function DecadePage({ params }: { params: Promise<{ slug: s
             DECADE HIGHLIGHTS
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {decade.highlights.map((highlight, index) => (
               <div
                 key={index}
@@ -171,7 +171,7 @@ export default async function DecadePage({ params }: { params: Promise<{ slug: s
             FEATURED CONTENT FROM THIS ERA
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {sampleReviews.map((review, index) => (
               <article
                 key={index}
