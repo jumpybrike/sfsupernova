@@ -241,7 +241,7 @@ export default function AudioPage() {
             href="https://archive.org"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block px-8 py-3 bg-retro-green/20 border-2 border-retro-green text-retro-green font-bold rounded retro-button hover:bg-retro-green hover:text-background transition-all duration-300"
+            className="inline-block px-8 py-3 bg-retro-cyan/20 border-2 border-retro-cyan text-retro-cyan font-bold rounded retro-button hover:bg-retro-cyan hover:text-background transition-all duration-300"
             style={{ fontFamily: 'Orbitron, sans-serif' }}
           >
             VISIT INTERNET ARCHIVE
