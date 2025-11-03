@@ -537,7 +537,7 @@ export default function FreeLibraryPage() {
           </h1>
           <p
             className="text-xl text-[#c9d1d9] mb-8 max-w-4xl mx-auto leading-relaxed"
-            style={{ fontFamily: 'var(--font-inter)', wordBreak: 'normal', whiteSpace: 'normal', overflowWrap: 'normal' }}
+            style={{ wordBreak: 'normal', whiteSpace: 'normal', overflowWrap: 'normal' }}
           >
             Discover the golden age of science fiction with our curated library of 25 classic ebooks.
             All legally free, thanks to Project Gutenberg. Read the books that shaped the genre.
@@ -551,7 +551,7 @@ export default function FreeLibraryPage() {
                 value={selectedDecade}
                 onChange={(e) => setSelectedDecade(e.target.value)}
                 className="px-6 py-3 bg-[#1a2332] border-2 border-[#2ec4b6] text-[#2ec4b6] rounded-md font-medium transition-all duration-300 hover:bg-[#2ec4b6] hover:text-[#1a2332] cursor-pointer"
-                style={{ fontFamily: 'var(--font-inter)' }}
+               
               >
                 <option value="all">All Decades</option>
                 {decades.filter(d => d !== 'all').map(decade => (
@@ -566,7 +566,7 @@ export default function FreeLibraryPage() {
                 value={selectedAuthor}
                 onChange={(e) => setSelectedAuthor(e.target.value)}
                 className="px-6 py-3 bg-[#1a2332] border-2 border-[#2ec4b6] text-[#2ec4b6] rounded-md font-medium transition-all duration-300 hover:bg-[#2ec4b6] hover:text-[#1a2332] cursor-pointer"
-                style={{ fontFamily: 'var(--font-inter)' }}
+               
               >
                 <option value="all">All Authors</option>
                 {authors.filter(a => a !== 'all').map(author => (
@@ -581,7 +581,7 @@ export default function FreeLibraryPage() {
                 value={selectedTheme}
                 onChange={(e) => setSelectedTheme(e.target.value)}
                 className="px-6 py-3 bg-[#1a2332] border-2 border-[#2ec4b6] text-[#2ec4b6] rounded-md font-medium transition-all duration-300 hover:bg-[#2ec4b6] hover:text-[#1a2332] cursor-pointer"
-                style={{ fontFamily: 'var(--font-inter)' }}
+               
               >
                 <option value="all">All Themes</option>
                 {themes.filter(t => t !== 'all').map(theme => (
@@ -592,7 +592,7 @@ export default function FreeLibraryPage() {
           </div>
 
           {/* Result Count */}
-          <p className="text-[#c9d1d9]/70 text-sm" style={{ fontFamily: 'var(--font-inter)' }}>
+          <p className="text-[#c9d1d9]/70 text-sm">
             Showing {filteredBooks.length} of {books.length} books
           </p>
         </div>
@@ -601,7 +601,7 @@ export default function FreeLibraryPage() {
         <div className="bg-[#2ec4b6] py-4 rounded-lg mb-12 shadow-lg">
           <p
             className="text-center text-white text-lg"
-            style={{ fontFamily: 'var(--font-inter)' }}
+           
           >
             🎧 Prefer audiobooks?{' '}
             <Link href="/audiobook-library" className="font-bold underline hover:text-[#1a2332] transition-colors">
@@ -642,7 +642,7 @@ export default function FreeLibraryPage() {
                       <p className="text-white font-bold text-lg" style={{ fontFamily: 'var(--font-courier-prime)' }}>
                         {book.year}
                       </p>
-                      <p className="text-white/80 text-xs mt-1" style={{ fontFamily: 'var(--font-inter)' }}>
+                      <p className="text-white/80 text-xs mt-1">
                         {book.author}
                       </p>
                     </div>
@@ -663,7 +663,7 @@ export default function FreeLibraryPage() {
               <div className="p-6 flex-1 flex flex-col">
                 <h3
                   className="text-lg font-semibold mb-2 text-[#1a2332]"
-                  style={{ fontFamily: 'var(--font-inter)', wordBreak: 'normal' }}
+                  style={{ wordBreak: 'normal' }}
                 >
                   {book.title}
                 </h3>
@@ -671,7 +671,7 @@ export default function FreeLibraryPage() {
                 <Link
                   href={`/authors/${getAuthorSlug(book.author)}`}
                   className="text-sm text-[#1a2332]/70 mb-1 hover:text-[#ff6b35] transition-colors inline-block"
-                  style={{ fontFamily: 'var(--font-inter)' }}
+                 
                 >
                   by {book.author}
                 </Link>
@@ -695,7 +695,7 @@ export default function FreeLibraryPage() {
                 {/* Recommendation */}
                 <p
                   className="text-sm text-[#1a2332]/80 mb-4 flex-1 leading-relaxed line-clamp-4"
-                  style={{ fontFamily: 'var(--font-inter)' }}
+                 
                 >
                   {book.recommendation}
                 </p>
@@ -707,7 +707,7 @@ export default function FreeLibraryPage() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-full px-6 py-3 bg-[#2ec4b6] text-white font-semibold rounded-md hover:bg-[#2ec4b6]/90 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-2 mb-3"
-                    style={{ fontFamily: 'var(--font-inter)' }}
+                   
                   >
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15.536a5 5 0 001.414 1.414m0-7.072a5 5 0 00-1.414 1.414m7.072-7.072a9 9 0 0110.607 0" />
@@ -721,7 +721,7 @@ export default function FreeLibraryPage() {
                   <button
                     onClick={() => setShowDownloadMenu(showDownloadMenu === book.id ? null : book.id)}
                     className="w-full px-6 py-3 bg-[#ff6b35] text-white font-semibold rounded-md hover:bg-[#e63946] transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-2"
-                    style={{ fontFamily: 'var(--font-inter)' }}
+                   
                   >
                     Download
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -737,7 +737,7 @@ export default function FreeLibraryPage() {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="block px-4 py-3 text-[#1a2332] hover:bg-[#ff6b35] hover:text-white transition-colors border-b border-[#c9d1d9]/20"
-                        style={{ fontFamily: 'var(--font-inter)' }}
+                       
                       >
                         EPUB
                       </a>
@@ -746,7 +746,7 @@ export default function FreeLibraryPage() {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="block px-4 py-3 text-[#1a2332] hover:bg-[#ff6b35] hover:text-white transition-colors border-b border-[#c9d1d9]/20"
-                        style={{ fontFamily: 'var(--font-inter)' }}
+                       
                       >
                         Kindle
                       </a>
@@ -755,7 +755,7 @@ export default function FreeLibraryPage() {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="block px-4 py-3 text-[#1a2332] hover:bg-[#ff6b35] hover:text-white transition-colors"
-                        style={{ fontFamily: 'var(--font-inter)' }}
+                       
                       >
                         Read Online (HTML)
                       </a>
@@ -778,7 +778,7 @@ export default function FreeLibraryPage() {
           </h3>
           <p
             className="text-[#c9d1d9] mb-4 max-w-4xl mx-auto leading-relaxed"
-            style={{ fontFamily: 'var(--font-inter)', wordBreak: 'normal', whiteSpace: 'normal', overflowWrap: 'normal' }}
+            style={{ wordBreak: 'normal', whiteSpace: 'normal', overflowWrap: 'normal' }}
           >
             All ebooks courtesy of{' '}
             <a
@@ -793,7 +793,7 @@ export default function FreeLibraryPage() {
           </p>
           <p
             className="text-[#c9d1d9] mb-4 max-w-4xl mx-auto leading-relaxed"
-            style={{ fontFamily: 'var(--font-inter)', wordBreak: 'normal', whiteSpace: 'normal', overflowWrap: 'normal' }}
+            style={{ wordBreak: 'normal', whiteSpace: 'normal', overflowWrap: 'normal' }}
           >
             Audiobooks courtesy of{' '}
             <a
@@ -808,7 +808,7 @@ export default function FreeLibraryPage() {
           </p>
           <p
             className="text-[#c9d1d9]/80 text-sm max-w-4xl mx-auto"
-            style={{ fontFamily: 'var(--font-inter)', wordBreak: 'normal', whiteSpace: 'normal', overflowWrap: 'normal' }}
+            style={{ wordBreak: 'normal', whiteSpace: 'normal', overflowWrap: 'normal' }}
           >
             These books are in the public domain in the United States and may be freely downloaded and shared.
           </p>

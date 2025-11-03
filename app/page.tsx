@@ -81,13 +81,13 @@ export default async function Home() {
           </h1>
           <p
             className="text-3xl sm:text-4xl mb-8 text-[#00d9ff] glow-cyan"
-            style={{ fontFamily: 'var(--font-inter)', wordBreak: 'normal' }}
+            style={{ wordBreak: 'normal' }}
           >
             Your Portal to Vintage Science Fiction
           </p>
           <p
             className="text-xl sm:text-2xl text-[#c9d1d9] mb-20 leading-relaxed"
-            style={{ fontFamily: 'var(--font-inter)', wordBreak: 'normal', maxWidth: '800px', margin: '0 auto 5rem' }}
+            style={{ wordBreak: 'normal', maxWidth: '800px', margin: '0 auto 5rem' }}
           >
             Journey back to the golden age of tomorrow! Explore pulse-pounding pulp magazines,
             edge-of-your-seat radio adventures, and the daring visions that rocketed us into the future!
@@ -97,14 +97,12 @@ export default async function Home() {
             <Link
               href="/decades/1950s"
               className="inline-block px-8 py-3 text-white font-semibold rounded-md transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1 uppercase tracking-wider whitespace-nowrap badge-orange"
-              style={{ fontFamily: 'var(--font-inter)' }}
             >
               Explore the Space Age
             </Link>
             <Link
               href="/audio"
               className="inline-block px-8 py-3 text-white font-semibold rounded-md transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1 uppercase tracking-wider whitespace-nowrap badge-cyan"
-              style={{ fontFamily: 'var(--font-inter)' }}
             >
               Listen to Radio Dramas
             </Link>
@@ -139,7 +137,7 @@ export default async function Home() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
                     <div className="absolute bottom-0 left-0 right-0 p-3">
-                      <p className="text-white text-xs font-semibold line-clamp-2" style={{ fontFamily: 'var(--font-inter)' }}>
+                      <p className="text-white text-xs font-semibold line-clamp-2">
                         {image.title}
                       </p>
                       <p className="text-[#ffbe0b] text-xs mt-1" style={{ fontFamily: 'var(--font-courier-prime)' }}>
@@ -156,7 +154,6 @@ export default async function Home() {
             <Link
               href="/gallery"
               className="inline-block px-8 py-3 bg-transparent border-2 border-[#ff6b35] text-[#ff6b35] font-semibold rounded-md hover:bg-[#ff6b35] hover:text-white transition-all duration-300 uppercase tracking-wider"
-              style={{ fontFamily: 'var(--font-inter)' }}
             >
               View Full Gallery
             </Link>
@@ -188,13 +185,12 @@ export default async function Home() {
                   {decade.name}
                 </h3>
                 <p
-                  className="text-[#1a2332]/70 mb-4"
-                  style={{ fontFamily: 'var(--font-inter)' }}
+                  className="text-[#1a2332]/80 mb-4"
                 >
                   {decade.subtitle}
                 </p>
                 <div className="text-[#ff6b35] group-hover:translate-x-2 transition-transform inline-flex items-center font-medium">
-                  <span style={{ fontFamily: 'var(--font-inter)' }}>Explore</span>
+                  <span>Explore</span>
                   <span className="ml-2">→</span>
                 </div>
               </Link>
@@ -222,7 +218,6 @@ export default async function Home() {
                 <div className="flex items-center justify-between mb-4">
                   <span
                     className="text-xs font-semibold text-[#ffbe0b] px-3 py-1 bg-[#ffbe0b]/10 border border-[#ffbe0b]/30 rounded uppercase tracking-wider"
-                    style={{ fontFamily: 'var(--font-inter)' }}
                   >
                     {review.category}
                   </span>
@@ -237,7 +232,6 @@ export default async function Home() {
 
                 <h3
                   className="text-xl font-semibold mb-2 text-[#1a2332]"
-                  style={{ fontFamily: 'var(--font-inter)' }}
                 >
                   {review.title}
                 </h3>
@@ -251,7 +245,6 @@ export default async function Home() {
 
                 <p
                   className="text-[#1a2332]/80 mb-4 leading-relaxed"
-                  style={{ fontFamily: 'var(--font-inter)' }}
                 >
                   {review.excerpt}
                 </p>
@@ -259,7 +252,6 @@ export default async function Home() {
                 <Link
                   href="/reviews"
                   className="text-[#ff6b35] hover:text-[#e63946] transition-colors inline-flex items-center font-medium"
-                  style={{ fontFamily: 'var(--font-inter)' }}
                 >
                   Read full review <span className="ml-1">→</span>
                 </Link>
@@ -271,7 +263,6 @@ export default async function Home() {
             <Link
               href="/reviews"
               className="inline-block px-8 py-3 bg-transparent border-2 border-[#ff6b35] text-[#ff6b35] font-semibold rounded-md hover:bg-[#ff6b35] hover:text-white transition-all duration-300 uppercase tracking-wider"
-              style={{ fontFamily: 'var(--font-inter)' }}
             >
               View All Reviews
             </Link>
@@ -297,7 +288,6 @@ export default async function Home() {
           </h2>
           <p
             className="text-lg text-[#c9d1d9]/80 mb-8 leading-relaxed"
-            style={{ fontFamily: 'var(--font-inter)' }}
           >
             From Asimov to Zelazny, from pulp covers to radio plays, dive deep into the
             archives of science fiction&apos;s most influential era.
@@ -306,14 +296,12 @@ export default async function Home() {
             <Link
               href="/gallery"
               className="inline-block px-8 py-3 bg-[#2ec4b6] text-white font-semibold rounded-md hover:bg-[#2ec4b6]/90 transition-all duration-300 shadow-lg hover:shadow-xl uppercase tracking-wider"
-              style={{ fontFamily: 'var(--font-inter)' }}
             >
               Browse Gallery
             </Link>
             <Link
               href="/about"
               className="inline-block px-8 py-3 bg-transparent border-2 border-[#ffbe0b] text-[#ffbe0b] font-semibold rounded-md hover:bg-[#ffbe0b] hover:text-[#1a2332] transition-all duration-300 uppercase tracking-wider"
-              style={{ fontFamily: 'var(--font-inter)' }}
             >
               About SF Supernova
             </Link>

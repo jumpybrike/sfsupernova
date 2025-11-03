@@ -340,7 +340,7 @@ export default async function AuthorPage(props: PageProps) {
     <div className="pt-8 pb-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-5xl mx-auto">
         {/* Breadcrumb */}
-        <nav className="mb-6 text-sm" style={{ fontFamily: 'var(--font-inter)' }}>
+        <nav className="mb-6 text-sm">
           <Link href="/" className="text-[#2ec4b6] hover:text-[#ff6b35] transition-colors">
             Home
           </Link>
@@ -371,11 +371,11 @@ export default async function AuthorPage(props: PageProps) {
                 {author.commonName}
               </h1>
               {author.name !== author.commonName && (
-                <p className="text-lg text-[#1a2332]/70 mb-2" style={{ fontFamily: 'var(--font-inter)' }}>
+                <p className="text-lg text-[#1a2332]/70 mb-2">
                   {author.name}
                 </p>
               )}
-              <p className="text-md text-[#1a2332]/60 mb-3" style={{ fontFamily: 'var(--font-inter)' }}>
+              <p className="text-md text-[#1a2332]/60 mb-3">
                 {author.birthYear}–{author.deathYear || 'Present'} ({author.deathYear ? author.deathYear - author.birthYear : 2025 - author.birthYear} years) • {author.nationality}
               </p>
               <p
@@ -391,7 +391,7 @@ export default async function AuthorPage(props: PageProps) {
                   <span
                     key={genre}
                     className="px-3 py-1 bg-[#2ec4b6]/10 text-[#2ec4b6] text-sm rounded-md border border-[#2ec4b6]/30"
-                    style={{ fontFamily: 'var(--font-inter)' }}
+                   
                   >
                     {genre}
                   </span>
@@ -403,14 +403,14 @@ export default async function AuthorPage(props: PageProps) {
                 <Link
                   href="/free-library"
                   className="px-4 py-2 bg-[#ff6b35] text-white text-sm font-semibold rounded-md hover:bg-[#e63946] transition-colors"
-                  style={{ fontFamily: 'var(--font-inter)' }}
+                 
                 >
                   Read Their Books
                 </Link>
                 <Link
                   href="/audiobook-library"
                   className="px-4 py-2 bg-[#2ec4b6] text-white text-sm font-semibold rounded-md hover:bg-[#2ec4b6]/90 transition-colors"
-                  style={{ fontFamily: 'var(--font-inter)' }}
+                 
                 >
                   Listen Free
                 </Link>
@@ -429,7 +429,7 @@ export default async function AuthorPage(props: PageProps) {
           </h2>
           <div
             className="text-[#1a2332] leading-relaxed space-y-4 text-lg whitespace-pre-line"
-            style={{ fontFamily: 'var(--font-inter)' }}
+           
           >
             {fullBiography}
           </div>
@@ -449,7 +449,7 @@ export default async function AuthorPage(props: PageProps) {
                 <div key={index} className="border-l-4 border-[#2ec4b6] pl-6 py-2">
                   <h3
                     className="text-xl font-semibold mb-2 text-[#1a2332]"
-                    style={{ fontFamily: 'var(--font-inter)' }}
+                   
                   >
                     {work.title} ({work.year})
                   </h3>
@@ -464,7 +464,7 @@ export default async function AuthorPage(props: PageProps) {
                   )}
                   <p
                     className="text-[#1a2332]/80 mb-3 leading-relaxed"
-                    style={{ fontFamily: 'var(--font-inter)' }}
+                   
                   >
                     {work.description}
                   </p>
@@ -473,7 +473,7 @@ export default async function AuthorPage(props: PageProps) {
                       <Link
                         href="/free-library"
                         className="text-sm text-[#ff6b35] hover:text-[#e63946] font-medium transition-colors"
-                        style={{ fontFamily: 'var(--font-inter)' }}
+                       
                       >
                         Read Free →
                       </Link>
@@ -482,7 +482,7 @@ export default async function AuthorPage(props: PageProps) {
                       <Link
                         href="/audiobook-library"
                         className="text-sm text-[#2ec4b6] hover:text-[#2ec4b6]/80 font-medium transition-colors"
-                        style={{ fontFamily: 'var(--font-inter)' }}
+                       
                       >
                         Listen Free →
                       </Link>
@@ -491,7 +491,7 @@ export default async function AuthorPage(props: PageProps) {
                       <Link
                         href={`/galleries`}
                         className="text-sm text-[#1a2332]/60 hover:text-[#1a2332] font-medium transition-colors"
-                        style={{ fontFamily: 'var(--font-inter)' }}
+                       
                       >
                         View Cover Art →
                       </Link>
@@ -502,7 +502,7 @@ export default async function AuthorPage(props: PageProps) {
             </div>
 
             {author.workCount > bibliography.length && (
-              <p className="mt-6 text-center text-[#1a2332]/60" style={{ fontFamily: 'var(--font-inter)' }}>
+              <p className="mt-6 text-center text-[#1a2332]/60">
                 Plus {author.workCount - bibliography.length}+ more works
               </p>
             )}
@@ -519,7 +519,7 @@ export default async function AuthorPage(props: PageProps) {
           </h2>
           <div className="space-y-4">
             <div>
-              <h3 className="text-lg font-semibold mb-2 text-[#1a2332]" style={{ fontFamily: 'var(--font-inter)' }}>
+              <h3 className="text-lg font-semibold mb-2 text-[#1a2332]">
                 Era
               </h3>
               <div className="flex flex-wrap gap-2">
@@ -527,7 +527,7 @@ export default async function AuthorPage(props: PageProps) {
                   <span
                     key={e}
                     className="px-3 py-1 bg-[#ff6b35]/10 text-[#ff6b35] text-sm rounded"
-                    style={{ fontFamily: 'var(--font-inter)' }}
+                   
                   >
                     {e}
                   </span>
@@ -535,7 +535,7 @@ export default async function AuthorPage(props: PageProps) {
               </div>
             </div>
             <div>
-              <h3 className="text-lg font-semibold mb-2 text-[#1a2332]" style={{ fontFamily: 'var(--font-inter)' }}>
+              <h3 className="text-lg font-semibold mb-2 text-[#1a2332]">
                 Genres & Specialties
               </h3>
               <div className="flex flex-wrap gap-2">
@@ -543,7 +543,7 @@ export default async function AuthorPage(props: PageProps) {
                   <span
                     key={g}
                     className="px-3 py-1 bg-[#2ec4b6]/10 text-[#2ec4b6] text-sm rounded"
-                    style={{ fontFamily: 'var(--font-inter)' }}
+                   
                   >
                     {g}
                   </span>
@@ -575,10 +575,10 @@ export default async function AuthorPage(props: PageProps) {
                     </span>
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-[#1a2332] mb-1" style={{ fontFamily: 'var(--font-inter)' }}>
+                    <h3 className="text-lg font-semibold text-[#1a2332] mb-1">
                       {relatedAuthor.commonName}
                     </h3>
-                    <p className="text-sm text-[#1a2332]/60" style={{ fontFamily: 'var(--font-inter)' }}>
+                    <p className="text-sm text-[#1a2332]/60">
                       {relatedAuthor.tagline}
                     </p>
                   </div>
@@ -600,28 +600,28 @@ export default async function AuthorPage(props: PageProps) {
             <Link
               href="/free-library"
               className="px-6 py-3 bg-[#ff6b35] text-white font-semibold rounded-md hover:bg-[#e63946] transition-colors"
-              style={{ fontFamily: 'var(--font-inter)' }}
+             
             >
               Read {author.commonName} Free
             </Link>
             <Link
               href="/audiobook-library"
               className="px-6 py-3 bg-[#2ec4b6] text-white font-semibold rounded-md hover:bg-[#2ec4b6]/90 transition-colors"
-              style={{ fontFamily: 'var(--font-inter)' }}
+             
             >
               Listen to Audiobooks
             </Link>
             <Link
               href="/galleries"
               className="px-6 py-3 bg-white text-[#1a2332] font-semibold rounded-md hover:bg-[#c9d1d9] transition-colors"
-              style={{ fontFamily: 'var(--font-inter)' }}
+             
             >
               Browse Cover Art
             </Link>
             <Link
               href="/authors"
               className="px-6 py-3 bg-transparent border-2 border-[#2ec4b6] text-[#2ec4b6] font-semibold rounded-md hover:bg-[#2ec4b6] hover:text-[#1a2332] transition-colors"
-              style={{ fontFamily: 'var(--font-inter)' }}
+             
             >
               All Authors
             </Link>

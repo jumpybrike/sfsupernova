@@ -82,14 +82,14 @@ export default function GalleryPage() {
               <h1 className="text-5xl sm:text-6xl font-black mb-4 text-[#ff6b35]" style={{ fontFamily: 'Orbitron, sans-serif' }}>
                 VINTAGE SCI-FI GALLERY
               </h1>
-              <p className="text-xl text-[#1a2332]/80 max-w-4xl mx-auto" style={{ fontFamily: 'var(--font-inter)' }}>
+              <p className="text-xl text-[#1a2332]/80 max-w-4xl mx-auto">
                 Explore our collection of classic science fiction artwork from the Golden Age
               </p>
             </section>
 
             {/* Stats */}
             <section className="mb-8 text-center">
-              <p className="text-[#1a2332]/70" style={{ fontFamily: 'var(--font-inter)' }}>
+              <p className="text-[#1a2332]/70">
                 Showing <span className="text-[#ff6b35] font-bold">{images.length}</span> vintage sci-fi images
               </p>
             </section>
@@ -110,7 +110,7 @@ export default function GalleryPage() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
                       <div className="absolute bottom-0 left-0 right-0 p-3">
-                        <h4 className="text-white text-xs font-semibold line-clamp-2" style={{ fontFamily: 'var(--font-inter)' }}>
+                        <h4 className="text-white text-xs font-semibold line-clamp-2">
                           {image.title}
                         </h4>
                         {image.year && (
@@ -119,7 +119,7 @@ export default function GalleryPage() {
                           </p>
                         )}
                         {image.artist && (
-                          <p className="text-gray-400 text-xs mt-1" style={{ fontFamily: 'var(--font-inter)' }}>
+                          <p className="text-gray-400 text-xs mt-1">
                             {image.artist}
                           </p>
                         )}
@@ -134,7 +134,7 @@ export default function GalleryPage() {
               <Link
                 href="/"
                 className="inline-block px-8 py-3 bg-transparent border-2 border-[#ff6b35] text-[#ff6b35] font-semibold rounded-md hover:bg-[#ff6b35] hover:text-white transition-all duration-300 uppercase tracking-wider"
-                style={{ fontFamily: 'var(--font-inter)' }}
+               
               >
                 ← Back to Home
               </Link>

@@ -72,7 +72,6 @@ export default function Navigation() {
             <Link
               href="/"
               className="text-[#c9d1d9] hover:text-[#ff6b35] transition-colors duration-200 font-medium text-base"
-              style={{ fontFamily: 'var(--font-inter)' }}
             >
               Home
             </Link>
@@ -85,8 +84,7 @@ export default function Navigation() {
             >
               <button
                 className="text-[#c9d1d9] hover:text-[#ff6b35] transition-colors duration-200 flex items-center font-medium text-base"
-                style={{ fontFamily: 'var(--font-inter)' }}
-              >
+                >
                 Decades
                 <svg className="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
@@ -100,8 +98,7 @@ export default function Navigation() {
                       key={decade.slug}
                       href={`/decades/${decade.slug}`}
                       className="block px-4 py-3 text-sm text-[#c9d1d9] hover:bg-[#ff6b35]/20 hover:text-[#ff6b35] transition-colors duration-200"
-                      style={{ fontFamily: 'var(--font-inter)' }}
-                    >
+                            >
                       {decade.name}
                     </Link>
                   ))}
@@ -112,28 +109,24 @@ export default function Navigation() {
             <Link
               href="/reviews"
               className="text-[#c9d1d9] hover:text-[#ff6b35] transition-colors duration-200 font-medium text-base"
-              style={{ fontFamily: 'var(--font-inter)' }}
             >
               Reviews
             </Link>
             <Link
               href="/audio"
               className="text-[#c9d1d9] hover:text-[#ff6b35] transition-colors duration-200 font-medium text-base"
-              style={{ fontFamily: 'var(--font-inter)' }}
             >
               Audio
             </Link>
             <Link
               href="/galleries"
               className="text-[#c9d1d9] hover:text-[#ff6b35] transition-colors duration-200 font-medium text-base"
-              style={{ fontFamily: 'var(--font-inter)' }}
             >
               Galleries
             </Link>
             <Link
               href="/authors"
               className="text-[#c9d1d9] hover:text-[#ff6b35] transition-colors duration-200 font-medium text-base"
-              style={{ fontFamily: 'var(--font-inter)' }}
             >
               Authors
             </Link>
@@ -146,8 +139,7 @@ export default function Navigation() {
             >
               <button
                 className="text-[#c9d1d9] hover:text-[#ff6b35] transition-colors duration-200 flex items-center font-medium text-base"
-                style={{ fontFamily: 'var(--font-inter)' }}
-              >
+                >
                 Free Library
                 <svg className="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
@@ -161,8 +153,7 @@ export default function Navigation() {
                       key={link.href}
                       href={link.href}
                       className="block px-4 py-3 text-sm text-[#c9d1d9] hover:bg-[#ff6b35]/20 hover:text-[#ff6b35] transition-colors duration-200"
-                      style={{ fontFamily: 'var(--font-inter)' }}
-                    >
+                            >
                       <span className="mr-2">{link.icon}</span>
                       {link.name}
                     </Link>
@@ -174,7 +165,6 @@ export default function Navigation() {
             <Link
               href="/about"
               className="text-[#c9d1d9] hover:text-[#ff6b35] transition-colors duration-200 font-medium text-base"
-              style={{ fontFamily: 'var(--font-inter)' }}
             >
               About
             </Link>
@@ -204,7 +194,6 @@ export default function Navigation() {
             <Link
               href="/"
               className="block py-3 text-[#c9d1d9] hover:text-[#ff6b35] transition-colors duration-200 font-medium"
-              style={{ fontFamily: 'var(--font-inter)' }}
             >
               Home
             </Link>
@@ -212,8 +201,7 @@ export default function Navigation() {
               <button
                 onClick={() => setDecadesOpen(!decadesOpen)}
                 className="w-full text-left text-[#c9d1d9] hover:text-[#ff6b35] transition-colors duration-200 flex items-center justify-between font-medium"
-                style={{ fontFamily: 'var(--font-inter)' }}
-              >
+                >
                 Decades
                 <svg className={`w-4 h-4 transform transition-transform ${decadesOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
@@ -226,8 +214,7 @@ export default function Navigation() {
                       key={decade.slug}
                       href={`/decades/${decade.slug}`}
                       className="block py-2 text-sm text-[#c9d1d9] hover:text-[#ff6b35] transition-colors duration-200"
-                      style={{ fontFamily: 'var(--font-inter)' }}
-                    >
+                            >
                       {decade.name}
                     </Link>
                   ))}
@@ -237,28 +224,24 @@ export default function Navigation() {
             <Link
               href="/reviews"
               className="block py-3 text-[#c9d1d9] hover:text-[#ff6b35] transition-colors duration-200 font-medium"
-              style={{ fontFamily: 'var(--font-inter)' }}
             >
               Reviews
             </Link>
             <Link
               href="/audio"
               className="block py-3 text-[#c9d1d9] hover:text-[#ff6b35] transition-colors duration-200 font-medium"
-              style={{ fontFamily: 'var(--font-inter)' }}
             >
               Audio
             </Link>
             <Link
               href="/galleries"
               className="block py-3 text-[#c9d1d9] hover:text-[#ff6b35] transition-colors duration-200 font-medium"
-              style={{ fontFamily: 'var(--font-inter)' }}
             >
               Galleries
             </Link>
             <Link
               href="/authors"
               className="block py-3 text-[#c9d1d9] hover:text-[#ff6b35] transition-colors duration-200 font-medium"
-              style={{ fontFamily: 'var(--font-inter)' }}
             >
               Authors
             </Link>
@@ -268,8 +251,7 @@ export default function Navigation() {
               <button
                 onClick={() => setLibraryOpen(!libraryOpen)}
                 className="w-full text-left text-[#c9d1d9] hover:text-[#ff6b35] transition-colors duration-200 flex items-center justify-between font-medium"
-                style={{ fontFamily: 'var(--font-inter)' }}
-              >
+                >
                 Free Library
                 <svg className={`w-4 h-4 transform transition-transform ${libraryOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
@@ -282,8 +264,7 @@ export default function Navigation() {
                       key={link.href}
                       href={link.href}
                       className="block py-2 text-sm text-[#c9d1d9] hover:text-[#ff6b35] transition-colors duration-200"
-                      style={{ fontFamily: 'var(--font-inter)' }}
-                    >
+                            >
                       <span className="mr-2">{link.icon}</span>
                       {link.name}
                     </Link>
@@ -295,7 +276,6 @@ export default function Navigation() {
             <Link
               href="/about"
               className="block py-3 text-[#c9d1d9] hover:text-[#ff6b35] transition-colors duration-200 font-medium"
-              style={{ fontFamily: 'var(--font-inter)' }}
             >
               About
             </Link>
