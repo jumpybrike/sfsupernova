@@ -502,7 +502,7 @@ export default function AudiobookLibrary() {
               className="text-[#2ec4b6] text-xl mb-8"
               style={{ fontFamily: 'var(--font-inter)' }}
             >
-              🎧 {audiobooks.length} hours of vintage sci-fi adventure • All FREE
+              {audiobooks.length} hours of vintage sci-fi adventure • All FREE
             </p>
 
             {/* Filters */}
@@ -581,7 +581,7 @@ export default function AudiobookLibrary() {
             className="text-center text-white text-lg"
             style={{ fontFamily: 'var(--font-inter)' }}
           >
-            📖 Prefer reading?{' '}
+            Prefer reading?{' '}
             <Link href="/free-library" className="font-bold underline hover:text-[#1a2332] transition-colors">
               Visit our Ebook Library
             </Link>
@@ -702,7 +702,7 @@ export default function AudiobookLibrary() {
                   <div className="relative">
                     <button
                       onClick={() => toggleDropdown(book.id)}
-                      className="w-full px-6 py-3 bg-[#2ec4b6] text-white font-semibold rounded-md hover:bg-[#2ec4b6]/90 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-2"
+                      className="w-full px-8 py-3 bg-[#2ec4b6] text-white font-semibold rounded-md hover:bg-[#2ec4b6]/90 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-2 uppercase tracking-wider"
                       style={{ fontFamily: 'var(--font-inter)' }}
                     >
                       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -751,14 +751,14 @@ export default function AudiobookLibrary() {
                   {book.ebookId ? (
                     <Link
                       href={`/free-library#${book.ebookId}`}
-                      className="block w-full px-6 py-3 bg-transparent border-2 border-[#ff6b35] text-[#ff6b35] font-semibold rounded-md hover:bg-[#ff6b35] hover:text-white transition-all duration-300 text-center"
+                      className="block w-full px-8 py-3 bg-transparent border-2 border-[#1a2332] text-[#1a2332] font-semibold rounded-md hover:bg-[#1a2332] hover:text-white transition-all duration-300 text-center uppercase tracking-wider"
                       style={{ fontFamily: 'var(--font-inter)' }}
                     >
                       Read Book
                     </Link>
                   ) : (
                     <span
-                      className="block w-full px-6 py-3 bg-transparent border-2 border-[#c9d1d9]/30 text-[#c9d1d9]/50 font-semibold rounded-md text-center cursor-not-allowed"
+                      className="block w-full px-8 py-3 bg-transparent border-2 border-[#c9d1d9]/30 text-[#c9d1d9]/50 font-semibold rounded-md text-center cursor-not-allowed uppercase tracking-wider"
                       style={{ fontFamily: 'var(--font-inter)' }}
                     >
                       Ebook coming soon

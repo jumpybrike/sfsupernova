@@ -603,7 +603,7 @@ export default function FreeLibraryPage() {
             className="text-center text-white text-lg"
             style={{ fontFamily: 'var(--font-inter)' }}
           >
-            🎧 Prefer audiobooks?{' '}
+            Prefer audiobooks?{' '}
             <Link href="/audiobook-library" className="font-bold underline hover:text-[#1a2332] transition-colors">
               Visit our Audiobook Library
             </Link>
@@ -706,7 +706,7 @@ export default function FreeLibraryPage() {
                     href={book.librivoxUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full px-6 py-3 bg-[#2ec4b6] text-white font-semibold rounded-md hover:bg-[#2ec4b6]/90 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-2 mb-3"
+                    className="w-full px-8 py-3 bg-[#2ec4b6] text-white font-semibold rounded-md hover:bg-[#2ec4b6]/90 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-2 mb-3 uppercase tracking-wider"
                     style={{ fontFamily: 'var(--font-inter)' }}
                   >
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -720,7 +720,7 @@ export default function FreeLibraryPage() {
                 <div className="relative">
                   <button
                     onClick={() => setShowDownloadMenu(showDownloadMenu === book.id ? null : book.id)}
-                    className="w-full px-6 py-3 bg-[#ff6b35] text-white font-semibold rounded-md hover:bg-[#e63946] transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-2"
+                    className="w-full px-8 py-3 bg-[#2ec4b6] text-white font-semibold rounded-md hover:bg-[#2ec4b6]/90 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-2 uppercase tracking-wider"
                     style={{ fontFamily: 'var(--font-inter)' }}
                   >
                     Download
@@ -731,33 +731,33 @@ export default function FreeLibraryPage() {
 
                   {/* Download Menu */}
                   {showDownloadMenu === book.id && (
-                    <div className="absolute bottom-full left-0 right-0 mb-2 bg-white border-2 border-[#ff6b35] rounded-md shadow-xl overflow-hidden z-10">
+                    <div className="absolute bottom-full left-0 right-0 mb-2 bg-white border-2 border-[#2ec4b6] rounded-md shadow-xl overflow-hidden z-10">
                       <a
                         href={book.formats.epub}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="block px-4 py-3 text-[#1a2332] hover:bg-[#ff6b35] hover:text-white transition-colors border-b border-[#c9d1d9]/20"
+                        className="block px-4 py-3 text-[#1a2332] hover:bg-[#2ec4b6] hover:text-white transition-colors border-b border-[#c9d1d9]/20"
                         style={{ fontFamily: 'var(--font-inter)' }}
                       >
-                        📱 EPUB
+                        EPUB
                       </a>
                       <a
                         href={book.formats.kindle}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="block px-4 py-3 text-[#1a2332] hover:bg-[#ff6b35] hover:text-white transition-colors border-b border-[#c9d1d9]/20"
+                        className="block px-4 py-3 text-[#1a2332] hover:bg-[#2ec4b6] hover:text-white transition-colors border-b border-[#c9d1d9]/20"
                         style={{ fontFamily: 'var(--font-inter)' }}
                       >
-                        📖 Kindle
+                        Kindle
                       </a>
                       <a
                         href={book.formats.html}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="block px-4 py-3 text-[#1a2332] hover:bg-[#ff6b35] hover:text-white transition-colors"
+                        className="block px-4 py-3 text-[#1a2332] hover:bg-[#2ec4b6] hover:text-white transition-colors"
                         style={{ fontFamily: 'var(--font-inter)' }}
                       >
-                        🌐 Read Online (HTML)
+                        Read Online (HTML)
                       </a>
                     </div>
                   )}

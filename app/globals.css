@@ -170,6 +170,34 @@ p, h1, h2, h3, h4, h5, h6, div {
 }
 
 /* Button Styles - APPROVED */
+
+/* CTA Button Hierarchy (Standardized):
+ *
+ * PRIMARY BUTTONS (Main CTAs):
+ *   - Color: bg-[#2ec4b6] (Retro Teal)
+ *   - Padding: px-8 py-3
+ *   - Use for: Main actions (Download, Listen Free, Browse Gallery)
+ *   - Example: className="px-8 py-3 bg-[#2ec4b6] text-white font-semibold rounded-md hover:bg-[#2ec4b6]/90"
+ *
+ * SECONDARY BUTTONS (Outline CTAs):
+ *   - Style: Border outline with transparent background
+ *   - Border: border-2 border-white (on dark) or border-[#1a2332] (on light)
+ *   - Padding: px-8 py-3
+ *   - Use for: Secondary actions (View Gallery, Read Book, About)
+ *   - Example: className="px-8 py-3 bg-transparent border-2 border-white text-white font-semibold rounded-md hover:bg-white hover:text-[#1a2332]"
+ *
+ * TERTIARY BUTTONS (Text-only links):
+ *   - Style: Text links with hover effects
+ *   - No padding (inline with text)
+ *   - Use for: In-content navigation (Read full review →)
+ *   - Example: className="text-[#ff6b35] hover:text-[#e63946] transition-colors inline-flex items-center"
+ *
+ * IMPORTANT:
+ *   - NO EMOJIS in CTAs (for professional consistency)
+ *   - All CTAs use px-8 py-3 padding (primary & secondary)
+ *   - All CTAs use uppercase tracking-wider text-transform
+ */
+
 .btn-primary {
   background: var(--atomic-orange);
   color: white;

@@ -95,17 +95,17 @@ export default async function Home() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link
               href="/decades/1950s"
-              className="inline-block px-8 py-4 text-white font-semibold rounded-md transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1 uppercase tracking-wider whitespace-nowrap badge-orange"
+              className="inline-block px-8 py-3 bg-[#2ec4b6] text-white font-semibold rounded-md transition-all duration-300 shadow-lg hover:shadow-xl hover:bg-[#2ec4b6]/90 hover:-translate-y-1 uppercase tracking-wider whitespace-nowrap"
               style={{ fontFamily: 'var(--font-inter)' }}
             >
-              🚀 Explore the Space Age
+              Explore the Space Age
             </Link>
             <Link
               href="/audio"
-              className="inline-block px-8 py-4 text-white font-semibold rounded-md transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1 uppercase tracking-wider whitespace-nowrap badge-cyan"
+              className="inline-block px-8 py-3 bg-transparent border-2 border-white text-white font-semibold rounded-md transition-all duration-300 shadow-lg hover:shadow-xl hover:bg-white hover:text-[#1a2332] hover:-translate-y-1 uppercase tracking-wider whitespace-nowrap"
               style={{ fontFamily: 'var(--font-inter)' }}
             >
-              📻 Listen to Radio Dramas
+              Listen to Radio Dramas
             </Link>
           </div>
         </div>
@@ -152,7 +152,7 @@ export default async function Home() {
           <div className="text-center">
             <Link
               href="/gallery"
-              className="inline-block px-8 py-3 bg-transparent border-2 border-[#ff6b35] text-[#ff6b35] font-semibold rounded-md hover:bg-[#ff6b35] hover:text-white transition-all duration-300 uppercase tracking-wider"
+              className="inline-block px-8 py-3 bg-transparent border-2 border-[#1a2332] text-[#1a2332] font-semibold rounded-md hover:bg-[#1a2332] hover:text-white transition-all duration-300 uppercase tracking-wider"
               style={{ fontFamily: 'var(--font-inter)' }}
             >
               View Full Gallery
@@ -267,7 +267,7 @@ export default async function Home() {
           <div className="text-center mt-12">
             <Link
               href="/reviews"
-              className="inline-block px-8 py-3 bg-transparent border-2 border-[#ff6b35] text-[#ff6b35] font-semibold rounded-md hover:bg-[#ff6b35] hover:text-white transition-all duration-300 uppercase tracking-wider"
+              className="inline-block px-8 py-3 bg-transparent border-2 border-[#1a2332] text-[#1a2332] font-semibold rounded-md hover:bg-[#1a2332] hover:text-white transition-all duration-300 uppercase tracking-wider"
               style={{ fontFamily: 'var(--font-inter)' }}
             >
               View All Reviews
@@ -309,7 +309,7 @@ export default async function Home() {
             </Link>
             <Link
               href="/about"
-              className="inline-block px-8 py-3 bg-transparent border-2 border-[#ffbe0b] text-[#ffbe0b] font-semibold rounded-md hover:bg-[#ffbe0b] hover:text-[#1a2332] transition-all duration-300 uppercase tracking-wider"
+              className="inline-block px-8 py-3 bg-transparent border-2 border-white text-white font-semibold rounded-md hover:bg-white hover:text-[#1a2332] transition-all duration-300 uppercase tracking-wider"
               style={{ fontFamily: 'var(--font-inter)' }}
             >
               About SF Supernova
