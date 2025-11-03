@@ -144,7 +144,7 @@ export default function ReviewsPage() {
 
                 <Link
                   href={`/reviews/${review.id}`}
-                  className="text-primary hover:text-retro-cyan transition-colors inline-flex items-center font-bold"
+                  className="text-primary hover:text-[#e63946] transition-colors inline-flex items-center font-bold"
                 >
                   Read Full Review →
                 </Link>
