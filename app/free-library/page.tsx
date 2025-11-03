@@ -739,7 +739,7 @@ export default function FreeLibraryPage() {
                         className="block px-4 py-3 text-[#1a2332] hover:bg-[#ff6b35] hover:text-white transition-colors border-b border-[#c9d1d9]/20"
                         style={{ fontFamily: 'var(--font-inter)' }}
                       >
-                        📱 EPUB
+                        EPUB
                       </a>
                       <a
                         href={book.formats.kindle}
@@ -748,7 +748,7 @@ export default function FreeLibraryPage() {
                         className="block px-4 py-3 text-[#1a2332] hover:bg-[#ff6b35] hover:text-white transition-colors border-b border-[#c9d1d9]/20"
                         style={{ fontFamily: 'var(--font-inter)' }}
                       >
-                        📖 Kindle
+                        Kindle
                       </a>
                       <a
                         href={book.formats.html}
@@ -757,7 +757,7 @@ export default function FreeLibraryPage() {
                         className="block px-4 py-3 text-[#1a2332] hover:bg-[#ff6b35] hover:text-white transition-colors"
                         style={{ fontFamily: 'var(--font-inter)' }}
                       >
-                        🌐 Read Online (HTML)
+                        Read Online (HTML)
                       </a>
                     </div>
                   )}

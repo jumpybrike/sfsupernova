@@ -178,7 +178,7 @@ export default function AudioPage() {
                         href={audio.archiveUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center px-6 py-3 bg-primary/20 border-2 border-primary text-primary font-bold rounded retro-button hover:bg-primary hover:text-background transition-all duration-300"
+                        className="inline-flex items-center px-8 py-3 bg-primary/20 border-2 border-primary text-primary font-bold rounded retro-button hover:bg-primary hover:text-background transition-all duration-300"
                         style={{ fontFamily: 'Orbitron, sans-serif' }}
                       >
                         <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
