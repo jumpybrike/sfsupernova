@@ -1,16 +1,74 @@
-import { createClient } from '@/lib/supabase/server'
 import Link from 'next/link'
 import { getCdnImageUrl } from '@/lib/imageUrl'
 
-export default async function GalleryPage() {
-  const supabase = await createClient()
+// Static image data from CDN
+const images = [
+  {
+    id: 'wheel-001',
+    catalog_number: 'SCI-FI-WHEEL-001',
+    title: 'Space Wheel',
+    year: 1950,
+    file_path: 'https://lon1.digitaloceanspaces.com/networklayer-cdn/SFSupernova/images/wheel.jpg',
+    description: 'Vintage space wheel illustration',
+    artist: 'Unknown',
+  },
+  {
+    id: 'moon-001',
+    catalog_number: 'SCI-FI-MOON-001',
+    title: 'Lunar Surface',
+    year: 1952,
+    file_path: 'https://lon1.digitaloceanspaces.com/networklayer-cdn/SFSupernova/images/moon.jpg',
+    description: 'Classic moon surface artwork',
+    artist: 'Unknown',
+  },
+  {
+    id: 'twoheaded-001',
+    catalog_number: 'SCI-FI-TWOHEADED-001',
+    title: 'Two-Headed Creature',
+    year: 1955,
+    file_path: 'https://lon1.digitaloceanspaces.com/networklayer-cdn/SFSupernova/images/twoheaded.jpg',
+    description: 'Classic two-headed alien illustration',
+    artist: 'Unknown',
+  },
+  {
+    id: 'moon-002',
+    catalog_number: 'SCI-FI-MOON-002',
+    title: 'Moon',
+    year: 1960,
+    file_path: 'https://lon1.digitaloceanspaces.com/networklayer-cdn/SFSupernova/images/moon.jpg',
+    description: 'Vintage moon illustration',
+    artist: 'Unknown',
+  },
+  {
+    id: 'floating-001',
+    catalog_number: 'SCI-FI-FLOATING-001',
+    title: 'Floating in Space',
+    year: 1958,
+    file_path: 'https://lon1.digitaloceanspaces.com/networklayer-cdn/SFSupernova/images/floating.jpg',
+    description: 'Vintage space floating illustration',
+    artist: 'Unknown',
+  },
+  {
+    id: 'usaf-001',
+    catalog_number: 'SCI-FI-USAF-001',
+    title: 'USAF Space Program',
+    year: 1962,
+    file_path: 'https://lon1.digitaloceanspaces.com/networklayer-cdn/SFSupernova/images/usaf.jpg',
+    description: 'Vintage USAF space program illustration',
+    artist: 'Unknown',
+  },
+  {
+    id: 'rocket-001',
+    catalog_number: 'SCI-FI-ROCKET-001',
+    title: 'Rocket Launch',
+    year: 1956,
+    file_path: 'https://lon1.digitaloceanspaces.com/networklayer-cdn/SFSupernova/images/rocket.jpg',
+    description: 'Vintage rocket launch illustration',
+    artist: 'Unknown',
+  },
+]
 
-  // Get all images
-  const { data: images } = await supabase
-    .from('images')
-    .select('*')
-    .order('created_at', { ascending: false })
-    .limit(100)
+export default function GalleryPage() {
 
   return (
     <div className="min-h-screen bg-white">
@@ -31,14 +89,13 @@ export default async function GalleryPage() {
             {/* Stats */}
             <section className="mb-8 text-center">
               <p className="text-[#1a2332]/70" style={{ fontFamily: 'var(--font-inter)' }}>
-                Showing <span className="text-[#ff6b35] font-bold">{images?.length || 0}</span> vintage sci-fi magazine covers
+                Showing <span className="text-[#ff6b35] font-bold">{images.length}</span> vintage sci-fi images
               </p>
             </section>
 
             {/* Images Grid */}
-            {images && images.length > 0 ? (
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
-                {images.map((image: any) => (
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+              {images.map((image) => (
                   <Link
                     key={image.id}
                     href={`/gallery/${image.catalog_number}`}
@@ -59,26 +116,16 @@ export default async function GalleryPage() {
                             {image.year}
                           </p>
                         )}
-                        <div className="flex items-center gap-3 text-xs text-gray-400 mt-2" style={{ fontFamily: 'var(--font-inter)' }}>
-                          <span>⭐ {image.star_count}</span>
-                          <span>💬 {image.comment_count}</span>
-                        </div>
+                        {image.artist && (
+                          <p className="text-gray-400 text-xs mt-1" style={{ fontFamily: 'var(--font-inter)' }}>
+                            {image.artist}
+                          </p>
+                        )}
                       </div>
                     </div>
                   </Link>
                 ))}
               </div>
-            ) : (
-              <div className="border-2 border-[#c9d1d9]/20 rounded-lg p-12 text-center bg-[#f8f3e6]">
-                <div className="text-6xl mb-4">🖼️</div>
-                <h3 className="text-2xl font-bold text-[#ff6b35] mb-4" style={{ fontFamily: 'Orbitron, sans-serif' }}>
-                  No images yet
-                </h3>
-                <p className="text-[#1a2332]/70" style={{ fontFamily: 'var(--font-inter)' }}>
-                  Check back soon for vintage sci-fi artwork!
-                </p>
-              </div>
-            )}
 
             {/* Navigation */}
             <section className="mt-12 text-center">
