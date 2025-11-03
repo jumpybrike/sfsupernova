@@ -446,3 +446,40 @@ p, h1, h2, h3, h4, h5, h6, div {
   background: linear-gradient(135deg, #00ff88, #00cc99);
   color: white;
 }
+
+/* Decade Card Color Hover Effects - Preserve unique colors and brighten on hover */
+.decade-yellow {
+  color: #ffbe0b;
+  transition: filter 0.3s ease, color 0.3s ease;
+}
+
+.decade-yellow:hover {
+  filter: brightness(1.2);
+}
+
+.decade-teal {
+  color: #2ec4b6;
+  transition: filter 0.3s ease, color 0.3s ease;
+}
+
+.decade-teal:hover {
+  filter: brightness(1.2);
+}
+
+.decade-red {
+  color: #e63946;
+  transition: filter 0.3s ease, color 0.3s ease;
+}
+
+.decade-red:hover {
+  filter: brightness(1.2);
+}
+
+.decade-orange {
+  color: #ff6b35;
+  transition: filter 0.3s ease, color 0.3s ease;
+}
+
+.decade-orange:hover {
+  filter: brightness(1.2);
+}
