@@ -111,45 +111,6 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* Decades Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-[#f8f3e6]">
-        <div className="max-w-7xl mx-auto">
-          <h2
-            className="text-3xl sm:text-4xl font-normal text-center mb-12 text-[#1a2332]"
-            style={{ fontFamily: 'var(--font-audiowide)' }}
-          >
-            EXPLORE BY DECADE
-          </h2>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {decades.map((decade) => (
-              <Link
-                key={decade.slug}
-                href={`/decades/${decade.slug}`}
-                className="group bg-white border border-[#c9d1d9]/20 rounded-lg p-6 hover:border-[#ff6b35] transition-all duration-300 shadow-sm hover:shadow-lg hover:-translate-y-1"
-              >
-                <h3
-                  className={`text-2xl font-normal mb-2 ${decade.color} group-hover:text-[#ff6b35] transition-colors`}
-                  style={{ fontFamily: decade.font }}
-                >
-                  {decade.name}
-                </h3>
-                <p
-                  className="text-[#1a2332]/70 mb-4"
-                  style={{ fontFamily: 'var(--font-inter)' }}
-                >
-                  {decade.subtitle}
-                </p>
-                <div className="text-[#ff6b35] group-hover:translate-x-2 transition-transform inline-flex items-center font-medium">
-                  <span style={{ fontFamily: 'var(--font-inter)' }}>Explore</span>
-                  <span className="ml-2">→</span>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Featured Gallery Section */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
@@ -200,8 +161,47 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* Featured Content */}
+      {/* Decades Section */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-[#f8f3e6]">
+        <div className="max-w-7xl mx-auto">
+          <h2
+            className="text-3xl sm:text-4xl font-normal text-center mb-12 text-[#1a2332]"
+            style={{ fontFamily: 'var(--font-audiowide)' }}
+          >
+            EXPLORE BY DECADE
+          </h2>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {decades.map((decade) => (
+              <Link
+                key={decade.slug}
+                href={`/decades/${decade.slug}`}
+                className="group bg-white border border-[#c9d1d9]/20 rounded-lg p-6 hover:border-[#ff6b35] transition-all duration-300 shadow-sm hover:shadow-lg hover:-translate-y-1"
+              >
+                <h3
+                  className={`text-2xl font-normal mb-2 ${decade.color} group-hover:text-[#ff6b35] transition-colors`}
+                  style={{ fontFamily: decade.font }}
+                >
+                  {decade.name}
+                </h3>
+                <p
+                  className="text-[#1a2332]/70 mb-4"
+                  style={{ fontFamily: 'var(--font-inter)' }}
+                >
+                  {decade.subtitle}
+                </p>
+                <div className="text-[#ff6b35] group-hover:translate-x-2 transition-transform inline-flex items-center font-medium">
+                  <span style={{ fontFamily: 'var(--font-inter)' }}>Explore</span>
+                  <span className="ml-2">→</span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Content */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
           <h2
             className="text-3xl sm:text-4xl font-normal text-center mb-12 text-[#1a2332]"
