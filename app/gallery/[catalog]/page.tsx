@@ -13,11 +13,20 @@ export default async function ImageDetailPage({ params }: PageProps) {
   const supabase = await createClient()
 
   // Get image
-  const { data: image } = await supabase
+  const { data: image, error: imageError } = await supabase
     .from('images')
     .select('*')
     .eq('catalog_number', catalog)
     .single()
+
+  // Handle errors and missing images
+  if (imageError) {
+    console.error('Error fetching image:', imageError.message)
+    // If it's a PGRST116 error (no rows), show 404, otherwise show error
+    if (imageError.code === 'PGRST116') {
+      notFound()
+    }
+  }
 
   if (!image) {
     notFound()
@@ -30,41 +39,57 @@ export default async function ImageDetailPage({ params }: PageProps) {
   let userFolders = null
 
   if (user) {
-    const { data } = await supabase
+    const { data, error: profileError } = await supabase
       .from('users')
       .select('*')
       .eq('id', user.id)
       .single()
+
+    if (profileError) {
+      console.error('Error fetching user profile:', profileError.message)
+    }
     profile = data
 
     // Check if user has starred this image
-    const { data: star } = await supabase
+    const { data: star, error: starError } = await supabase
       .from('stars')
       .select('id')
       .eq('user_id', user.id)
       .eq('image_id', image.id)
       .single()
 
+    if (starError && starError.code !== 'PGRST116') {
+      console.error('Error checking star status:', starError.message)
+    }
+
     isStarred = !!star
 
     // Get user's folders
-    const { data: folders } = await supabase
+    const { data: folders, error: foldersError } = await supabase
       .from('folders')
       .select('*')
       .eq('user_id', user.id)
       .order('title', { ascending: true })
 
+    if (foldersError) {
+      console.error('Error fetching user folders:', foldersError.message)
+    }
+
     userFolders = folders
   }
 
   // Get comments
-  const { data: comments } = await supabase
+  const { data: comments, error: commentsError } = await supabase
     .from('comments')
     .select('*, users(*)')
     .eq('image_id', image.id)
     .is('parent_comment_id', null)
     .eq('is_deleted', false)
     .order('created_at', { ascending: false })
+
+  if (commentsError) {
+    console.error('Error fetching comments:', commentsError.message)
+  }
 
   return (
     <div className="min-h-screen bg-black text-white">
@@ -172,7 +197,16 @@ export default async function ImageDetailPage({ params }: PageProps) {
 
                 {/* Comments List */}
                 <div className="space-y-4">
-                  {comments && comments.length > 0 ? (
+                  {commentsError ? (
+                    <div className="border-2 border-[#e63946]/30 rounded-lg p-6 text-center bg-[#e63946]/5">
+                      <p className="text-gray-400 font-['Space_Mono'] mb-2">
+                        Unable to load comments at this time.
+                      </p>
+                      <p className="text-gray-500 font-['Space_Mono'] text-sm">
+                        Please try refreshing the page.
+                      </p>
+                    </div>
+                  ) : comments && comments.length > 0 ? (
                     comments.map((comment: any) => (
                       <div key={comment.id} className="border-2 border-[#00ffaa]/30 rounded-lg p-4">
                         <div className="flex items-start gap-3 mb-2">

@@ -18,30 +18,46 @@ export default async function FolderDetailPage({ params }: PageProps) {
   }
 
   // Get user profile
-  const { data: profile } = await supabase
+  const { data: profile, error: profileError } = await supabase
     .from('users')
     .select('*')
     .eq('id', user.id)
     .single()
 
+  if (profileError) {
+    console.error('Error fetching user profile:', profileError.message)
+  }
+
   // Get folder
-  const { data: folder } = await supabase
+  const { data: folder, error: folderError } = await supabase
     .from('folders')
     .select('*')
     .eq('slug', slug)
     .eq('user_id', user.id)
     .single()
 
+  // Handle errors and missing folders
+  if (folderError) {
+    console.error('Error fetching folder:', folderError.message)
+    if (folderError.code === 'PGRST116') {
+      notFound()
+    }
+  }
+
   if (!folder) {
     notFound()
   }
 
   // Get folder images
-  const { data: folderImages } = await supabase
+  const { data: folderImages, error: folderImagesError } = await supabase
     .from('folder_images')
     .select('*, images(*)')
     .eq('folder_id', folder.id)
     .order('position', { ascending: true })
+
+  if (folderImagesError) {
+    console.error('Error fetching folder images:', folderImagesError.message)
+  }
 
   return (
     <div className="min-h-screen bg-black text-white">
@@ -141,7 +157,20 @@ export default async function FolderDetailPage({ params }: PageProps) {
           </div>
 
           {/* Images Grid */}
-          {folderImages && folderImages.length > 0 ? (
+          {folderImagesError ? (
+            <div className="border-2 border-[#e63946]/50 rounded-lg p-12 text-center bg-[#e63946]/5">
+              <div className="text-6xl mb-4">⚠️</div>
+              <h3 className="text-2xl font-['Orbitron'] font-bold text-[#e63946] mb-4">
+                Unable to Load Images
+              </h3>
+              <p className="text-gray-400 font-['Space_Mono'] mb-2">
+                We're having trouble loading the images in this folder.
+              </p>
+              <p className="text-gray-500 font-['Space_Mono'] text-sm">
+                Please try refreshing the page or check back later.
+              </p>
+            </div>
+          ) : folderImages && folderImages.length > 0 ? (
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
               {folderImages.map((item: any) => (
                 <ImageCard key={item.id} image={item.images} folderImageId={item.id} />
