@@ -17,6 +17,21 @@ export default async function Home() {
   if (featuredError) {
     console.error('Error fetching featured images:', featuredError.message);
   }
+
+  // Fetch representative images for each decade
+  const { data: allImages } = await supabase
+    .from('images')
+    .select('*')
+    .order('year', { ascending: true });
+
+  // Helper function to get a representative image for a decade
+  const getDecadeImage = (startYear: number, endYear: number) => {
+    if (!allImages) return null;
+    const decadeImages = allImages.filter(img => img.year && img.year >= startYear && img.year < endYear);
+    // Return the first image or a random one from the decade
+    return decadeImages.length > 0 ? decadeImages[Math.floor(decadeImages.length / 2)] : null;
+  };
+
   const featuredReviews = [
     {
       title: 'Foundation by Isaac Asimov',
@@ -42,10 +57,42 @@ export default async function Home() {
   ];
 
   const decades = [
-    { slug: '1930s-1940s', name: '1930s-1940s', subtitle: 'Golden Age', color: 'text-[#ffbe0b]', font: 'var(--font-abril-fatface)', hoverClass: 'decade-yellow' },
-    { slug: '1950s', name: '1950s', subtitle: 'Space Age', color: 'text-[#2ec4b6]', font: 'var(--font-audiowide)', hoverClass: 'decade-teal' },
-    { slug: '1960s', name: '1960s', subtitle: 'New Wave', color: 'text-[#e63946]', font: 'var(--font-righteous)', hoverClass: 'decade-red' },
-    { slug: '1970s', name: '1970s', subtitle: 'Experimental Era', color: 'text-[#ff6b35]', font: 'var(--font-bebas-neue)', hoverClass: 'decade-orange' },
+    {
+      slug: '1930s-1940s',
+      name: '1930s-1940s',
+      subtitle: 'Golden Age',
+      color: 'text-[#ffbe0b]',
+      font: 'var(--font-abril-fatface)',
+      hoverClass: 'decade-yellow',
+      image: getDecadeImage(1930, 1950)
+    },
+    {
+      slug: '1950s',
+      name: '1950s',
+      subtitle: 'Space Age',
+      color: 'text-[#2ec4b6]',
+      font: 'var(--font-audiowide)',
+      hoverClass: 'decade-teal',
+      image: getDecadeImage(1950, 1960)
+    },
+    {
+      slug: '1960s',
+      name: '1960s',
+      subtitle: 'New Wave',
+      color: 'text-[#e63946]',
+      font: 'var(--font-righteous)',
+      hoverClass: 'decade-red',
+      image: getDecadeImage(1960, 1970)
+    },
+    {
+      slug: '1970s',
+      name: '1970s',
+      subtitle: 'Experimental Era',
+      color: 'text-[#ff6b35]',
+      font: 'var(--font-bebas-neue)',
+      hoverClass: 'decade-orange',
+      image: getDecadeImage(1970, 1980)
+    },
   ];
 
   return (
@@ -190,22 +237,35 @@ export default async function Home() {
               <Link
                 key={decade.slug}
                 href={`/decades/${decade.slug}`}
-                className="group bg-white border border-[#c9d1d9]/20 rounded-lg p-6 hover:border-[#ff6b35] transition-all duration-300 shadow-sm hover:shadow-lg hover:-translate-y-1"
+                className="group bg-white border border-[#c9d1d9]/20 rounded-lg overflow-hidden hover:border-[#ff6b35] transition-all duration-300 shadow-sm hover:shadow-lg hover:-translate-y-1"
               >
-                <h3
-                  className={`text-2xl font-normal mb-2 ${decade.hoverClass}`}
-                  style={{ fontFamily: decade.font }}
-                >
-                  {decade.name}
-                </h3>
-                <p
-                  className="text-[#1a2332]/80 mb-4"
-                >
-                  {decade.subtitle}
-                </p>
-                <div className="text-[#ff6b35] group-hover:translate-x-2 transition-transform inline-flex items-center font-medium">
-                  <span>Explore</span>
-                  <span className="ml-2">→</span>
+                {/* Thumbnail Image */}
+                {decade.image && (
+                  <div className="relative aspect-[4/3] overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200">
+                    <GalleryImage
+                      src={getCdnImageUrl(decade.image.file_path)}
+                      alt={`${decade.name} - ${decade.image.title}`}
+                      className="object-cover group-hover:scale-110 transition-transform duration-300"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                    />
+                  </div>
+                )}
+
+                {/* Card Content */}
+                <div className="p-6">
+                  <h3
+                    className={`text-2xl font-normal mb-2 ${decade.hoverClass}`}
+                    style={{ fontFamily: decade.font }}
+                  >
+                    {decade.name}
+                  </h3>
+                  <p className="text-[#1a2332]/80 mb-4">
+                    {decade.subtitle}
+                  </p>
+                  <div className="text-[#ff6b35] group-hover:translate-x-2 transition-transform inline-flex items-center font-medium">
+                    <span>Explore</span>
+                    <span className="ml-2">→</span>
+                  </div>
                 </div>
               </Link>
             ))}
