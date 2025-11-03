@@ -13,40 +13,64 @@ export default async function AdminPage() {
   }
 
   // Get user profile and check admin status
-  const { data: profile } = await supabase
+  const { data: profile, error: profileError } = await supabase
     .from('users')
     .select('*')
     .eq('id', user.id)
     .single()
+
+  if (profileError) {
+    console.error('Error fetching user profile:', profileError.message)
+  }
 
   if (!profile?.is_admin) {
     redirect('/')
   }
 
   // Get stats
-  const { count: imageCount } = await supabase
+  const { count: imageCount, error: imageCountError } = await supabase
     .from('images')
     .select('*', { count: 'exact', head: true })
 
-  const { count: userCount } = await supabase
+  if (imageCountError) {
+    console.error('Error fetching image count:', imageCountError.message)
+  }
+
+  const { count: userCount, error: userCountError } = await supabase
     .from('users')
     .select('*', { count: 'exact', head: true })
 
-  const { count: folderCount } = await supabase
+  if (userCountError) {
+    console.error('Error fetching user count:', userCountError.message)
+  }
+
+  const { count: folderCount, error: folderCountError } = await supabase
     .from('folders')
     .select('*', { count: 'exact', head: true })
 
-  const { count: flaggedCount } = await supabase
+  if (folderCountError) {
+    console.error('Error fetching folder count:', folderCountError.message)
+  }
+
+  const { count: flaggedCount, error: flaggedCountError } = await supabase
     .from('comments')
     .select('*', { count: 'exact', head: true })
     .eq('is_flagged', true)
 
+  if (flaggedCountError) {
+    console.error('Error fetching flagged count:', flaggedCountError.message)
+  }
+
   // Get recent images
-  const { data: recentImages } = await supabase
+  const { data: recentImages, error: recentImagesError } = await supabase
     .from('images')
     .select('*')
     .order('created_at', { ascending: false })
     .limit(12)
+
+  if (recentImagesError) {
+    console.error('Error fetching recent images:', recentImagesError.message)
+  }
 
   return (
     <div className="min-h-screen bg-black text-white">
@@ -173,7 +197,16 @@ export default async function AdminPage() {
               </Link>
             </div>
 
-            {recentImages && recentImages.length > 0 ? (
+            {recentImagesError ? (
+              <div className="border-2 border-[#ff6b6b]/50 rounded-lg p-12 text-center bg-[#ff6b6b]/5">
+                <p className="text-gray-300 font-['Space_Mono'] mb-2">
+                  Unable to load recent images.
+                </p>
+                <p className="text-gray-500 font-['Space_Mono'] text-sm">
+                  Please refresh the page or try again later.
+                </p>
+              </div>
+            ) : recentImages && recentImages.length > 0 ? (
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
                 {recentImages.map((image: any) => (
                   <ImageCard key={image.id} image={image} />

@@ -13,43 +13,67 @@ export default async function DashboardPage() {
   }
 
   // Get user profile
-  const { data: profile } = await supabase
+  const { data: profile, error: profileError } = await supabase
     .from('users')
     .select('*')
     .eq('id', user.id)
     .single()
 
+  if (profileError) {
+    console.error('Error fetching user profile:', profileError.message)
+  }
+
   // Get user's folders
-  const { data: folders } = await supabase
+  const { data: folders, error: foldersError } = await supabase
     .from('folders')
     .select('*, folder_images(count)')
     .eq('user_id', user.id)
     .order('updated_at', { ascending: false })
     .limit(6)
 
+  if (foldersError) {
+    console.error('Error fetching folders:', foldersError.message)
+  }
+
   // Get user's starred images
-  const { data: starredImages } = await supabase
+  const { data: starredImages, error: starredError } = await supabase
     .from('stars')
     .select('*, images(*)')
     .eq('user_id', user.id)
     .order('created_at', { ascending: false })
     .limit(12)
 
+  if (starredError) {
+    console.error('Error fetching starred images:', starredError.message)
+  }
+
   // Get user stats
-  const { count: folderCount } = await supabase
+  const { count: folderCount, error: folderCountError } = await supabase
     .from('folders')
     .select('*', { count: 'exact', head: true })
     .eq('user_id', user.id)
 
-  const { count: starCount } = await supabase
+  if (folderCountError) {
+    console.error('Error fetching folder count:', folderCountError.message)
+  }
+
+  const { count: starCount, error: starCountError } = await supabase
     .from('stars')
     .select('*', { count: 'exact', head: true })
     .eq('user_id', user.id)
 
-  const { count: commentCount } = await supabase
+  if (starCountError) {
+    console.error('Error fetching star count:', starCountError.message)
+  }
+
+  const { count: commentCount, error: commentCountError } = await supabase
     .from('comments')
     .select('*', { count: 'exact', head: true })
     .eq('user_id', user.id)
+
+  if (commentCountError) {
+    console.error('Error fetching comment count:', commentCountError.message)
+  }
 
   return (
     <div className="min-h-screen bg-black text-white">
@@ -144,7 +168,16 @@ export default async function DashboardPage() {
               </Link>
             </div>
 
-            {folders && folders.length > 0 ? (
+            {foldersError ? (
+              <div className="border-2 border-[#e63946]/50 rounded-lg p-12 text-center bg-[#e63946]/5">
+                <p className="text-gray-300 font-['Space_Mono'] mb-2">
+                  Unable to load folders at this time.
+                </p>
+                <p className="text-gray-500 font-['Space_Mono'] text-sm">
+                  Please refresh the page or try again later.
+                </p>
+              </div>
+            ) : folders && folders.length > 0 ? (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {folders.map((folder: any) => (
                   <FolderCard key={folder.id} folder={folder} />
@@ -182,7 +215,16 @@ export default async function DashboardPage() {
               RECENTLY STARRED
             </h2>
 
-            {starredImages && starredImages.length > 0 ? (
+            {starredError ? (
+              <div className="border-2 border-[#e63946]/50 rounded-lg p-12 text-center bg-[#e63946]/5">
+                <p className="text-gray-300 font-['Space_Mono'] mb-2">
+                  Unable to load starred images at this time.
+                </p>
+                <p className="text-gray-500 font-['Space_Mono'] text-sm">
+                  Please refresh the page or try again later.
+                </p>
+              </div>
+            ) : starredImages && starredImages.length > 0 ? (
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
                 {starredImages.map((star: any) => (
                   <ImageCard key={star.id} image={star.images} />

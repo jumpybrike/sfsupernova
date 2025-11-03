@@ -7,11 +7,16 @@ import { getCdnImageUrl } from '@/lib/imageUrl';
 export default async function Home() {
   // Fetch featured images from database
   const supabase = await createClient();
-  const { data: featuredImages } = await supabase
+  const { data: featuredImages, error: featuredError } = await supabase
     .from('images')
     .select('*')
     .order('year', { ascending: false })
     .limit(6);
+
+  // Log error if database fetch fails
+  if (featuredError) {
+    console.error('Error fetching featured images:', featuredError.message);
+  }
   const featuredReviews = [
     {
       title: 'Foundation by Isaac Asimov',
@@ -120,7 +125,12 @@ export default async function Home() {
             VINTAGE SCI-FI COVER ART
           </h2>
 
-          {featuredImages && featuredImages.length > 0 ? (
+          {featuredError ? (
+            <div className="text-center py-12">
+              <p className="text-[#1a2332]/60 mb-2">Unable to load featured images at this time.</p>
+              <p className="text-sm text-[#1a2332]/40">Please try refreshing the page or check back later.</p>
+            </div>
+          ) : featuredImages && featuredImages.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-8">
               {featuredImages.map((image: any) => (
                 <Link
@@ -148,7 +158,11 @@ export default async function Home() {
                 </Link>
               ))}
             </div>
-          ) : null}
+          ) : (
+            <div className="text-center py-12">
+              <p className="text-[#1a2332]/60">No featured images available yet.</p>
+            </div>
+          )}
 
           <div className="text-center">
             <Link

@@ -10,10 +10,15 @@ export const metadata = {
 export default async function GalleriesPage() {
   // Fetch all images from database
   const supabase = await createClient();
-  const { data: allImages } = await supabase
+  const { data: allImages, error: fetchError } = await supabase
     .from('images')
     .select('*')
     .order('year', { ascending: true });
+
+  // Log error if database fetch fails
+  if (fetchError) {
+    console.error('Error fetching gallery images:', fetchError.message);
+  }
 
   // Group images by decade
   const imagesByDecade = {
@@ -95,8 +100,25 @@ export default async function GalleriesPage() {
           </p>
         </div>
 
+        {/* Error State */}
+        {fetchError && (
+          <div className="text-center py-16 bg-[#1a2332]/50 backdrop-blur-sm rounded-lg border-2 border-[#e63946]/30 mb-8">
+            <div className="max-w-2xl mx-auto px-4">
+              <h2 className="text-2xl font-bold text-[#e63946] mb-3" style={{ fontFamily: 'Orbitron, sans-serif' }}>
+                Unable to Load Gallery
+              </h2>
+              <p className="text-[#c9d1d9]/80 mb-2">
+                We're having trouble connecting to our image database.
+              </p>
+              <p className="text-sm text-[#c9d1d9]/60">
+                Please try refreshing the page or check back later.
+              </p>
+            </div>
+          </div>
+        )}
+
         {/* Decade Galleries */}
-        {decadeInfo.map((info) => {
+        {!fetchError && decadeInfo.map((info) => {
           const images = imagesByDecade[info.decade as keyof typeof imagesByDecade];
           if (!images || images.length === 0) return null;
 
@@ -147,24 +169,26 @@ export default async function GalleriesPage() {
         })}
 
         {/* View All CTA */}
-        <section className="mt-16 text-center py-12 bg-[#1a2332]/50 backdrop-blur-sm rounded-lg border-2 border-[#ff6b35]/30">
-          <h3
-            className="text-2xl font-bold mb-4 text-[#00d9ff]"
-            style={{ fontFamily: 'Orbitron, sans-serif' }}
-          >
-            EXPLORE THE FULL COLLECTION
-          </h3>
-          <p className="text-[#c9d1d9]/80 mb-6 max-w-4xl mx-auto">
-            Browse all {allImages?.length || 0} vintage sci-fi images in our collection
-          </p>
-          <Link
-            href="/gallery"
-            className="inline-block px-8 py-3 bg-[#ff6b35] text-white font-bold rounded hover:bg-[#e63946] transition-all duration-300"
-            style={{ fontFamily: 'Orbitron, sans-serif' }}
-          >
-            VIEW FULL GALLERY
-          </Link>
-        </section>
+        {!fetchError && (
+          <section className="mt-16 text-center py-12 bg-[#1a2332]/50 backdrop-blur-sm rounded-lg border-2 border-[#ff6b35]/30">
+            <h3
+              className="text-2xl font-bold mb-4 text-[#00d9ff]"
+              style={{ fontFamily: 'Orbitron, sans-serif' }}
+            >
+              EXPLORE THE FULL COLLECTION
+            </h3>
+            <p className="text-[#c9d1d9]/80 mb-6 max-w-4xl mx-auto">
+              Browse all {allImages?.length || 0} vintage sci-fi images in our collection
+            </p>
+            <Link
+              href="/gallery"
+              className="inline-block px-8 py-3 bg-[#ff6b35] text-white font-bold rounded hover:bg-[#e63946] transition-all duration-300"
+              style={{ fontFamily: 'Orbitron, sans-serif' }}
+            >
+              VIEW FULL GALLERY
+            </Link>
+          </section>
+        )}
       </div>
     </div>
   );
