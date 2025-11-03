@@ -280,7 +280,7 @@ export default async function Home() {
       </section>
 
       {/* Newsletter Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-[#f8f3e6]">
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-[#1a2332]">
         <div className="max-w-7xl mx-auto">
           <NewsletterSignup />
         </div>
