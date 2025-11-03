@@ -562,7 +562,7 @@ export default async function AuthorPage(props: PageProps) {
             >
               RELATED AUTHORS
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {relatedAuthors.map(relatedAuthor => (
                 <Link
                   key={relatedAuthor.id}

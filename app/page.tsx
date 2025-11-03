@@ -123,7 +123,7 @@ export default async function Home() {
           </h2>
 
           {featuredImages && featuredImages.length > 0 ? (
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-8">
               {featuredImages.map((image: any) => (
                 <Link
                   key={image.id}
@@ -165,7 +165,7 @@ export default async function Home() {
       </section>
 
       {/* Decades Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-[#f8f3e6]">
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-[#f8f3e6] border-t border-[#c9d1d9]/20">
         <div className="max-w-7xl mx-auto">
           <h2
             className="text-3xl sm:text-4xl font-normal text-center mb-12 text-[#1a2332]"
@@ -204,7 +204,7 @@ export default async function Home() {
       </section>
 
       {/* Featured Content */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white border-t border-[#c9d1d9]/20">
         <div className="max-w-7xl mx-auto">
           <h2
             className="text-3xl sm:text-4xl font-normal text-center mb-12 text-[#1a2332]"
@@ -213,7 +213,7 @@ export default async function Home() {
             FEATURED REVIEWS
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {featuredReviews.map((review, index) => (
               <article
                 key={index}
