@@ -335,6 +335,17 @@ p, h1, h2, h3, h4, h5, h6, div {
   }
 }
 
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @keyframes rainbow {
   0% {
     border-color: var(--atomic-orange);
