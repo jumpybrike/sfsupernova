@@ -1,7 +1,9 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
+import ImageSkeleton from './ImageSkeleton';
 
 interface GalleryImage {
   id: string;
@@ -28,6 +30,14 @@ interface ImageLightboxProps {
 
 export default function ImageLightbox({ images, currentIndex, onClose, onNavigate }: ImageLightboxProps) {
   const image = images[currentIndex];
+  const [isLoading, setIsLoading] = useState(true);
+  const [hasError, setHasError] = useState(false);
+
+  // Reset loading state when image changes
+  useEffect(() => {
+    setIsLoading(true);
+    setHasError(false);
+  }, [currentIndex]);
 
   // Keyboard navigation
   useEffect(() => {
@@ -77,12 +87,47 @@ export default function ImageLightbox({ images, currentIndex, onClose, onNavigat
         <div className="bg-white rounded-lg shadow-2xl overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-2">
             {/* Image */}
-            <div className="bg-[#1a2332] flex items-center justify-center p-8">
-              <img
-                src={image.imageUrl}
-                alt={`Cover art for ${image.title} by ${image.author} (${image.year})`}
-                className="max-w-full max-h-[600px] object-contain rounded shadow-lg"
-              />
+            <div className="bg-[#1a2332] flex items-center justify-center p-8 relative min-h-[600px]">
+              {hasError ? (
+                <div className="flex flex-col items-center justify-center text-center">
+                  <svg
+                    className="w-16 h-16 mb-4 text-gray-500"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+                    />
+                  </svg>
+                  <p className="text-gray-400 font-medium">Image unavailable</p>
+                  <p className="text-gray-600 text-sm mt-2">Failed to load cover art</p>
+                </div>
+              ) : (
+                <>
+                  {isLoading && (
+                    <div className="absolute inset-8">
+                      <ImageSkeleton className="w-full h-full rounded" />
+                    </div>
+                  )}
+                  <Image
+                    src={image.imageUrl}
+                    alt={`Cover art for ${image.title} by ${image.author} (${image.year})`}
+                    width={400}
+                    height={600}
+                    className={`max-w-full max-h-[600px] object-contain rounded shadow-lg ${isLoading ? 'opacity-0' : 'opacity-100'} transition-opacity duration-500`}
+                    priority
+                    onLoadingComplete={() => setIsLoading(false)}
+                    onError={() => {
+                      setIsLoading(false);
+                      setHasError(true);
+                    }}
+                  />
+                </>
+              )}
             </div>
 
             {/* Details */}

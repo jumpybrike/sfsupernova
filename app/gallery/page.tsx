@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import GalleryImage from '@/app/components/GalleryImage'
 import { getCdnImageUrl } from '@/lib/imageUrl'
 
 // Static image data from CDN
@@ -101,10 +102,11 @@ export default function GalleryPage() {
                     href={`/gallery/${image.catalog_number}`}
                     className="group relative aspect-[2/3] overflow-hidden rounded-lg border-2 border-[#c9d1d9]/20 hover:border-[#ff6b35] transition-all duration-300 shadow-sm hover:shadow-lg"
                   >
-                    <img
+                    <GalleryImage
                       src={getCdnImageUrl(image.file_path)}
                       alt={image.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                      className="object-cover group-hover:scale-110 transition-transform duration-300"
+                      sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, (max-width: 1280px) 25vw, 20vw"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
                       <div className="absolute bottom-0 left-0 right-0 p-3">

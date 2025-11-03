@@ -1,6 +1,7 @@
 import { createClient } from '@/lib/supabase/server'
 import { redirect, notFound } from 'next/navigation'
 import Link from 'next/link'
+import DetailImage from '@/app/components/DetailImage'
 import { getCdnImageUrl } from '@/lib/imageUrl'
 
 interface PageProps {
@@ -125,7 +126,7 @@ export default async function ImageDetailPage({ params }: PageProps) {
                 <div className="absolute -inset-1 bg-gradient-to-r from-[#00ffaa] via-[#4facfe] to-[#00f2fe] rounded-lg blur-lg opacity-20" />
                 <div className="relative bg-black border-2 border-[#00ffaa] rounded-lg overflow-hidden">
                   {image.file_path ? (
-                    <img
+                    <DetailImage
                       src={getCdnImageUrl(image.file_path)}
                       alt={image.title}
                       className="w-full h-auto"

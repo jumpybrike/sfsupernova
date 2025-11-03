@@ -18,6 +18,11 @@ const nextConfig: NextConfig = {
         hostname: 'nss.org',
         pathname: '/settlement/nasa/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'lon1.digitaloceanspaces.com',
+        pathname: '/networklayer-cdn/SFSupernova/**',
+      },
     ],
   },
 };
