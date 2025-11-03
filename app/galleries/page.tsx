@@ -131,7 +131,7 @@ export default async function GalleriesPage() {
                 >
                   {info.title}
                 </h2>
-                <p className="text-lg text-[#c9d1d9]/70">
+                <p className="text-lg text-[#c9d1d9]/60">
                   {info.description}
                 </p>
                 <p className="text-sm text-[#c9d1d9]/50 mt-2">

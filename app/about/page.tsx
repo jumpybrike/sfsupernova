@@ -32,21 +32,21 @@ export default function AboutPage() {
               OUR MISSION
             </h2>
 
-            <p className="text-lg text-foreground/90 mb-4 leading-relaxed" style={{ wordBreak: 'normal' }}>
+            <p className="text-lg text-foreground/80 mb-4 leading-relaxed" style={{ wordBreak: 'normal' }}>
               SF Supernova is dedicated to celebrating and preserving the golden age of science fiction—a
               period spanning from the 1930s through the 1970s when visionary authors, artists, and
               creators imagined futures that would shape our understanding of technology, society, and
               humanity itself.
             </p>
 
-            <p className="text-lg text-foreground/90 mb-4 leading-relaxed" style={{ wordBreak: 'normal' }}>
+            <p className="text-lg text-foreground/80 mb-4 leading-relaxed" style={{ wordBreak: 'normal' }}>
               Through in-depth reviews, curated galleries, and preserved audio dramas, we explore the
               works that defined the genre: from the pulp magazines that birthed modern sci-fi to the
               radio dramas that captivated millions, from the groundbreaking novels that challenged
               conventions to the films that brought impossible worlds to life.
             </p>
 
-            <p className="text-lg text-foreground/90 leading-relaxed" style={{ wordBreak: 'normal' }}>
+            <p className="text-lg text-foreground/80 leading-relaxed" style={{ wordBreak: 'normal' }}>
               We believe these works are more than historical artifacts—they're living testaments to
               human imagination, and their themes remain startlingly relevant today.
             </p>
@@ -164,7 +164,7 @@ export default function AboutPage() {
               JOIN OUR COMMUNITY
             </h2>
 
-            <p className="text-lg text-foreground/90 mb-6 text-center">
+            <p className="text-lg text-foreground/80 mb-6 text-center">
               SF Supernova is more than a website—it's a community of enthusiasts who share a passion
               for vintage science fiction. Whether you're a longtime fan or just discovering these
               classics, we welcome you to join the conversation.
@@ -194,7 +194,7 @@ export default function AboutPage() {
           <h3 className="text-lg font-bold mb-4 text-retro-cyan">
             Affiliate Disclosure
           </h3>
-          <p className="text-sm text-foreground/70 leading-relaxed">
+          <p className="text-sm text-foreground/60 leading-relaxed">
             SF Supernova is a participant in the Amazon Services LLC Associates Program and other
             affiliate advertising programs designed to provide a means for sites to earn advertising
             fees by advertising and linking to featured products. When you purchase through our

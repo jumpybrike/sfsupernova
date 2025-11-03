@@ -142,7 +142,7 @@ export default function AuthorsPage() {
           </div>
 
           {/* Result Count */}
-          <p className="text-[#c9d1d9]/70 text-sm">
+          <p className="text-[#c9d1d9]/60 text-sm">
             Showing {filteredAuthors.length} of {authors.length} authors
           </p>
         </div>
@@ -180,7 +180,7 @@ export default function AuthorsPage() {
                   <p className="text-xs text-[#ff6b35] mb-3 font-medium" style={{ fontFamily: 'var(--font-courier-prime)' }}>
                     {author.tagline}
                   </p>
-                  <p className="text-sm text-[#1a2332]/70 mb-3 line-clamp-3">
+                  <p className="text-sm text-[#1a2332]/60 mb-3 line-clamp-3">
                     {author.biographyExcerpt}
                   </p>
                   <p className="text-xs text-[#2ec4b6] font-semibold">
@@ -248,7 +248,7 @@ export default function AuthorsPage() {
                       <p className="text-xs text-[#ff6b35] mb-2 font-medium" style={{ fontFamily: 'var(--font-courier-prime)' }}>
                         {author.tagline}
                       </p>
-                      <p className="text-sm text-[#1a2332]/70 line-clamp-2 mb-2">
+                      <p className="text-sm text-[#1a2332]/60 line-clamp-2 mb-2">
                         {author.biographyExcerpt}
                       </p>
                       <div className="flex flex-wrap gap-1">
@@ -296,7 +296,7 @@ export default function AuthorsPage() {
                   <h4 className="text-lg font-semibold text-[#2ec4b6] mb-2">
                     {era}
                   </h4>
-                  <p className="text-sm text-[#c9d1d9]/70 mb-2">
+                  <p className="text-sm text-[#c9d1d9]/60 mb-2">
                     {eraAuthors.length} {eraAuthors.length === 1 ? 'author' : 'authors'}
                   </p>
                   <p className="text-xs text-[#c9d1d9]/50">

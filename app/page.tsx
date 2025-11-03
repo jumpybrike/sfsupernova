@@ -128,7 +128,7 @@ export default async function Home() {
           {featuredError ? (
             <div className="text-center py-12">
               <p className="text-[#1a2332]/60 mb-2">Unable to load featured images at this time.</p>
-              <p className="text-sm text-[#1a2332]/40">Please try refreshing the page or check back later.</p>
+              <p className="text-sm text-[#1a2332]/50">Please try refreshing the page or check back later.</p>
             </div>
           ) : featuredImages && featuredImages.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-8">

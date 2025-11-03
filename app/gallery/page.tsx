@@ -89,7 +89,7 @@ export default function GalleryPage() {
 
             {/* Stats */}
             <section className="mb-8 text-center">
-              <p className="text-[#1a2332]/70">
+              <p className="text-[#1a2332]/60">
                 Showing <span className="text-[#ff6b35] font-bold">{images.length}</span> vintage sci-fi images
               </p>
             </section>

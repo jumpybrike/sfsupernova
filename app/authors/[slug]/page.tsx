@@ -371,7 +371,7 @@ export default async function AuthorPage(props: PageProps) {
                 {author.commonName}
               </h1>
               {author.name !== author.commonName && (
-                <p className="text-lg text-[#1a2332]/70 mb-2">
+                <p className="text-lg text-[#1a2332]/60 mb-2">
                   {author.name}
                 </p>
               )}
@@ -481,7 +481,7 @@ export default async function AuthorPage(props: PageProps) {
                     {work.inAudioLibrary && (
                       <Link
                         href="/audiobook-library"
-                        className="text-sm text-[#2ec4b6] hover:text-[#2ec4b6]/80 font-medium transition-colors"
+                        className="text-sm text-[#2ec4b6] hover:text-[#2ec4b6] font-medium transition-colors"
                        
                       >
                         Listen Free →
