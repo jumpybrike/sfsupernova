@@ -644,8 +644,8 @@ export default function AudiobookLibrary() {
                   {book.title}
                 </h3>
                 <p
-                  className="text-[#c9d1d9]/70 text-sm mb-3"
-                 
+                  className="text-[#c9d1d9]/60 text-sm mb-3"
+
                 >
                   <Link
                     href={`/authors/${getAuthorSlug(book.author)}`}
@@ -667,8 +667,8 @@ export default function AudiobookLibrary() {
                     {book.duration}
                   </p>
                   <p
-                    className="text-[#c9d1d9]/70 text-xs"
-                   
+                    className="text-[#c9d1d9]/60 text-xs"
+
                   >
                     Read by {book.reader}
                   </p>

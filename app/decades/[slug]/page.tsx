@@ -128,7 +128,7 @@ export default async function DecadePage({ params }: { params: Promise<{ slug: s
           </p>
 
           <div className={`border-l-4 ${decade.borderColor} pl-6 py-4 bg-dark-purple/30 backdrop-blur-sm rounded-r-lg`}>
-            <p className="text-lg text-foreground/90" style={{ wordBreak: 'normal' }}>
+            <p className="text-lg text-foreground/80" style={{ wordBreak: 'normal' }}>
               {decade.description}
             </p>
           </div>
@@ -153,7 +153,7 @@ export default async function DecadePage({ params }: { params: Promise<{ slug: s
                   <span className={`${decade.color} text-2xl font-bold mr-3`}>
                     {index + 1}
                   </span>
-                  <p className="text-foreground/90 pt-1" style={{ wordBreak: 'normal' }}>
+                  <p className="text-foreground/80 pt-1" style={{ wordBreak: 'normal' }}>
                     {highlight}
                   </p>
                 </div>
