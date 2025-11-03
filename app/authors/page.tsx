@@ -56,7 +56,7 @@ export default function AuthorsPage() {
           </h1>
           <p
             className="text-xl text-[#c9d1d9] mb-8 max-w-4xl mx-auto leading-relaxed"
-            style={{ fontFamily: 'var(--font-inter)' }}
+           
           >
             Explore the visionaries who shaped science fiction's golden age. From Jules Verne to Ursula K. Le Guin, discover the authors who imagined our future.
           </p>
@@ -70,7 +70,7 @@ export default function AuthorsPage() {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full px-6 py-4 bg-[#1a2332] border-2 border-[#2ec4b6] text-[#c9d1d9] rounded-md text-lg focus:outline-none focus:border-[#ff6b35] transition-colors"
-                style={{ fontFamily: 'var(--font-inter)' }}
+               
               />
               <svg
                 className="absolute right-4 top-1/2 -translate-y-1/2 w-6 h-6 text-[#2ec4b6]"
@@ -90,7 +90,7 @@ export default function AuthorsPage() {
               value={selectedEra}
               onChange={(e) => setSelectedEra(e.target.value)}
               className="px-6 py-3 bg-[#1a2332] border-2 border-[#2ec4b6] text-[#2ec4b6] rounded-md font-medium transition-all duration-300 hover:bg-[#2ec4b6] hover:text-[#1a2332] cursor-pointer"
-              style={{ fontFamily: 'var(--font-inter)' }}
+             
             >
               <option value="all">All Eras</option>
               {eras.filter(e => e !== 'all').map(era => (
@@ -103,7 +103,7 @@ export default function AuthorsPage() {
               value={selectedGenre}
               onChange={(e) => setSelectedGenre(e.target.value)}
               className="px-6 py-3 bg-[#1a2332] border-2 border-[#2ec4b6] text-[#2ec4b6] rounded-md font-medium transition-all duration-300 hover:bg-[#2ec4b6] hover:text-[#1a2332] cursor-pointer"
-              style={{ fontFamily: 'var(--font-inter)' }}
+             
             >
               <option value="all">All Genres</option>
               {genres.filter(g => g !== 'all').map(genre => (
@@ -121,7 +121,7 @@ export default function AuthorsPage() {
                   ? 'bg-[#ff6b35] text-white'
                   : 'bg-[#1a2332] text-[#2ec4b6] hover:bg-[#2ec4b6] hover:text-[#1a2332]'
               }`}
-              style={{ fontFamily: 'var(--font-inter)' }}
+             
             >
               All
             </button>
@@ -134,7 +134,7 @@ export default function AuthorsPage() {
                     ? 'bg-[#ff6b35] text-white'
                     : 'bg-[#1a2332] text-[#2ec4b6] hover:bg-[#2ec4b6] hover:text-[#1a2332]'
                 }`}
-                style={{ fontFamily: 'var(--font-inter)' }}
+               
               >
                 {letter}
               </button>
@@ -142,7 +142,7 @@ export default function AuthorsPage() {
           </div>
 
           {/* Result Count */}
-          <p className="text-[#c9d1d9]/70 text-sm" style={{ fontFamily: 'var(--font-inter)' }}>
+          <p className="text-[#c9d1d9]/70 text-sm">
             Showing {filteredAuthors.length} of {authors.length} authors
           </p>
         </div>
@@ -170,20 +170,20 @@ export default function AuthorsPage() {
                   </div>
                   <h3
                     className="text-xl font-semibold mb-1 text-[#1a2332]"
-                    style={{ fontFamily: 'var(--font-inter)' }}
+                   
                   >
                     {author.commonName}
                   </h3>
-                  <p className="text-sm text-[#1a2332]/60 mb-2" style={{ fontFamily: 'var(--font-inter)' }}>
+                  <p className="text-sm text-[#1a2332]/60 mb-2">
                     {author.birthYear}–{author.deathYear || 'Present'}
                   </p>
                   <p className="text-xs text-[#ff6b35] mb-3 font-medium" style={{ fontFamily: 'var(--font-courier-prime)' }}>
                     {author.tagline}
                   </p>
-                  <p className="text-sm text-[#1a2332]/70 mb-3 line-clamp-3" style={{ fontFamily: 'var(--font-inter)' }}>
+                  <p className="text-sm text-[#1a2332]/70 mb-3 line-clamp-3">
                     {author.biographyExcerpt}
                   </p>
-                  <p className="text-xs text-[#2ec4b6] font-semibold" style={{ fontFamily: 'var(--font-inter)' }}>
+                  <p className="text-xs text-[#2ec4b6] font-semibold">
                     {author.workCount}+ works
                   </p>
                 </Link>
@@ -205,7 +205,7 @@ export default function AuthorsPage() {
 
           {filteredAuthors.length === 0 ? (
             <div className="text-center py-12">
-              <p className="text-xl text-[#c9d1d9]" style={{ fontFamily: 'var(--font-inter)' }}>
+              <p className="text-xl text-[#c9d1d9]">
                 No authors found matching your criteria.
               </p>
               <button
@@ -216,7 +216,7 @@ export default function AuthorsPage() {
                   setSelectedLetter('all');
                 }}
                 className="mt-6 px-6 py-3 bg-[#2ec4b6] text-white font-semibold rounded-md hover:bg-[#2ec4b6]/90 transition-colors"
-                style={{ fontFamily: 'var(--font-inter)' }}
+               
               >
                 Clear Filters
               </button>
@@ -238,17 +238,17 @@ export default function AuthorsPage() {
                     <div className="flex-1 min-w-0">
                       <h3
                         className="text-lg font-semibold mb-1 text-[#1a2332]"
-                        style={{ fontFamily: 'var(--font-inter)' }}
+                       
                       >
                         {author.commonName}
                       </h3>
-                      <p className="text-xs text-[#1a2332]/60 mb-1" style={{ fontFamily: 'var(--font-inter)' }}>
+                      <p className="text-xs text-[#1a2332]/60 mb-1">
                         {author.birthYear}–{author.deathYear || 'Present'} • {author.nationality}
                       </p>
                       <p className="text-xs text-[#ff6b35] mb-2 font-medium" style={{ fontFamily: 'var(--font-courier-prime)' }}>
                         {author.tagline}
                       </p>
-                      <p className="text-sm text-[#1a2332]/70 line-clamp-2 mb-2" style={{ fontFamily: 'var(--font-inter)' }}>
+                      <p className="text-sm text-[#1a2332]/70 line-clamp-2 mb-2">
                         {author.biographyExcerpt}
                       </p>
                       <div className="flex flex-wrap gap-1">
@@ -256,7 +256,7 @@ export default function AuthorsPage() {
                           <span
                             key={genre}
                             className="text-xs px-2 py-1 bg-[#2ec4b6]/10 text-[#2ec4b6] rounded"
-                            style={{ fontFamily: 'var(--font-inter)' }}
+                           
                           >
                             {genre}
                           </span>
@@ -293,13 +293,13 @@ export default function AuthorsPage() {
                   }}
                   className="text-left p-4 bg-[#0d1117] rounded-lg border border-[#2ec4b6]/30 hover:border-[#2ec4b6] transition-all duration-300"
                 >
-                  <h4 className="text-lg font-semibold text-[#2ec4b6] mb-2" style={{ fontFamily: 'var(--font-inter)' }}>
+                  <h4 className="text-lg font-semibold text-[#2ec4b6] mb-2">
                     {era}
                   </h4>
-                  <p className="text-sm text-[#c9d1d9]/70 mb-2" style={{ fontFamily: 'var(--font-inter)' }}>
+                  <p className="text-sm text-[#c9d1d9]/70 mb-2">
                     {eraAuthors.length} {eraAuthors.length === 1 ? 'author' : 'authors'}
                   </p>
-                  <p className="text-xs text-[#c9d1d9]/50" style={{ fontFamily: 'var(--font-inter)' }}>
+                  <p className="text-xs text-[#c9d1d9]/50">
                     {eraAuthors.slice(0, 3).map(a => a.commonName).join(', ')}
                     {eraAuthors.length > 3 && '...'}
                   </p>

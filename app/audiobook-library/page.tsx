@@ -493,14 +493,14 @@ export default function AudiobookLibrary() {
             <div className="w-32 h-1 bg-[#2ec4b6] mx-auto mb-8"></div>
             <p
               className="text-lg md:text-xl text-[#c9d1d9] mb-6 max-w-4xl mx-auto leading-relaxed"
-              style={{ fontFamily: 'var(--font-inter)' }}
+             
             >
               Listen to the golden age of science fiction. All these classic audiobooks are read by volunteers and freely
               available from LibriVox. Perfect for commutes, workouts, or relaxing with the timeless stories that shaped sci-fi.
             </p>
             <p
               className="text-[#2ec4b6] text-xl mb-8"
-              style={{ fontFamily: 'var(--font-inter)' }}
+             
             >
               🎧 {audiobooks.length} hours of vintage sci-fi adventure • All FREE
             </p>
@@ -513,7 +513,7 @@ export default function AudiobookLibrary() {
                   value={decadeFilter}
                   onChange={(e) => setDecadeFilter(e.target.value)}
                   className="px-6 py-3 bg-[#2ec4b6] text-white font-semibold rounded-md hover:bg-[#2ec4b6]/90 transition-all duration-300 cursor-pointer appearance-none pr-12"
-                  style={{ fontFamily: 'var(--font-inter)' }}
+                 
                 >
                   <option value="all">All Decades</option>
                   {decades.map(decade => (
@@ -531,7 +531,7 @@ export default function AudiobookLibrary() {
                   value={authorFilter}
                   onChange={(e) => setAuthorFilter(e.target.value)}
                   className="px-6 py-3 bg-[#2ec4b6] text-white font-semibold rounded-md hover:bg-[#2ec4b6]/90 transition-all duration-300 cursor-pointer appearance-none pr-12"
-                  style={{ fontFamily: 'var(--font-inter)' }}
+                 
                 >
                   <option value="all">All Authors</option>
                   {authors.map(author => (
@@ -549,7 +549,7 @@ export default function AudiobookLibrary() {
                   value={lengthFilter}
                   onChange={(e) => setLengthFilter(e.target.value)}
                   className="px-6 py-3 bg-[#2ec4b6] text-white font-semibold rounded-md hover:bg-[#2ec4b6]/90 transition-all duration-300 cursor-pointer appearance-none pr-12"
-                  style={{ fontFamily: 'var(--font-inter)' }}
+                 
                 >
                   <option value="all">All Lengths</option>
                   <option value="short">Short (Under 3 hours)</option>
@@ -566,7 +566,7 @@ export default function AudiobookLibrary() {
             {/* Results Count */}
             <p
               className="text-[#c9d1d9] mt-6 text-sm"
-              style={{ fontFamily: 'var(--font-inter)' }}
+             
             >
               Showing {filteredAudiobooks.length} of {audiobooks.length} audiobooks
             </p>
@@ -579,7 +579,7 @@ export default function AudiobookLibrary() {
         <div className="container mx-auto px-4 max-w-6xl">
           <p
             className="text-center text-white text-lg"
-            style={{ fontFamily: 'var(--font-inter)' }}
+           
           >
             📖 Prefer reading?{' '}
             <Link href="/free-library" className="font-bold underline hover:text-[#1a2332] transition-colors">
@@ -618,7 +618,7 @@ export default function AudiobookLibrary() {
                         </p>
                         <p
                           className="text-[#c9d1d9] text-lg"
-                          style={{ fontFamily: 'var(--font-inter)' }}
+                         
                         >
                           {book.author}
                         </p>
@@ -639,13 +639,13 @@ export default function AudiobookLibrary() {
                 {/* Title & Author */}
                 <h3
                   className="text-xl font-semibold text-[#1a2332] mb-2 line-clamp-2"
-                  style={{ fontFamily: 'var(--font-inter)' }}
+                 
                 >
                   {book.title}
                 </h3>
                 <p
                   className="text-[#c9d1d9]/70 text-sm mb-3"
-                  style={{ fontFamily: 'var(--font-inter)' }}
+                 
                 >
                   <Link
                     href={`/authors/${getAuthorSlug(book.author)}`}
@@ -668,7 +668,7 @@ export default function AudiobookLibrary() {
                   </p>
                   <p
                     className="text-[#c9d1d9]/70 text-xs"
-                    style={{ fontFamily: 'var(--font-inter)' }}
+                   
                   >
                     Read by {book.reader}
                   </p>
@@ -691,7 +691,7 @@ export default function AudiobookLibrary() {
                 {/* Recommendation */}
                 <p
                   className="text-[#1a2332] text-sm mb-4 line-clamp-3 leading-relaxed"
-                  style={{ fontFamily: 'var(--font-inter)' }}
+                 
                 >
                   {book.recommendation}
                 </p>
@@ -703,7 +703,7 @@ export default function AudiobookLibrary() {
                     <button
                       onClick={() => toggleDropdown(book.id)}
                       className="w-full px-6 py-3 bg-[#2ec4b6] text-white font-semibold rounded-md hover:bg-[#2ec4b6]/90 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-2"
-                      style={{ fontFamily: 'var(--font-inter)' }}
+                     
                     >
                       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15.536a5 5 0 001.414 1.414m0-7.072a5 5 0 00-1.414 1.414m7.072-7.072a9 9 0 0110.607 0" />
@@ -721,7 +721,7 @@ export default function AudiobookLibrary() {
                           target="_blank"
                           rel="noopener noreferrer"
                           className="block px-4 py-2 text-sm text-[#1a2332] hover:bg-[#f8f3e6] transition-colors"
-                          style={{ fontFamily: 'var(--font-inter)' }}
+                         
                         >
                           Stream on LibriVox
                         </a>
@@ -730,7 +730,7 @@ export default function AudiobookLibrary() {
                           target="_blank"
                           rel="noopener noreferrer"
                           className="block px-4 py-2 text-sm text-[#1a2332] hover:bg-[#f8f3e6] transition-colors"
-                          style={{ fontFamily: 'var(--font-inter)' }}
+                         
                         >
                           Download MP3
                         </a>
@@ -739,7 +739,7 @@ export default function AudiobookLibrary() {
                           target="_blank"
                           rel="noopener noreferrer"
                           className="block px-4 py-2 text-sm text-[#1a2332] hover:bg-[#f8f3e6] transition-colors border-t border-[#c9d1d9]/20"
-                          style={{ fontFamily: 'var(--font-inter)' }}
+                         
                         >
                           About LibriVox
                         </a>
@@ -752,14 +752,14 @@ export default function AudiobookLibrary() {
                     <Link
                       href={`/free-library#${book.ebookId}`}
                       className="block w-full px-6 py-3 bg-transparent border-2 border-[#ff6b35] text-[#ff6b35] font-semibold rounded-md hover:bg-[#ff6b35] hover:text-white transition-all duration-300 text-center"
-                      style={{ fontFamily: 'var(--font-inter)' }}
+                     
                     >
                       Read Book
                     </Link>
                   ) : (
                     <span
                       className="block w-full px-6 py-3 bg-transparent border-2 border-[#c9d1d9]/30 text-[#c9d1d9]/50 font-semibold rounded-md text-center cursor-not-allowed"
-                      style={{ fontFamily: 'var(--font-inter)' }}
+                     
                     >
                       Ebook coming soon
                     </span>
@@ -782,7 +782,7 @@ export default function AudiobookLibrary() {
           </h3>
           <p
             className="text-[#c9d1d9] mb-6 max-w-4xl mx-auto leading-relaxed"
-            style={{ fontFamily: 'var(--font-inter)' }}
+           
           >
             All audiobooks courtesy of{' '}
             <a
@@ -799,7 +799,7 @@ export default function AudiobookLibrary() {
           <Link
             href="/free-library"
             className="inline-block px-8 py-3 bg-[#2ec4b6] text-white font-semibold rounded-md hover:bg-[#2ec4b6]/90 transition-all duration-300 shadow-lg hover:shadow-xl"
-            style={{ fontFamily: 'var(--font-inter)' }}
+           
           >
             Want to read instead of listen? Check out our Ebook Library →
           </Link>

@@ -433,7 +433,7 @@ export default function GalleryPage({ params }: { params: Promise<{ slug: string
           <Link
             href="/"
             className="text-[#ff6b35] hover:text-[#e63946] transition-colors"
-            style={{ fontFamily: 'var(--font-inter)' }}
+           
           >
             Home
           </Link>
@@ -441,12 +441,12 @@ export default function GalleryPage({ params }: { params: Promise<{ slug: string
           <Link
             href="/galleries"
             className="text-[#ff6b35] hover:text-[#e63946] transition-colors"
-            style={{ fontFamily: 'var(--font-inter)' }}
+           
           >
             Galleries
           </Link>
           <span className="text-[#c9d1d9] mx-2">/</span>
-          <span className="text-[#c9d1d9]" style={{ fontFamily: 'var(--font-inter)' }}>
+          <span className="text-[#c9d1d9]">
             {gallery.title}
           </span>
         </div>
@@ -461,7 +461,7 @@ export default function GalleryPage({ params }: { params: Promise<{ slug: string
           </h1>
           <p
             className="text-lg text-[#c9d1d9] mb-8 max-w-4xl mx-auto leading-relaxed"
-            style={{ fontFamily: 'var(--font-inter)', wordBreak: 'normal', whiteSpace: 'normal', overflowWrap: 'normal' }}
+            style={{ wordBreak: 'normal', whiteSpace: 'normal', overflowWrap: 'normal' }}
           >
             {gallery.description}
           </p>
@@ -469,7 +469,7 @@ export default function GalleryPage({ params }: { params: Promise<{ slug: string
           {/* Filter and Sort */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <div className="flex items-center gap-2">
-              <label className="flex items-center gap-2 text-[#c9d1d9] cursor-pointer" style={{ fontFamily: 'var(--font-inter)' }}>
+              <label className="flex items-center gap-2 text-[#c9d1d9] cursor-pointer">
                 <input
                   type="checkbox"
                   checked={filterFree}
@@ -484,7 +484,7 @@ export default function GalleryPage({ params }: { params: Promise<{ slug: string
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value as 'featured' | 'year' | 'title')}
               className="px-4 py-2 bg-[#1a2332] border-2 border-[#2ec4b6] text-[#2ec4b6] rounded-md font-medium transition-all duration-300 hover:bg-[#2ec4b6] hover:text-[#1a2332] cursor-pointer"
-              style={{ fontFamily: 'var(--font-inter)' }}
+             
             >
               <option value="featured">Sort: Featured</option>
               <option value="year">Sort: Year</option>
@@ -492,7 +492,7 @@ export default function GalleryPage({ params }: { params: Promise<{ slug: string
             </select>
           </div>
 
-          <p className="text-[#c9d1d9]/70 text-sm mt-4" style={{ fontFamily: 'var(--font-inter)' }}>
+          <p className="text-[#c9d1d9]/70 text-sm mt-4">
             Showing {sortedImages.length} of {gallery.images.length} covers
           </p>
         </div>
@@ -525,10 +525,10 @@ export default function GalleryPage({ params }: { params: Promise<{ slug: string
               {/* Hover overlay with title */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg flex items-end p-4">
                 <div>
-                  <p className="text-white font-semibold text-sm" style={{ fontFamily: 'var(--font-inter)' }}>
+                  <p className="text-white font-semibold text-sm">
                     {image.title}
                   </p>
-                  <p className="text-white/80 text-xs" style={{ fontFamily: 'var(--font-inter)' }}>
+                  <p className="text-white/80 text-xs">
                     {image.author} ({image.year})
                   </p>
                 </div>
@@ -547,7 +547,7 @@ export default function GalleryPage({ params }: { params: Promise<{ slug: string
           </h3>
           <p
             className="text-[#c9d1d9] mb-4 max-w-4xl mx-auto leading-relaxed"
-            style={{ fontFamily: 'var(--font-inter)', wordBreak: 'normal', whiteSpace: 'normal', overflowWrap: 'normal' }}
+            style={{ wordBreak: 'normal', whiteSpace: 'normal', overflowWrap: 'normal' }}
           >
             All cover art courtesy of{' '}
             <a
@@ -562,7 +562,7 @@ export default function GalleryPage({ params }: { params: Promise<{ slug: string
           </p>
           <p
             className="text-[#c9d1d9]/80 text-sm max-w-4xl mx-auto"
-            style={{ fontFamily: 'var(--font-inter)', wordBreak: 'normal', whiteSpace: 'normal', overflowWrap: 'normal' }}
+            style={{ wordBreak: 'normal', whiteSpace: 'normal', overflowWrap: 'normal' }}
           >
             These images are in the public domain in the United States.
           </p>
@@ -578,14 +578,14 @@ export default function GalleryPage({ params }: { params: Promise<{ slug: string
           </h3>
           <p
             className="text-[#c9d1d9] mb-6 max-w-4xl mx-auto"
-            style={{ fontFamily: 'var(--font-inter)', wordBreak: 'normal', whiteSpace: 'normal', overflowWrap: 'normal' }}
+            style={{ wordBreak: 'normal', whiteSpace: 'normal', overflowWrap: 'normal' }}
           >
             Many of these books are available in our Free Library, ready to download in multiple formats.
           </p>
           <Link
             href="/free-library"
             className="inline-block px-8 py-3 bg-[#2ec4b6] text-white font-semibold rounded-md hover:bg-[#2ec4b6]/90 transition-all duration-300 shadow-lg hover:shadow-xl"
-            style={{ fontFamily: 'var(--font-inter)' }}
+           
           >
             Browse Free Library
           </Link>

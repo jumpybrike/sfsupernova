@@ -152,8 +152,7 @@ export default function ImageLightbox({ images, currentIndex, onClose, onNavigat
               </h2>
 
               <p
-                className="text-lg text-[#1a2332]/70 mb-1"
-                style={{ fontFamily: 'var(--font-inter)' }}
+                className="text-lg text-[#1a2332]/80 mb-1"
               >
                 by {image.author}
               </p>
@@ -168,7 +167,6 @@ export default function ImageLightbox({ images, currentIndex, onClose, onNavigat
               {/* Commentary */}
               <p
                 className="text-base text-[#1a2332]/80 mb-6 leading-relaxed"
-                style={{ fontFamily: 'var(--font-inter)' }}
               >
                 {image.commentary}
               </p>
@@ -179,7 +177,6 @@ export default function ImageLightbox({ images, currentIndex, onClose, onNavigat
                   <span
                     key={theme}
                     className="text-xs font-semibold text-[#2ec4b6] px-3 py-1 bg-[#2ec4b6]/10 border border-[#2ec4b6]/30 rounded uppercase tracking-wider"
-                    style={{ fontFamily: 'var(--font-inter)' }}
                   >
                     {theme}
                   </span>
@@ -193,7 +190,7 @@ export default function ImageLightbox({ images, currentIndex, onClose, onNavigat
                   target={image.inFreeLibrary ? '_self' : '_blank'}
                   rel={image.inFreeLibrary ? '' : 'noopener noreferrer'}
                   className="px-6 py-3 bg-[#2ec4b6] text-white font-semibold rounded-md hover:bg-[#2ec4b6]/90 transition-all duration-300 text-center shadow-lg hover:shadow-xl"
-                  style={{ fontFamily: 'var(--font-inter)' }}
+                 
                 >
                   {readFreeText}
                 </a>
@@ -204,7 +201,6 @@ export default function ImageLightbox({ images, currentIndex, onClose, onNavigat
                     target="_blank"
                     rel="noopener noreferrer"
                     className="px-6 py-3 bg-[#ff6b35] text-white font-semibold rounded-md hover:bg-[#e63946] transition-all duration-300 text-center shadow-lg hover:shadow-xl"
-                    style={{ fontFamily: 'var(--font-inter)' }}
                   >
                     Buy Print Edition
                   </a>
@@ -212,7 +208,7 @@ export default function ImageLightbox({ images, currentIndex, onClose, onNavigat
               </div>
 
               {/* Attribution */}
-              <p className="text-xs text-[#1a2332]/50 mb-6" style={{ fontFamily: 'var(--font-inter)' }}>
+              <p className="text-xs text-[#1a2332]/50 mb-6">
                 Image courtesy of{' '}
                 <a
                   href="https://www.gutenberg.org"
@@ -226,7 +222,7 @@ export default function ImageLightbox({ images, currentIndex, onClose, onNavigat
 
               {/* Social Share Buttons */}
               <div className="border-t border-[#c9d1d9]/20 pt-6">
-                <p className="text-sm text-[#1a2332]/70 mb-3" style={{ fontFamily: 'var(--font-inter)' }}>
+                <p className="text-sm text-[#1a2332]/80 mb-3">
                   Share this cover:
                 </p>
                 <div className="flex gap-3">
@@ -237,7 +233,6 @@ export default function ImageLightbox({ images, currentIndex, onClose, onNavigat
                       window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank');
                     }}
                     className="px-4 py-2 bg-[#1da1f2] text-white rounded hover:bg-[#1da1f2]/90 transition-colors text-sm font-medium"
-                    style={{ fontFamily: 'var(--font-inter)' }}
                   >
                     Twitter
                   </button>
@@ -247,7 +242,6 @@ export default function ImageLightbox({ images, currentIndex, onClose, onNavigat
                       window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank');
                     }}
                     className="px-4 py-2 bg-[#4267B2] text-white rounded hover:bg-[#4267B2]/90 transition-colors text-sm font-medium"
-                    style={{ fontFamily: 'var(--font-inter)' }}
                   >
                     Facebook
                   </button>
@@ -258,7 +252,6 @@ export default function ImageLightbox({ images, currentIndex, onClose, onNavigat
                       window.open(`https://pinterest.com/pin/create/button/?url=${encodeURIComponent(url)}&media=${encodeURIComponent(image.imageUrl)}&description=${encodeURIComponent(description)}`, '_blank');
                     }}
                     className="px-4 py-2 bg-[#E60023] text-white rounded hover:bg-[#E60023]/90 transition-colors text-sm font-medium"
-                    style={{ fontFamily: 'var(--font-inter)' }}
                   >
                     Pinterest
                   </button>
@@ -273,7 +266,7 @@ export default function ImageLightbox({ images, currentIndex, onClose, onNavigat
               onClick={() => currentIndex > 0 && onNavigate(currentIndex - 1)}
               disabled={currentIndex === 0}
               className="flex items-center gap-2 px-6 py-3 bg-white border-2 border-[#ff6b35] text-[#ff6b35] font-semibold rounded-md hover:bg-[#ff6b35] hover:text-white transition-all duration-300 disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-white disabled:hover:text-[#ff6b35]"
-              style={{ fontFamily: 'var(--font-inter)' }}
+             
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -281,7 +274,7 @@ export default function ImageLightbox({ images, currentIndex, onClose, onNavigat
               Previous
             </button>
 
-            <span className="text-[#1a2332]/70" style={{ fontFamily: 'var(--font-inter)' }}>
+            <span className="text-[#1a2332]/60">
               {currentIndex + 1} of {images.length}
             </span>
 
@@ -289,7 +282,7 @@ export default function ImageLightbox({ images, currentIndex, onClose, onNavigat
               onClick={() => currentIndex < images.length - 1 && onNavigate(currentIndex + 1)}
               disabled={currentIndex === images.length - 1}
               className="flex items-center gap-2 px-6 py-3 bg-white border-2 border-[#ff6b35] text-[#ff6b35] font-semibold rounded-md hover:bg-[#ff6b35] hover:text-white transition-all duration-300 disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-white disabled:hover:text-[#ff6b35]"
-              style={{ fontFamily: 'var(--font-inter)' }}
+             
             >
               Next
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
