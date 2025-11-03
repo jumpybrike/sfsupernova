@@ -17,29 +17,19 @@ export default async function Home() {
   if (featuredError) {
     console.error('Error fetching featured images:', featuredError.message);
   }
-  const featuredReviews = [
-    {
-      title: 'Foundation by Isaac Asimov',
-      decade: '1950s',
-      excerpt: 'A sweeping tale of galactic empire and psychohistory that defined the golden age of science fiction...',
-      category: 'Books',
-      rating: 5,
-    },
-    {
-      title: 'Dimension X: The Outer Limit',
-      decade: '1950s',
-      excerpt: 'Classic radio drama that transported listeners to the far reaches of space and imagination...',
-      category: 'Audio',
-      rating: 5,
-    },
-    {
-      title: 'The Day the Earth Stood Still',
-      decade: '1950s',
-      excerpt: 'A landmark film that brought thoughtful sci-fi to mainstream audiences with its message of peace...',
-      category: 'Film',
-      rating: 5,
-    },
-  ];
+
+  // Fetch featured reviews from database
+  const { data: featuredReviews, error: reviewsError } = await supabase
+    .from('reviews')
+    .select('*')
+    .eq('is_featured', true)
+    .order('review_date', { ascending: false })
+    .limit(3);
+
+  // Log error if reviews fetch fails
+  if (reviewsError) {
+    console.error('Error fetching featured reviews:', reviewsError.message);
+  }
 
   const decades = [
     { slug: '1930s-1940s', name: '1930s-1940s', subtitle: 'Golden Age', color: 'text-[#ffbe0b]', font: 'var(--font-abril-fatface)', hoverClass: 'decade-yellow' },
@@ -223,55 +213,66 @@ export default async function Home() {
             FEATURED REVIEWS
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {featuredReviews.map((review, index) => (
-              <article
-                key={index}
-                className="bg-white border border-[#c9d1d9]/20 rounded-lg p-6 hover:border-[#ff6b35] transition-all duration-300 shadow-sm hover:shadow-lg hover:-translate-y-1"
-              >
-                <div className="flex items-center justify-between mb-4">
-                  <span
-                    className="text-xs font-semibold text-[#ffbe0b] px-3 py-1 bg-[#ffbe0b]/10 border border-[#ffbe0b]/30 rounded uppercase tracking-wider"
-                  >
-                    {review.category}
-                  </span>
-                  <div className="flex text-[#ffbe0b]">
-                    {[...Array(review.rating)].map((_, i) => (
-                      <svg key={i} className="w-4 h-4 fill-current" viewBox="0 0 20 20">
-                        <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
-                      </svg>
-                    ))}
+          {reviewsError ? (
+            <div className="text-center py-12">
+              <p className="text-[#1a2332]/60 mb-2">Unable to load featured reviews at this time.</p>
+              <p className="text-sm text-[#1a2332]/40">Please try refreshing the page or check back later.</p>
+            </div>
+          ) : featuredReviews && featuredReviews.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {featuredReviews.map((review: any) => (
+                <article
+                  key={review.id}
+                  className="bg-white border border-[#c9d1d9]/20 rounded-lg p-6 hover:border-[#ff6b35] transition-all duration-300 shadow-sm hover:shadow-lg hover:-translate-y-1"
+                >
+                  <div className="flex items-center justify-between mb-4">
+                    <span
+                      className="text-xs font-semibold text-[#ffbe0b] px-3 py-1 bg-[#ffbe0b]/10 border border-[#ffbe0b]/30 rounded uppercase tracking-wider"
+                    >
+                      {review.category}
+                    </span>
+                    <div className="flex text-[#ffbe0b]">
+                      {[...Array(review.rating)].map((_, i) => (
+                        <svg key={i} className="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                          <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                        </svg>
+                      ))}
+                    </div>
                   </div>
-                </div>
 
-                <h3
-                  className="text-xl font-semibold mb-2 text-[#1a2332]"
-                >
-                  {review.title}
-                </h3>
+                  <h3
+                    className="text-xl font-semibold mb-2 text-[#1a2332]"
+                  >
+                    {review.title}
+                  </h3>
 
-                <p
-                  className="text-sm text-[#ff6b35] mb-3 uppercase tracking-wide font-medium"
-                  style={{ fontFamily: 'var(--font-courier-prime)' }}
-                >
-                  {review.decade}
-                </p>
+                  <p
+                    className="text-sm text-[#ff6b35] mb-3 uppercase tracking-wide font-medium"
+                    style={{ fontFamily: 'var(--font-courier-prime)' }}
+                  >
+                    {review.decade}
+                  </p>
 
-                <p
-                  className="text-[#1a2332]/80 mb-4 leading-relaxed"
-                >
-                  {review.excerpt}
-                </p>
+                  <p
+                    className="text-[#1a2332]/80 mb-4 leading-relaxed"
+                  >
+                    {review.excerpt}
+                  </p>
 
-                <Link
-                  href="/reviews"
-                  className="text-[#ff6b35] hover:text-[#e63946] transition-colors inline-flex items-center font-medium"
-                >
-                  Read full review <span className="ml-1">→</span>
-                </Link>
-              </article>
-            ))}
-          </div>
+                  <Link
+                    href="/reviews"
+                    className="text-[#ff6b35] hover:text-[#e63946] transition-colors inline-flex items-center font-medium"
+                  >
+                    Read full review <span className="ml-1">→</span>
+                  </Link>
+                </article>
+              ))}
+            </div>
+          ) : (
+            <div className="text-center py-12">
+              <p className="text-[#1a2332]/60">No featured reviews available yet.</p>
+            </div>
+          )}
 
           <div className="text-center mt-12">
             <Link
