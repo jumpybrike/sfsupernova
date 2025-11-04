@@ -39,7 +39,7 @@ export default async function Home() {
       excerpt: 'A sweeping tale of galactic empire and psychohistory that defined the golden age of science fiction...',
       category: 'Books',
       rating: 5,
-      thumbnail: '/covers/foundation.jpg',
+      thumbnail: 'https://lon1.digitaloceanspaces.com/networklayer-cdn/SFSupernova/images/foundation.jpg',
     },
     {
       title: 'Dimension X: The Outer Limit',
