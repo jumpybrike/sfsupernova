@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
       {
         protocol: 'https',
         hostname: 'cdn.networklayer.co.uk',
-        pathname: '/SFSupernova/siteimages/**',
+        pathname: '/SFSupernova/images/**',
       },
       {
         protocol: 'https',
