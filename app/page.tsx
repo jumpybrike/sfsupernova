@@ -39,6 +39,7 @@ export default async function Home() {
       excerpt: 'A sweeping tale of galactic empire and psychohistory that defined the golden age of science fiction...',
       category: 'Books',
       rating: 5,
+      thumbnail: '/covers/foundation.jpg',
     },
     {
       title: 'Dimension X: The Outer Limit',
@@ -287,9 +288,21 @@ export default async function Home() {
             {featuredReviews.map((review, index) => (
               <article
                 key={index}
-                className="bg-white border border-[#c9d1d9]/20 rounded-lg p-6 hover:border-[#ff6b35] transition-all duration-300 shadow-sm hover:shadow-lg hover:-translate-y-1"
+                className="bg-white border border-[#c9d1d9]/20 rounded-lg overflow-hidden hover:border-[#ff6b35] transition-all duration-300 shadow-sm hover:shadow-lg hover:-translate-y-1"
               >
-                <div className="flex items-center justify-between mb-4">
+                {/* Thumbnail Image */}
+                {review.thumbnail && (
+                  <div className="relative aspect-[3/4] overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200">
+                    <img
+                      src={review.thumbnail}
+                      alt={review.title}
+                      className="object-cover w-full h-full"
+                    />
+                  </div>
+                )}
+
+                <div className="p-6">
+                  <div className="flex items-center justify-between mb-4">
                   <span
                     className="text-xs font-semibold text-[#ffbe0b] px-3 py-1 bg-[#ffbe0b]/10 border border-[#ffbe0b]/30 rounded uppercase tracking-wider"
                   >
@@ -323,12 +336,13 @@ export default async function Home() {
                   {review.excerpt}
                 </p>
 
-                <Link
-                  href="/reviews"
-                  className="text-[#ff6b35] hover:text-[#e63946] transition-colors inline-flex items-center font-medium"
-                >
-                  Read full review <span className="ml-1">→</span>
-                </Link>
+                  <Link
+                    href="/reviews"
+                    className="text-[#ff6b35] hover:text-[#e63946] transition-colors inline-flex items-center font-medium"
+                  >
+                    Read full review <span className="ml-1">→</span>
+                  </Link>
+                </div>
               </article>
             ))}
           </div>
