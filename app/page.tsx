@@ -55,6 +55,7 @@ export default async function Home() {
       excerpt: 'A landmark film that brought thoughtful sci-fi to mainstream audiences with its message of peace...',
       category: 'Film',
       rating: 5,
+      image: 'stood_still.jpg', // Image in CDN root
     },
   ];
 
