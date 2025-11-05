@@ -293,7 +293,7 @@ export default async function Home() {
                 className="bg-white border border-[#c9d1d9]/20 rounded-lg overflow-hidden hover:border-[#ff6b35] transition-all duration-300 shadow-sm hover:shadow-lg hover:-translate-y-1"
               >
                 {review.image && (
-                  <div className="relative aspect-[3/4] overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200 border-4 border-[#c9d1d9]">
+                  <div className="relative aspect-[3/4] overflow-hidden bg-black border-4 border-[#c9d1d9]">
                     <GalleryImage
                       src={getCdnImageUrl(review.image)}
                       alt={review.title}
