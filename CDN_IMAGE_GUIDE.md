@@ -10,12 +10,12 @@ The site now uses a centralized CDN for all images, making it easy to manage and
 
 ### Base URL
 ```
-https://cdn.networklayer.co.uk/SFSupernova/siteimages/
+https://cdn.networklayer.co.uk/SFSupernova/images/
 ```
 
 This is configured in `.env.local` as:
 ```bash
-NEXT_PUBLIC_CDN_BASE_URL=https://cdn.networklayer.co.uk/SFSupernova/siteimages
+NEXT_PUBLIC_CDN_BASE_URL=https://cdn.networklayer.co.uk/SFSupernova/images
 ```
 
 ## How It Works
@@ -29,7 +29,7 @@ The site uses a centralized utility function (`getCdnImageUrl`) that:
 ### Example
 ```javascript
 // Database stores: "covers/war-of-worlds.jpg"
-// Site serves: "https://cdn.networklayer.co.uk/SFSupernova/siteimages/covers/war-of-worlds.jpg"
+// Site serves: "https://cdn.networklayer.co.uk/SFSupernova/images/covers/war-of-worlds.jpg"
 ```
 
 ## Directory Structure on CDN
@@ -37,7 +37,7 @@ The site uses a centralized utility function (`getCdnImageUrl`) that:
 Organize your images on the CDN with this structure:
 
 ```
-https://cdn.networklayer.co.uk/SFSupernova/siteimages/
+https://cdn.networklayer.co.uk/SFSupernova/images/
 ├── covers/              # Book cover images
 │   ├── war-of-worlds.jpg
 │   ├── time-machine.jpg
@@ -98,7 +98,7 @@ Transfer all images from `/public/covers/` and other directories to your CDN:
 
 ```bash
 # Example using rsync (adjust paths to match your setup)
-rsync -avz public/covers/ user@cdn.networklayer.co.uk:/path/to/SFSupernova/siteimages/covers/
+rsync -avz public/covers/ user@cdn.networklayer.co.uk:/path/to/SFSupernova/images/covers/
 ```
 
 ### Step 2: Update Database Paths
@@ -161,7 +161,7 @@ Constructs a full CDN URL from a relative path, or passes through full URLs unch
 
 ```javascript
 getCdnImageUrl('covers/war-of-worlds.jpg')
-// Returns: https://cdn.networklayer.co.uk/SFSupernova/siteimages/covers/war-of-worlds.jpg
+// Returns: https://cdn.networklayer.co.uk/SFSupernova/images/covers/war-of-worlds.jpg
 
 getCdnImageUrl('https://upload.wikimedia.org/...')
 // Returns: https://upload.wikimedia.org/... (unchanged)
@@ -172,7 +172,7 @@ Constructs a cover image URL from a book ID.
 
 ```javascript
 getCoverImageUrl('war-of-worlds')
-// Returns: https://cdn.networklayer.co.uk/SFSupernova/siteimages/covers/war-of-worlds.jpg
+// Returns: https://cdn.networklayer.co.uk/SFSupernova/images/covers/war-of-worlds.jpg
 ```
 
 ### `getGalleryImageUrl(catalogNumber: string, extension?: string)`
@@ -180,7 +180,7 @@ Constructs a gallery image URL from a catalog number.
 
 ```javascript
 getGalleryImageUrl('SCI-FI-1926-001')
-// Returns: https://cdn.networklayer.co.uk/SFSupernova/siteimages/gallery/SCI-FI-1926-001.jpg
+// Returns: https://cdn.networklayer.co.uk/SFSupernova/images/gallery/SCI-FI-1926-001.jpg
 ```
 
 ### `getLogoUrl(variant: string, extension?: string)`
@@ -188,7 +188,7 @@ Constructs a logo URL from a variant name.
 
 ```javascript
 getLogoUrl('logo-full')
-// Returns: https://cdn.networklayer.co.uk/SFSupernova/siteimages/logo/logo-full.svg
+// Returns: https://cdn.networklayer.co.uk/SFSupernova/images/logo/logo-full.svg
 ```
 
 ## Components Updated
@@ -214,7 +214,7 @@ images: {
     {
       protocol: 'https',
       hostname: 'cdn.networklayer.co.uk',
-      pathname: '/SFSupernova/siteimages/**',
+      pathname: '/SFSupernova/images/**',
     },
     // ... other patterns
   ],
