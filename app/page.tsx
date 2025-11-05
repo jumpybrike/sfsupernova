@@ -277,10 +277,10 @@ export default async function Home() {
       </section>
 
       {/* Featured Content */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white border-t border-[#c9d1d9]/20">
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-[#1a2332] border-t border-[#c9d1d9]/20">
         <div className="max-w-7xl mx-auto">
           <h2
-            className="text-3xl sm:text-4xl font-normal text-center mb-12 text-[#1a2332]"
+            className="text-3xl sm:text-4xl font-normal text-center mb-12 text-[#ff6b35]"
             style={{ fontFamily: 'var(--font-audiowide)' }}
           >
             FEATURED REVIEWS
