@@ -47,6 +47,7 @@ export default async function Home() {
       excerpt: 'Classic radio drama that transported listeners to the far reaches of space and imagination...',
       category: 'Audio',
       rating: 5,
+      image: 'dimentionX.jpg', // Image in CDN root
     },
     {
       title: 'The Day the Earth Stood Still',
