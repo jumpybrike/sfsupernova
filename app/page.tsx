@@ -32,6 +32,41 @@ export default async function Home() {
     return decadeImages.length > 0 ? decadeImages[Math.floor(decadeImages.length / 2)] : null;
   };
 
+  const ebooksAndAudiobooks = [
+    {
+      title: 'The War of the Worlds',
+      author: 'H.G. Wells',
+      type: 'Ebook',
+      excerpt: 'The classic tale of Martian invasion that started it all.',
+      image: 'foundation.jpg', // Placeholder image
+      year: '1898',
+    },
+    {
+      title: 'Foundation Trilogy',
+      author: 'Isaac Asimov',
+      type: 'Ebook',
+      excerpt: 'Epic saga of galactic empire spanning thousands of years.',
+      image: 'foundation.jpg',
+      year: '1951',
+    },
+    {
+      title: 'X Minus One',
+      author: 'Various',
+      type: 'Audiobook',
+      excerpt: 'Golden age radio dramas featuring the best sci-fi stories.',
+      image: 'dimentionX.jpg',
+      year: '1955',
+    },
+    {
+      title: 'I, Robot',
+      author: 'Isaac Asimov',
+      type: 'Ebook',
+      excerpt: 'Revolutionary collection introducing the Three Laws of Robotics.',
+      image: 'foundation.jpg',
+      year: '1950',
+    },
+  ];
+
   const featuredReviews = [
     {
       title: 'Foundation by Isaac Asimov',
@@ -160,6 +195,87 @@ export default async function Home() {
               className="inline-block px-8 py-3 text-white font-semibold rounded-md transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1 uppercase tracking-wider whitespace-nowrap badge-orange"
             >
               Listen to Radio Dramas
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Ebooks and Audiobooks Section */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-[#f8f3e6]">
+        <div className="max-w-7xl mx-auto">
+          <h2
+            className="text-3xl sm:text-4xl font-normal text-center mb-12 text-[#1a2332]"
+            style={{ fontFamily: 'var(--font-audiowide)' }}
+          >
+            EBOOKS AND AUDIOBOOKS
+          </h2>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            {ebooksAndAudiobooks.map((item, index) => (
+              <div
+                key={index}
+                className="group bg-white border border-[#c9d1d9]/20 rounded-lg overflow-hidden hover:border-[#ff6b35] transition-all duration-300 shadow-sm hover:shadow-lg hover:-translate-y-1"
+              >
+                {/* Cover Image */}
+                <div className="relative aspect-[3/4] overflow-hidden bg-gradient-to-br from-[#1a2332] to-[#2c3e50]">
+                  <GalleryImage
+                    src={getCdnImageUrl(item.image)}
+                    alt={item.title}
+                    className="object-cover group-hover:scale-110 transition-transform duration-300"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  />
+                </div>
+
+                {/* Card Content */}
+                <div className="p-5">
+                  <div className="flex items-center justify-between mb-3">
+                    <span
+                      className={`text-xs font-semibold px-3 py-1 rounded uppercase tracking-wider ${
+                        item.type === 'Ebook'
+                          ? 'text-[#2ec4b6] bg-[#2ec4b6]/10 border border-[#2ec4b6]/30'
+                          : 'text-[#ff6b35] bg-[#ff6b35]/10 border border-[#ff6b35]/30'
+                      }`}
+                    >
+                      {item.type}
+                    </span>
+                    <span
+                      className="text-xs text-[#ffbe0b] font-medium"
+                      style={{ fontFamily: 'var(--font-courier-prime)' }}
+                    >
+                      {item.year}
+                    </span>
+                  </div>
+
+                  <h3 className="text-lg font-semibold mb-1 text-[#1a2332] line-clamp-2">
+                    {item.title}
+                  </h3>
+
+                  <p
+                    className="text-sm text-[#1a2332]/70 mb-3"
+                    style={{ fontFamily: 'var(--font-courier-prime)' }}
+                  >
+                    by {item.author}
+                  </p>
+
+                  <p className="text-sm text-[#1a2332]/80 mb-4 leading-relaxed line-clamp-3">
+                    {item.excerpt}
+                  </p>
+
+                  <div className="text-[#ff6b35] hover:text-[#e63946] transition-colors inline-flex items-center font-medium text-sm cursor-pointer">
+                    <span>Learn more</span>
+                    <span className="ml-1">→</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center">
+            <Link
+              href="/library"
+              className="inline-block px-8 py-3 bg-transparent border-2 border-[#2ec4b6] text-[#2ec4b6] font-semibold rounded-md hover:bg-[#2ec4b6] hover:text-white transition-all duration-300 uppercase tracking-wider"
+            >
+              View Full Library
             </Link>
           </div>
         </div>
