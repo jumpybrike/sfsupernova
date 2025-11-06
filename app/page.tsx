@@ -217,7 +217,7 @@ export default async function Home() {
                 className="group bg-white border border-[#c9d1d9]/20 rounded-lg overflow-hidden hover:border-[#ff6b35] transition-all duration-300 shadow-sm hover:shadow-lg hover:-translate-y-1"
               >
                 {/* Cover Image */}
-                <div className="relative aspect-[3/4] overflow-hidden bg-gradient-to-br from-[#1a2332] to-[#2c3e50]">
+                <div className="relative aspect-[4/3] overflow-hidden bg-gradient-to-br from-[#1a2332] to-[#2c3e50]">
                   <GalleryImage
                     src={getCdnImageUrl(item.image)}
                     alt={item.title}
