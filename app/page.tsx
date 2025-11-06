@@ -217,11 +217,11 @@ export default async function Home() {
                 className="group bg-white border border-[#c9d1d9]/20 rounded-lg overflow-hidden hover:border-[#ff6b35] transition-all duration-300 shadow-sm hover:shadow-lg hover:-translate-y-1"
               >
                 {/* Cover Image */}
-                <div className="relative aspect-[3/4] overflow-hidden bg-gradient-to-br from-[#1a2332] to-[#2c3e50]">
+                <div className="relative aspect-[4/3] overflow-hidden bg-gradient-to-br from-[#1a2332] to-[#2c3e50]">
                   <GalleryImage
                     src={getCdnImageUrl(item.image)}
                     alt={item.title}
-                    className="object-cover group-hover:scale-110 transition-transform duration-300"
+                    className="object-contain w-full h-full group-hover:scale-110 transition-transform duration-300"
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                   />
                 </div>
